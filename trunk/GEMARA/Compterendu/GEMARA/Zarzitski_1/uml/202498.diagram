@@ -1,0 +1,42 @@
+format 212
+
+activitynodecanvas 128002 activitynode_ref 143874 // initial_node
+  xyz 344 35 2000
+end
+textcanvas 128258 "daUcOrganiserEpreuve2"
+  xyzwh 292.5 226.5 2000 170 19
+iconcanvas 128386 activitydiagram_ref 195842 // daUcOrganiserEpreuve2
+  xyz 271.5 228.5 2000
+activityactioncanvas 128514 activityaction_ref 146818 // activity action DetecterAppuiBoutonSuprimerAnnuler(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 209 78 2000 321 41
+end
+activityactioncanvas 129026 activityaction_ref 146946 // activity action MasquerBoiteConfirmation
+  
+  show_opaque_action_definition default
+  xyzwh 259 148 2000 216 40
+end
+note 129666 "DetecterAppuiBoutonSuprimerAnnuler(X,ID)"
+  xyzwh 142 5 0 469 277
+flowcanvas 128642 flow_ref 152450 // <flow>
+  decenter_end 459
+  
+  from ref 128002 z 2001 to ref 128514
+   write_horizontally default
+end
+flowcanvas 129154 flow_ref 152578 // <flow>
+  decenter_begin 489
+  
+  from ref 128514 z 2001 to ref 129026
+   write_horizontally default
+end
+flowcanvas 129282 flow_ref 152706 // <flow>
+  decenter_end 487
+  
+  from ref 129026 z 2001 to point 549 163
+  line 129410 z 2001 to point 549 95
+  line 129538 z 2001 to ref 128514
+   write_horizontally default
+end
+end

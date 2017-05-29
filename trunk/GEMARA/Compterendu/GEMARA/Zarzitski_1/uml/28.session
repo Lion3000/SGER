@@ -1,0 +1,21 @@
+window_sizes 1600 837 312 1283 784 0
+
+diagrams
+  active  objectdiagram_ref 148380 // doGeneral
+    1283 784 90 A4 0 0
+  objectdiagram_ref 141442 // doUcOrganizeFlightListCRUD
+    1026 627 100 A4 0 0
+  objectdiagram_ref 141314 // doUcOrganizeEventCRUD
+    1026 627 100 A4 0 0
+  usecasediagram_ref 134786 // ucSGER
+    1026 627 100 A4 144 0
+end
+show_stereotypes
+selected objectdiagram_ref 148380 // doGeneral
+open
+  
+  package_ref 128002 // GEMARAgeneral
+  usecaseview_ref 128002 // duc
+  classview_ref 128028 // docv
+end
+end

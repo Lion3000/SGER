@@ -1,0 +1,31 @@
+<div class="w3-row  globalColor w3-center">
+	<div class="w3-bar globalColor">
+		<div class="w3-container  w3-third">
+			<a [routerLink]="['/results-subscriber', phase.ref.getId()]" class="w3-button globalColor w3-xlarge" title="Result Subscriber"><img [src]="'assets/pictures/result-sub.png'" style="height: 30px;" /></a>
+		</div>
+		<div class="w3-container  w3-third">
+			<button (click)="resultBoatPDF()" class="w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/pdf.png'" style="height: 32px;" title="generate PDF" /></button>
+		</div>
+	</div>
+  <div class="w3-third w3-container ">
+    <a [routerLink]="['/phase', phase.ref.getId()]" class="w3-button globalColor w3-xlarge w3 " >Phase</a>
+	</div>
+</div>
+
+
+<div id="ResultBoat" class="w3-container">
+  <table  class="w3-table-all" style="border: 1px solid black; width: 100%;">
+      <tr>
+        <th  style="border: 1px solid black;">NB Boat</th>
+        <td *ngFor="let resultBoat of resultBoatList.ref"  style="border: 1px solid black;">{{ resultBoat.getIdBoat() }}</td>
+      </tr>
+    <tr>
+			<th  style="border: 1px solid black;">POINTS</th>
+			<td *ngFor="let resultBoat of resultBoatList.ref" style="border: 1px solid black;">{{ resultBoat.getWinTotBoat() }}</td>
+    </tr>
+    <tr>
+			<th style="border: 1px solid black;">%</th>
+			<td *ngFor="let resultBoat of resultBoatList.ref" style="border: 1px solid black;">{{ resultBoat.getWinPercentBoat() }}</td>
+    </tr>
+  </table>
+</div>

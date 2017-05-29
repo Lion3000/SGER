@@ -1,0 +1,70 @@
+format 212
+
+activityactioncanvas 128003 activityaction_ref 138755 // activity action choisirEquipageJaune
+  
+  show_opaque_action_definition default
+  xyzwh 37.5 77.5 2000 163 41
+end
+activityactioncanvas 128131 activityaction_ref 138627 // activity action choisirEquipageBleu
+  
+  show_opaque_action_definition default
+  xyzwh 109.5 169.5 2000 150 40
+end
+activitynodecanvas 128259 activitynode_ref 137219 // decision
+  xyz 393.5 84.5 2005
+end
+activityactioncanvas 128387 activityaction_ref 138883 // activity action choisirBateauBleu
+  
+  show_opaque_action_definition default
+  xyzwh 634.5 80.5 2000 147 41
+end
+activityactioncanvas 128643 activityaction_ref 139011 // activity action choisirBateauJaune
+  
+  show_opaque_action_definition default
+  xyzwh 307.5 189.5 2000 153 41
+end
+activitynodecanvas 129411 activitynode_ref 137347 // initial_node
+  xyz 397 17 2000
+end
+activityactioncanvas 130307 activityaction_ref 139139 // activity action verrouillerMatch
+  
+  show_opaque_action_definition default
+  xyzwh 501 171 2000 135 40
+end
+iconcanvas 130691 activitydiagram_ref 134787 // daUcElaborerPairingList
+  xyz 422 19 2005
+note 130947 "daAjouterMatch & ModifierMatch"
+  xyzwh 33 8 1995 761 249
+note 131075 "page 8"
+  color verylightorange  xyzwh 675 202 2000 71 41
+flowcanvas 129539 flow_ref 142595 // <flow>
+  
+  from ref 129411 z 2006 to ref 128259
+   write_horizontally default
+end
+flowcanvas 129667 flow_ref 142723 // <flow>
+  
+  from ref 128259 z 2006 label "[listeDeroulanteGaucheBleu]" xyz 150 124 3000 to ref 128131
+   write_horizontally default
+end
+flowcanvas 129795 flow_ref 142851 // <flow>
+  
+  from ref 128259 z 2006 label "[listeDeroulanteDroiteBleu]" xyz 437 76 3000 to ref 128387
+   write_horizontally default
+end
+flowcanvas 130051 flow_ref 142979 // <flow>
+  
+  from ref 128259 z 2006 label "[listeDeroulanteDroiteJaune]" xyz 301 152.5 3000 to ref 128643
+   write_horizontally default
+end
+flowcanvas 130179 flow_ref 143107 // <flow>
+  
+  from ref 128259 z 2006 label "[listeDeroulanteGaucheJaune]" xyz 201 75.5 3000 to ref 128003
+   write_horizontally default
+end
+flowcanvas 130819 flow_ref 145283 // <flow>
+  
+  from ref 128259 z 2006 label "[verouller]" xyz 497 120 3000 to ref 130307
+   write_horizontally default
+end
+end

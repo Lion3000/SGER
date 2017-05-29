@@ -1,0 +1,59 @@
+format 212
+
+activityactioncanvas 128002 activityaction_ref 146946 // activity action MasquerBoiteConfirmation
+  
+  show_opaque_action_definition default
+  xyzwh 328 323 2000 217 41
+end
+textcanvas 128258 "daUcOrganiserEpreuve2"
+  xyzwh 362 402 2000 170 19
+iconcanvas 128386 activitydiagram_ref 195842 // daUcOrganiserEpreuve2
+  xyz 341.5 404.5 2000
+activitynodecanvas 128514 activitynode_ref 143874 // initial_node
+  xyz 414 107 2000
+end
+note 128642 "DetecterAppuiBoutonSuprimerValider(X,ID)"
+  xyzwh 257 75 0 353 359
+activityactioncanvas 129410 activityaction_ref 148098 // activity action SupprimerEntite(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 337 252 2005 189 40
+end
+note 129794 "DestructionRecursif"
+  color yellow  xyzwh 450 196 2000 147 37
+activityactioncanvas 130050 activityaction_ref 148226 // activity action DetecterAppuiBoutonSuprimerValider(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 291 148 2011 313 40
+end
+flowcanvas 129666 flow_ref 154754 // <flow>
+  decenter_begin 486
+  decenter_end 470
+  
+  from ref 129410 z 2006 to ref 128002
+   write_horizontally default
+end
+flowcanvas 130178 flow_ref 154882 // <flow>
+  decenter_begin 431
+  decenter_end 470
+  
+  from ref 130050 z 2012 to ref 129410
+   write_horizontally default
+end
+flowcanvas 130306 flow_ref 155010 // <flow>
+  
+  from ref 128002 z 2001 to point 275 340
+  line 130434 z 2001 to point 273 164
+  line 130562 z 2001 to ref 130050
+   write_horizontally default
+end
+flowcanvas 130690 flow_ref 155138 // <flow>
+  decenter_begin 526
+  decenter_end 428
+  
+  from ref 128514 z 2012 to ref 130050
+   write_horizontally default
+end
+line 129922 -_-_
+  from ref 129410 z 2006 to ref 129794
+end

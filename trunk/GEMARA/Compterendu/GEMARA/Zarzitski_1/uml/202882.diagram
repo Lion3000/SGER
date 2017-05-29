@@ -1,0 +1,167 @@
+format 212
+
+activitynodecanvas 128130 activitynode_ref 136706 // activity_final
+  xyz 630.5 333.5 2002
+end
+iconcanvas 128258 activitydiagram_ref 202754 // daDetecterAppuiBoutonSuprimerValider(X,ID)
+  xyz 449 722.5 2011
+activityactioncanvas 128386 activityaction_ref 130946 // activity action DetecterAppuiBoutonAjouter(X)
+  
+  show_opaque_action_definition default
+  xyzwh 130.5 290.5 2008 231 41
+end
+activityactioncanvas 128514 activityaction_ref 138754 // activity action DetecterAppuiBoutonModifierValider(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 141 548 2016 355 41
+end
+iconcanvas 128642 activitydiagram_ref 188418 // daMain
+  xyz 663.5 337.5 2005
+note 128770 "UcOrganiserPhase2"
+  xyzwh 99 180 0 675 705
+note 128898 "X =  Flight"
+  color mediumyellow  xyzwh 587 394.5 2000 105 37
+note 129026 "AfficherPairingList"
+  color lightmediumblue  xyzwh 106 801.5 2000 441 77
+iconcanvas 129282 activitydiagram_ref 202370 // daDetecterAppuiBoutonSuprimer(X,ID)
+  xyz 393 632.5 2010
+activityactioncanvas 129410 activityaction_ref 131202 // activity action DetecterAppuiBoutonAjouterValider(X)
+  
+  show_opaque_action_definition default
+  xyzwh 135.2 388.5 2005 303 41
+end
+activityactioncanvas 129538 activityaction_ref 138498 // activity action DetecterAppuiBoutonModifier(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 136.5 496.5 2016 331 41
+end
+activityactioncanvas 129666 activityaction_ref 147202 // activity action DetecterAppuiBoutonEntiteDevoiler(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 120.5 832.5 2005 299 41
+end
+iconcanvas 129794 activitydiagram_ref 188418 // daMain
+  xyz 501 198 2005
+iconcanvas 129922 activitydiagram_ref 195586 // daDetecterAppuiBoutonModifier(X,ID)
+  xyz 427.5 476 2022
+activityactioncanvas 130050 activityaction_ref 146178 // activity action DetecterAppuiBoutonSuprimer(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 121.5 629.5 2005 257 41
+end
+activitynodecanvas 130178 activitynode_ref 129026 // fork
+  horizontal  xyzwh 138.8 233.4 2008 629 15
+end
+note 130306 "Supprimer"
+  color lightorange  xyzwh 106 599.8 2000 425 191
+iconcanvas 130434 activitydiagram_ref 188930 // daDetecterAppuiBoutonAnnuler(X)
+  xyz 372.6 323.1 2008
+note 130562 "Modifier"
+  color lightorange  xyzwh 107.5 468 2007 409 129
+activityactioncanvas 130690 activityaction_ref 147970 // activity action DetecterAppuiBoutonSuprimerValider(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 125.5 739 2005 357 41
+end
+activitynodecanvas 130818 activitynode_ref 128898 // initial_node
+  xyz 469 193.5 2002
+end
+iconcanvas 130946 activitydiagram_ref 202498 // daDetecterAppuiBoutonSuprimerAnnuler(X,ID)
+  xyz 403.5 666.5 2010
+activityactioncanvas 131074 activityaction_ref 146690 // activity action DetecterAppuiBoutonSuprimerAnnuler(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 121 685 2005 323 41
+end
+iconcanvas 131202 activitydiagram_ref 195714 // daDetecterAppuiBoutonModifierValider(X,ID)
+  xyz 463.5 533.5 2022
+iconcanvas 131330 activitydiagram_ref 189058 // daDetecterAppuiBoutonAjouterValider(X)
+  xyz 407.5 370.5 2011
+activityactioncanvas 131458 activityaction_ref 131074 // activity action DetecterAppuiBoutonAnnuler(X)
+  
+  show_opaque_action_definition default
+  xyzwh 131.5 341.1 2005 273 41
+end
+iconcanvas 131586 activitydiagram_ref 188802 // daDetecterAppuiBoutonAjouter(X)
+  xyz 343.7 269.3 2005
+note 131714 "Ajout"
+  color lightorange  xyzwh 106 262.5 2000 409 201
+iconcanvas 131970 activitydiagram_ref 202626 // daDetecterAppuiBoutonEntiteDevoiler(X,ID)
+  xyz 508.5 827 2011
+flowcanvas 132098 flow_ref 156802 // <flow>
+  decenter_begin 575
+  
+  from ref 130178 z 2009 to point 498 650.5
+  line 132226 z 2009 to ref 130050
+   write_horizontally default
+end
+flowcanvas 132354 flow_ref 130178 // <flow>
+  decenter_begin 526
+  decenter_end 542
+  
+  from ref 130818 z 2001 to ref 130178
+   write_horizontally default
+end
+flowcanvas 132482 flow_ref 157058 // <flow>
+  decenter_begin 613
+  
+  from ref 130178 z 2009 to point 523 750.5
+  line 132610 z 2009 to ref 130690
+   write_horizontally default
+end
+flowcanvas 132738 flow_ref 156930 // <flow>
+  decenter_begin 594
+  
+  from ref 130178 z 2009 to point 511 703.5
+  line 132866 z 2009 to ref 131074
+   write_horizontally default
+end
+flowcanvas 132994 flow_ref 133762 // <flow>
+  decenter_begin 406
+  decenter_end 960
+  
+  from ref 130178 z 2001 to ref 131458
+   write_horizontally default
+end
+flowcanvas 133122 flow_ref 134146 // <flow>
+  decenter_begin 464
+  decenter_end 967
+  
+  from ref 130178 z 2001 to ref 129410
+   write_horizontally default
+end
+flowcanvas 133250 flow_ref 133506 // <flow>
+  decenter_begin 222
+  decenter_end 634
+  
+  from ref 130178 z 2006 to ref 128386
+   write_horizontally default
+end
+flowcanvas 133378 flow_ref 157186 // <flow>
+  decenter_begin 635
+  
+  from ref 130178 z 2009 to point 533 845.5
+  line 133506 z 2009 to ref 129666
+   write_horizontally default
+end
+flowcanvas 133634 flow_ref 141826 // <flow>
+  decenter_begin 497
+  decenter_end 951
+  
+  from ref 130178 z 2017 to ref 129538
+   write_horizontally default
+end
+flowcanvas 133890 flow_ref 142082 // <flow>
+  decenter_begin 554
+  decenter_end 969
+  
+  from ref 130178 z 2017 to ref 128514
+   write_horizontally default
+end
+flowcanvas 134146 flow_ref 157314 // <flow>
+  decenter_begin 807
+  
+  from ref 130178 z 2009 to ref 128130
+   write_horizontally default
+end
+end

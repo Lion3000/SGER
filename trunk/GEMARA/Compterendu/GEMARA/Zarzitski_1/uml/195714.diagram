@@ -1,0 +1,86 @@
+format 212
+
+textcanvas 128002 "daUcOrganiserEpreuve"
+  xyzwh 270 489 2000 155 19
+iconcanvas 128130 activitydiagram_ref 188034 // daUcOrganiserEpreuve
+  xyz 243.6 491.4 2000
+activitynodecanvas 128258 activitynode_ref 136578 // initial_node
+  xyz 332 59 2000
+end
+activityactioncanvas 128386 activityaction_ref 145794 // activity action DetecterAppuiBoutonModifierValider(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 201 95 2000 297 41
+end
+activityactioncanvas 128770 activityaction_ref 130562 // activity action AfficherContenu(x)
+  
+  show_opaque_action_definition default
+  xyzwh 256.5 420 2005 187 41
+end
+activityactioncanvas 129026 activityaction_ref 131458 // activity action MasquerFormulaire(X)
+  
+  show_opaque_action_definition default
+  xyzwh 261.5 354 2000 171 41
+end
+activityactioncanvas 129410 activityaction_ref 145922 // activity action ModifierEntite(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 258 286 2005 185 40
+end
+activityactioncanvas 130178 activityaction_ref 146050 // activity action VerifierDonnées
+  
+  show_opaque_action_definition default
+  xyzwh 274 157 2000 150 40
+end
+activitynodecanvas 130306 activitynode_ref 143618 // decision
+  xyz 337 216 2000
+end
+note 131970 "DetecterAppuiBoutonModifierValider(X,ID)"
+  xyzwh 148 19 0 415 501
+flowcanvas 128642 flow_ref 149890 // <flow>
+  decenter_end 476
+  
+  from ref 128258 z 2001 to ref 128386
+   write_horizontally default
+end
+flowcanvas 129154 flow_ref 135170 // <flow>
+  
+  from ref 129026 z 2006 to ref 128770
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 150274 // <flow>
+  decenter_begin 475
+  
+  from ref 129410 z 2006 to ref 129026
+   write_horizontally default
+end
+flowcanvas 130434 flow_ref 150402 // <flow>
+  
+  from ref 128386 z 2001 to ref 130178
+   write_horizontally default
+end
+flowcanvas 130562 flow_ref 150530 // <flow>
+  
+  from ref 130178 z 2001 to ref 130306
+   write_horizontally default
+end
+flowcanvas 131074 flow_ref 150786 // <flow>
+  
+  from ref 130306 z 2006 stereotype "<<vrai>>" xyz 289 255 3000 to ref 129410
+   write_horizontally default
+end
+flowcanvas 131202 flow_ref 150914 // <flow>
+  
+  from ref 130306 z 2001 stereotype "<<faux>>" xyz 411.5 216 3000 to point 512 232
+  line 131330 z 2001 to point 513 113
+  line 131458 z 2001 to ref 128386
+   write_horizontally default
+end
+flowcanvas 131586 flow_ref 151426 // <flow>
+  
+  from ref 128770 z 2006 to point 181 440
+  line 131714 z 2006 to point 179 111
+  line 131842 z 2006 to ref 128386
+   write_horizontally default
+end
+end

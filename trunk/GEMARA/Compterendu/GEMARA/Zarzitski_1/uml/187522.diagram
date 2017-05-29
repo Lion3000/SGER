@@ -1,0 +1,97 @@
+format 213
+
+subject 128002 "SGER"
+  xyzwh 117.3 104.6 2000 565 453
+classcanvas 128130 class_ref 208130 // ComitéCourse
+  simpleclassdiagramsettings end
+  xyz 14.5 379.9 2000
+end
+classcanvas 128258 class_ref 208258 // TerminalInformatique
+  simpleclassdiagramsettings end
+  xyz 689 401 2000
+end
+usecasecanvas 128386 usecase_ref 143106 // organiserEpreuve
+  xyzwh 340 138 3005 138 38 label_xy 348 145
+end
+usecasecanvas 128514 usecase_ref 143234 // organiserPhase
+  xyzwh 475 218 3005 148 35 label_xy 494 223
+end
+usecasecanvas 128642 usecase_ref 143362 // élaborerPairingList
+  xyzwh 473 316 3005 155 35 label_xy 489 320
+end
+usecasecanvas 128770 usecase_ref 143490 // calculerResultats
+  color lightorange
+  xyzwh 173 344 3010 135 35 label_xy 186 348
+end
+usecasecanvas 129026 usecase_ref 143618 // visualiserResultats
+  color lightorange
+  xyzwh 189 449 3005 161 41 label_xy 208 457
+end
+usecasecanvas 129154 usecase_ref 143746 // générerDocuments
+  color lightorange
+  xyzwh 247 402 3005 148 35 label_xy 258 407
+end
+usecasecanvas 129282 usecase_ref 143874 // transfererDocuments
+  color lightorange
+  xyzwh 182 515 3010 168 35 label_xy 195 519
+end
+classcanvas 129410 class_ref 208386 // PairingList
+  simpleclassdiagramsettings class_drawing_mode class end
+  xyz 728.6 124.6 2000
+end
+classcanvas 129666 class_ref 208514 // BlueTooth
+  simpleclassdiagramsettings class_drawing_mode class end
+  xyz 721.6 501.8 2000
+end
+note 130690 "pairing list
+resultat de phase
+resultat d'epreuve"
+  xyzwh 462.2 417.2 2005 159 86
+usecasecanvas 132994 usecase_ref 150402 // gererEquipage
+  color blue
+  xyzwh 165 143 3016 109 31 label_xy 170 145
+end
+note 133762 "feuille du comité de course"
+  xyzwh 717 250 2000 107 93
+note 134018 "page 3 & 4"
+  color verylightorange  xyzwh 20 107 2000 93 41
+line 129538 ----
+  from ref 128386 z 3006 to ref 129410
+line 129794 ----
+  from ref 129282 z 3011 to ref 128130
+line 129922 ----
+  from ref 129026 z 3006 to ref 128130
+line 130050 ---- decenter_begin 912 decenter_end 65
+  from ref 128130 z 3006 to ref 128386
+simplerelationcanvas 130178 simplerelation_ref 143490
+  decenter_begin 418
+  from ref 128386 z 3011 stereotype "<<include>>" xyz 283 258 3000 to ref 128770
+end
+simplerelationcanvas 130306 simplerelation_ref 143618
+  decenter_begin 590
+  from ref 128386 z 3006 stereotype "<<include>>" xyz 333 285 3000 to ref 129154
+end
+simplerelationcanvas 130434 simplerelation_ref 143746
+  decenter_end 344
+  from ref 128386 z 3006 stereotype "<<include>>" xyz 460 177 3000 to ref 128514
+end
+simplerelationcanvas 130562 simplerelation_ref 143874
+  from ref 128514 z 3006 stereotype "<<include>>" xyz 508 283 3000 to ref 128642
+end
+line 131330 ----
+  from ref 129282 z 3011 to ref 129666
+line 133122 ---- decenter_end 357
+  from ref 128130 z 3017 to ref 132994
+line 130818 -_-_
+  from ref 130690 z 3011 to ref 129282
+line 130946 -_-_
+  from ref 130690 z 3006 to ref 129026
+line 131202 -_-_
+  from ref 130690 z 3006 to ref 129154
+line 131458 -_-_
+  from ref 129666 z 2001 to ref 128258
+line 133890 -_-_
+  from ref 133762 z 2001 to ref 129410
+line 134146 -_-_
+  from ref 134018 z 3017 to ref 132994
+end

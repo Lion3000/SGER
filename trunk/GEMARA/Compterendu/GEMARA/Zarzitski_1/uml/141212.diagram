@@ -1,0 +1,36 @@
+format 212
+
+activitynodecanvas 128028 activitynode_ref 143004 // initial_node
+  xyz 382 92 2000
+end
+activitynodecanvas 128156 activitynode_ref 143132 // activity_final
+  xyz 390 459 2000
+end
+activityactioncanvas 128284 activityaction_ref 143772 // activity action Extraire calendrier event de la DB
+  
+  show_opaque_action_definition default
+  xyzwh 348 144 2000 100 60
+end
+activityactioncanvas 128412 activityaction_ref 143900 // activity action Afficher le calendrier 
+  
+  show_opaque_action_definition default
+  xyzwh 358 285 2000 100 60
+end
+note 128924 "Interaction home"
+  xyzwh 190 46 0 415 493
+flowcanvas 128540 flow_ref 149276 // <flow>
+  
+  from ref 128028 z 2001 to ref 128284
+   write_horizontally default
+end
+flowcanvas 128668 flow_ref 149404 // <flow>
+  
+  from ref 128284 z 2001 to ref 128412
+   write_horizontally default
+end
+flowcanvas 128796 flow_ref 149532 // <flow>
+  
+  from ref 128412 z 2001 to ref 128156
+   write_horizontally default
+end
+end

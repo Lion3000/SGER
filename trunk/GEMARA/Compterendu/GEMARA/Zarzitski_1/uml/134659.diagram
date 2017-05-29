@@ -1,0 +1,104 @@
+format 212
+
+activitynodecanvas 128003 activitynode_ref 136451 // initial_node
+  xyz 350 30 2000
+end
+activitynodecanvas 128131 activitynode_ref 136579 // decision
+  xyz 346 72 2000
+end
+activityactioncanvas 128387 activityaction_ref 136707 // activity action ajouterManuellement
+  
+  show_opaque_action_definition default
+  xyzwh 393 143.5 2000 167 49
+end
+activitynodecanvas 128515 activitynode_ref 136323 // decision
+  xyz 346 360.5 2000
+end
+activitynodecanvas 128643 activitynode_ref 136195 // merge
+  xyz 343 294.5 2000
+end
+activityactioncanvas 128771 activityaction_ref 137091 // activity action enregistrer
+  
+  show_opaque_action_definition default
+  xyzwh 403 434.5 2000 89 41
+end
+activityactioncanvas 128899 activityaction_ref 136963 // activity action indiquerRoundRobin
+  
+  show_opaque_action_definition default
+  xyzwh 507 288.5 2000 167 43
+end
+activityactioncanvas 129027 activityaction_ref 136579 // activity action selectionnerDansListe
+  
+  show_opaque_action_definition default
+  xyzwh 148 143.5 2000 181 53
+end
+activityactioncanvas 129155 activityaction_ref 129283 // activity action annuler
+  
+  show_opaque_action_definition default
+  xyzwh 217 437.5 2000 81 41
+end
+activitynodecanvas 129283 activitynode_ref 136067 // decision
+  xyz 468 215.5 2000
+end
+iconcanvas 130819 activitydiagram_ref 216450 // daUcOrganiserPhase
+  xyz 377 32 2006
+note 130947 "daModifierPhase"
+  xyzwh 24 15 1995 681 515
+note 131075 "page 7"
+  color verylightorange  xyzwh 48 66 2000 85 43
+flowcanvas 128259 flow_ref 139395 // <flow>
+  
+  from ref 128003 z 2001 to ref 128131
+   write_horizontally default
+end
+flowcanvas 129411 flow_ref 139139 // <flow>
+  
+  from ref 128515 z 2001 label "[cancel]" xyz 286 401 2001 to ref 129155
+   write_horizontally default
+end
+flowcanvas 129539 flow_ref 139267 // <flow>
+  
+  from ref 128515 z 2001 label "[save]" xyz 376 401 2001 to ref 128771
+   write_horizontally default
+end
+flowcanvas 129667 flow_ref 138883 // <flow>
+  
+  from ref 129283 z 2001 to ref 128643
+   write_horizontally default
+end
+flowcanvas 129795 flow_ref 138499 // <flow>
+  
+  from ref 129283 z 2001 label "[case roundRobin ]" xyz 477 254 2001 to ref 128899
+   write_horizontally default
+end
+flowcanvas 129923 flow_ref 138627 // <flow>
+  
+  from ref 129027 z 2001 to ref 128643
+   write_horizontally default
+end
+flowcanvas 130051 flow_ref 138755 // <flow>
+  
+  from ref 128899 z 2001 to ref 128643
+   write_horizontally default
+end
+flowcanvas 130179 flow_ref 138371 // <flow>
+  
+  from ref 128387 z 2001 to ref 129283
+   write_horizontally default
+end
+flowcanvas 130307 flow_ref 139011 // <flow>
+  
+  from ref 128643 z 2001 to ref 128515
+   write_horizontally default
+end
+flowcanvas 130435 flow_ref 139523 // <flow>
+  
+  from ref 128131 z 2007 to ref 129027
+   write_horizontally default
+end
+flowcanvas 130691 flow_ref 139651 // <flow>
+  
+  from ref 128131 z 2001 to ref 128387
+   write_horizontally default
+end
+end

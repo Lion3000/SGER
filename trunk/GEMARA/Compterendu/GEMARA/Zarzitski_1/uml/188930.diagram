@@ -1,0 +1,63 @@
+format 212
+
+activitynodecanvas 128002 activitynode_ref 129794 // initial_node
+  xyz 344.9 38.7 2000
+end
+activityactioncanvas 128130 activityaction_ref 131330 // activity action DetecterAppuiBoutonAnnuler(X)
+  
+  show_opaque_action_definition default
+  xyzwh 243.9 81.1 2000 233 41
+end
+activityactioncanvas 128386 activityaction_ref 131458 // activity action MasquerFormulaire(X)
+  
+  show_opaque_action_definition default
+  xyzwh 275 147.7 2000 171 41
+end
+iconcanvas 128642 activitydiagram_ref 188034 // daUcOrganiserEpreuve
+  xyz 253.6 322.9 2000
+textcanvas 128770 "daUcOrganiserEpreuve"
+  xyzwh 282 323 2000 155 19
+activityactioncanvas 128898 activityaction_ref 131586 // activity action ViderLeFormulaire(X)
+  
+  show_opaque_action_definition default
+  xyzwh 282 204 2005 168 40
+end
+activityactioncanvas 129794 activityaction_ref 130562 // activity action AfficherContenu(x)
+  
+  show_opaque_action_definition default
+  xyzwh 286 260 2005 158 40
+end
+note 130434 "DetecterAppuiBoutonAnnuler(X)"
+  xyzwh 218 9 0 313 341
+flowcanvas 128258 flow_ref 133890 // <flow>
+  decenter_begin 473
+  decenter_end 465
+  
+  from ref 128002 z 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 128514 flow_ref 134018 // <flow>
+  decenter_begin 474
+  decenter_end 461
+  
+  from ref 128130 z 2001 to ref 128386
+   write_horizontally default
+end
+flowcanvas 129026 flow_ref 134274 // <flow>
+  
+  from ref 128386 z 2006 to ref 128898
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 134530 // <flow>
+  
+  from ref 128898 z 2006 to ref 129794
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 134658 // <flow>
+  
+  from ref 129794 z 2006 to point 489 277
+  line 130178 z 2006 to point 491 99
+  line 130306 z 2006 to ref 128130
+   write_horizontally default
+end
+end

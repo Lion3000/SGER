@@ -1,0 +1,112 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 157954 // initial_node
+  xyz 372 24 2000
+end
+note 128130 "daUcOrganiserEpreuve"
+  xyzwh 116 20 0 591 401
+note 128259 " page 5"
+  color verylightorange  xyzwh 136 64 2000 123 45
+iconcanvas 128514 activitydiagram_ref 209410 // daMain
+  xyz 407 27 2000
+activityactioncanvas 128642 activityaction_ref 163458 // activity action listerEpreuvesExistantes
+  
+  show_opaque_action_definition default
+  xyzwh 280 57 2000 202 40
+end
+activitynodecanvas 128770 activitynode_ref 158082 // decision
+  xyz 368 162 2005
+end
+activityactioncanvas 129154 activityaction_ref 163586 // activity action CreerEpreuve
+  
+  show_opaque_action_definition default
+  xyzwh 141 160 2005 152 40
+end
+activityactioncanvas 129410 activityaction_ref 163714 // activity action DetruireEpreuve
+  
+  show_opaque_action_definition default
+  xyzwh 143 323 2011 174 40
+end
+activityactioncanvas 129666 activityaction_ref 163842 // activity action ModifierEpreuve
+  
+  show_opaque_action_definition default
+  xyzwh 356 301 2016 154 40
+end
+activityactioncanvas 129922 activityaction_ref 163970 // activity action AfficherDetails
+  
+  show_opaque_action_definition default
+  xyzwh 548 162 2005 118 40
+end
+iconcanvas 130434 activitydiagram_ref 216322 // daCreerEpreuve
+  xyz 273 174 2008
+activityactioncanvas 130562 activityaction_ref 164098 // activity action UcOrganiserPhase
+  
+  show_opaque_action_definition default
+  xyzwh 533 306 2011 150 40
+end
+iconcanvas 130946 activitydiagram_ref 216450 // daUcOrganiserPhase
+  xyz 667 307 2006
+iconcanvas 131330 activitydiagram_ref 216578 // daSecuriteValidation
+  xyz 295 333 2006
+activitynodecanvas 135298 activitynode_ref 165122 // activity_final
+  xyz 378 383 2000
+end
+iconcanvas 135426 activitydiagram_ref 209410 // daMain
+  xyz 422 395 2000
+flowcanvas 128898 flow_ref 186882 // <flow>
+  
+  from ref 128002 z 2001 to ref 128642
+   write_horizontally default
+end
+flowcanvas 129282 flow_ref 187138 // <flow>
+  
+  from ref 128770 z 2001 label "[Créer]" xyz 306 168 2001 to ref 129154
+   write_horizontally default
+end
+flowcanvas 129538 flow_ref 187266 // <flow>
+  
+  from ref 128770 z 2012 label "[Supprimer]" xyz 268 245 2012 to ref 129410
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 187394 // <flow>
+  decenter_end 487
+  
+  from ref 128770 z 2017 label "[Modifier]" xyz 416 234 2017 to ref 129666
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 187522 // <flow>
+  
+  from ref 128770 z 2001 label "[Detailler]" xyz 438 169 2001 to ref 129922
+   write_horizontally default
+end
+flowcanvas 130690 flow_ref 187650 // <flow>
+  
+  from ref 129922 z 2012 to ref 130562
+   write_horizontally default
+end
+flowcanvas 135170 flow_ref 189058 // <flow>
+  
+  from ref 128642 z 2001 to ref 128770
+   write_horizontally default
+end
+flowcanvas 135554 flow_ref 202882 // <flow>
+  
+  from ref 129154 z 2006 to ref 135298
+   write_horizontally default
+end
+flowcanvas 135682 flow_ref 203010 // <flow>
+  
+  from ref 129410 z 2012 to ref 135298
+   write_horizontally default
+end
+flowcanvas 135810 flow_ref 203138 // <flow>
+  
+  from ref 129666 z 2017 to ref 135298
+   write_horizontally default
+end
+flowcanvas 135938 flow_ref 203266 // <flow>
+  
+  from ref 130562 z 2012 to ref 135298
+   write_horizontally default
+end
+end

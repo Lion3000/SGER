@@ -1,0 +1,74 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 173442 // initial_node
+  xyz 436 125 2000
+end
+activityactioncanvas 128130 activityaction_ref 184834 // activity action selectionEquipageVainqueur
+  
+  show_opaque_action_definition default
+  xyzwh 328 167 2000 246 51
+end
+activityactioncanvas 128258 activityaction_ref 184962 // activity action selectionHeureArrivee
+  
+  show_opaque_action_definition default
+  xyzwh 354 260 2000 195 54
+end
+activityactioncanvas 128386 activityaction_ref 179714 // activity action validationFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 360 357 2013 187 49
+  pins
+    pincanvas 128514 pin_ref 134530 // formulaire
+      xyzwh 350 363 2014 11 11 label_xy 315 334
+    end
+  end
+end
+activityactioncanvas 128642 activityaction_ref 180226 // activity action mettreAJourDatabase
+  
+  show_opaque_action_definition default
+  xyzwh 71 358 2000 192 42
+  pins
+    pincanvas 128770 pin_ref 137858 // formulaire
+      xyzwh 262 359 2002 11 11 label_xy 212 339
+    end
+  end
+end
+activitypartitioncanvas 128898 activitypartition_ref 134786 // persistance
+  xyzwh 49 59 1995 243 472
+end
+activitypartitioncanvas 129026 activitypartition_ref 135042 // ucElaborerPairingList
+  xyzwh 291 58 2006 310 469
+end
+activitynodecanvas 129154 activitynode_ref 173570 // activity_final
+  xyz 441 471 2011
+end
+note 129282 "enregistrerVainqueur"
+  xyzwh 0 29 1990 687 531
+iconcanvas 129410 activitydiagram_ref 241666 // da
+  xyz 482 481 2011
+flowcanvas 129538 flow_ref 229122 // <flow>
+  
+  from ref 128002 z 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 129666 flow_ref 229250 // <flow>
+  
+  from ref 128130 z 2001 to ref 128258
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 229378 // <flow>
+  
+  from ref 128258 z 2014 to ref 128386
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 220290 // <flow>
+  
+  from ref 128386 z 2014 to ref 128642
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 229506 // <flow>
+  
+  from ref 128642 z 2012 to ref 129154
+   write_horizontally default
+end
+end

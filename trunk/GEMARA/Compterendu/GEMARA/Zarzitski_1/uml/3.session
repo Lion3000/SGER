@@ -1,0 +1,50 @@
+window_sizes 1855 1056 268 1581 885 118
+cleanlooks_style
+diagrams
+  activitydiagram_ref 134531 // daCreerPhase
+    1132 719 100 A4 0 0
+  activitydiagram_ref 135043 // daEnregistrerDepart
+    120 106 100 A4 0 0
+  activitydiagram_ref 134787 // daUcElaborerPairingList
+    120 106 100 A0 0 0
+  activitydiagram_ref 135299 // daEnregistrerVainqueur
+    120 106 100 A4 0 0
+  active  activitydiagram_ref 216450 // daUcOrganiserPhase
+    1581 885 100 A4 0 0
+  activitydiagram_ref 134659 // daModifierPhase
+    120 106 100 A4 0 0
+  activitydiagram_ref 215938 // daUcOrganiserEpreuve
+    120 106 100 A4 0 0
+  activitydiagram_ref 128003 // daModifierEpreuve
+    120 106 100 A4 0 0
+  activitydiagram_ref 216066 // daUcGererCrew
+    120 106 100 A4 0 0
+  activitydiagram_ref 216578 // daSecuriteValidation
+    120 106 100 A4 0 0
+  activitydiagram_ref 216194 // daUcGererSettings
+    120 106 100 A4 0 0
+  activitydiagram_ref 209410 // daMain
+    120 106 100 A4 0 0
+  usecasediagram_ref 180994 // ucSGER
+    120 106 100 A4 0 153
+  activitydiagram_ref 216322 // daCreerEpreuve
+    120 106 100 A0 0 0
+  activitydiagram_ref 134915 // daAjouterMatch
+    120 106 100 A4 0 0
+  activitydiagram_ref 135171 // daModifierMatch
+    120 106 100 A0 0 0
+end
+show_stereotypes
+selected activitydiagram_ref 216450 // daUcOrganiserPhase
+open
+  activitynode_ref 150914 // initial_node
+  activityaction_ref 156546 // activity action ucGererSettings
+  activitynode_ref 157954 // initial_node
+  activitynode_ref 158082 // decision
+  activityaction_ref 164098 // activity action UcOrganiserPhase
+  activitynode_ref 128259 // decision
+  activitynode_ref 128899 // decision
+  activitynode_ref 135555 // decision
+  activityaction_ref 136067 // activity action CreerPhase
+end
+end

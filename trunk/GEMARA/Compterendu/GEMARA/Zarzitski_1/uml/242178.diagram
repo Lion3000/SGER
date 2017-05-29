@@ -1,0 +1,124 @@
+format 213
+
+activitypartitioncanvas 128002 activitypartition_ref 134530 // Persistance/Service
+  xyzwh 30 45 2000 361 605
+end
+activitypartitioncanvas 128130 activitypartition_ref 135042 // ucElaborerPairingList
+  xyzwh 391 44 1995 283 606
+end
+activitynodecanvas 128258 activitynode_ref 172546 // initial_node
+  xyz 501 107 2000
+end
+activitynodecanvas 128386 activitynode_ref 172674 // fork
+  horizontal  xyzwh 252 141 2000 289 15
+end
+activityactioncanvas 128514 activityaction_ref 183042 // activity action ExtractionDesDonnees
+  
+  show_opaque_action_definition default
+  xyzwh 38 192 2000 187 45
+  pins
+    pincanvas 128642 pin_ref 136450 // flightsList
+      xyzwh 155 236 2002 11 11 label_xy 85 239
+    end
+  end
+end
+activityactioncanvas 128770 activityaction_ref 183170 // activity action ajouterFlight
+  
+  show_opaque_action_definition default
+  xyzwh 492 187 2000 124 40
+end
+activityactioncanvas 128898 activityaction_ref 183682 // activity action ajouterMatch
+  
+  show_opaque_action_definition default
+  xyzwh 500 267 2000 104 60
+end
+iconcanvas 129026 activitydiagram_ref 242306 // ajouterFlight
+  xyz 601 186 2005
+iconcanvas 129154 activitydiagram_ref 242434 // ajouterMatch
+  xyz 588 267 2005
+activityactioncanvas 129282 activityaction_ref 183810 // activity action enregistrerVainqueur
+  
+  show_opaque_action_definition default
+  xyzwh 467 360 2000 175 52
+end
+iconcanvas 129410 activitydiagram_ref 242562 // enregistrerVainqueur
+  xyz 623 364 2005
+activityactioncanvas 129538 activityaction_ref 185090 // activity action ajouterPenalite
+  
+  show_opaque_action_definition default
+  xyzwh 402 448 2000 138 40
+end
+activitynodecanvas 129666 activitynode_ref 173698 // activity_final
+  xyz 503 606 2000
+end
+activitynodecanvas 129794 activitynode_ref 173314 // decision
+  xyz 596 444 2000
+end
+activitynodecanvas 129922 activitynode_ref 172802 // join
+  horizontal  xyzwh 116 534 2005 501 15
+end
+note 130050 "ucElaborerPairingList"
+  xyzwh 16 8 1990 683 651
+flowcanvas 130178 flow_ref 226050 // <flow>
+  
+  from ref 128386 z 2001 to ref 128514
+   write_horizontally default
+end
+flowcanvas 130306 flow_ref 225666 // <flow>
+  decenter_end 809
+  
+  from ref 128258 z 2007 to point 508 137
+  line 130434 z 2007 to ref 128386
+   write_horizontally default
+end
+flowcanvas 130562 flow_ref 226178 // <flow>
+  
+  from ref 128386 z 2001 to ref 128770
+   write_horizontally default
+end
+flowcanvas 130690 flow_ref 227202 // <flow>
+  
+  from ref 128770 z 2001 to ref 128898
+   write_horizontally default
+end
+flowcanvas 130818 flow_ref 227330 // <flow>
+  
+  from ref 128898 z 2001 to ref 129282
+   write_horizontally default
+end
+flowcanvas 130946 flow_ref 228994 // <flow>
+  
+  from ref 129282 z 2001 to ref 129794
+   write_horizontally default
+end
+flowcanvas 131074 flow_ref 229762 // <flow>
+  
+  from ref 129794 z 2001 label "[ajoutPenaliteDetecté]" xyz 427 429 2001 to ref 129538
+   write_horizontally default
+end
+flowcanvas 131202 flow_ref 226306 // <flow>
+  decenter_end 67
+  
+  from ref 128514 z 2006 to ref 129922
+   write_horizontally default
+end
+flowcanvas 131330 flow_ref 229890 // <flow>
+  decenter_begin 756
+  decenter_end 960
+  
+  from ref 129794 z 2006 label "[validation detectée]" xyz 529 493 2006 to ref 129922
+   write_horizontally default
+end
+flowcanvas 131458 flow_ref 229634 // <flow>
+  decenter_end 636
+  
+  from ref 129538 z 2006 to ref 129922
+   write_horizontally default
+end
+flowcanvas 131586 flow_ref 230018 // <flow>
+  decenter_begin 782
+  
+  from ref 129922 z 2006 to ref 129666
+   write_horizontally default
+end
+end

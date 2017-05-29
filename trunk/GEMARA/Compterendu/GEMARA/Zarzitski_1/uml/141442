@@ -1,0 +1,4022 @@
+format 213
+"SGER_Conception_Zarzitski" // SGER_Conception_Zarzitski
+  revision 2
+  modified_by 2 "xela"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  usecaseview 141186 "ucv"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    objectdiagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    usecasediagram 241538 "uc"
+      usecasediagramsettings end
+      size A4
+    end
+
+    activity 141186 "activity"
+      activitydiagram 241666 "da"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 241794 "ucGererEquipage"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 241922 "ucOrganiserEvenement"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 242050 "ucOrganiserPhase"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 242178 "ucElaborerPairingList"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A0
+      end
+
+      activitydiagram 242306 "ajouterFlight"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 242434 "ajouterMatch"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 242562 "enregistrerVainqueur"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitynode 170114 initial_node ""
+	flow 218626 "<flow>"
+	  on activityaction_ref 178818 // activity action ucGererEquipage
+	end
+      end
+
+      activityaction 178946 "ucOrganiserEvenement"
+	opaque_action
+	flow 218754 "<flow>"
+	  on activityaction_ref 179074 // activity action ucOrganiserPhase
+	end
+      end
+
+      activityaction 179074 "ucOrganiserPhase"
+	opaque_action
+	flow 218882 "<flow>"
+	  on activityaction_ref 179202 // activity action ucElaborerPairingList
+	end
+      end
+
+      activityaction 179202 "ucElaborerPairingList"
+	opaque_action
+	flow 219010 "<flow>"
+	  on activitynode_ref 170242 // activity_final
+	end
+      end
+
+      activitynode 170242 activity_final ""
+      end
+
+      activityaction 178818 "ucGererEquipage"
+	opaque_action
+	flow 219138 "<flow>"
+	  on activityaction_ref 178946 // activity action ucOrganiserEvenement
+	end
+      end
+
+      activitynode 170370 initial_node ""
+	flow 219266 "<flow>"
+	  on activitynode_ref 170498 // fork
+	end
+      end
+
+      activitynode 170498 fork ""
+	flow 219394 "<flow>"
+	  on activityaction_ref 179330 // activity action AjoutEquipage
+	end
+
+	flow 219522 "<flow>"
+	  on activityaction_ref 179458 // activity action ExtractionDesDonnees
+	end
+      end
+
+      activityaction 179330 "AjoutEquipage"
+	accept_event_action
+	flow 219650 "<flow>"
+	  on activityaction_ref 179586 // activity action afficherFormulaire
+	end
+      end
+
+      activityobject 134530 "crewsList"
+	 explicit_type ""
+	unordered 
+      end
+
+      activityaction 179586 "afficherFormulaire"
+	opaque_action
+	flow 219778 "<flow>"
+	  on activityaction_ref 179714 // activity action validationFormulaire
+	end
+
+	flow 219906 "<flow>"
+	  on activityaction_ref 179842 // activity action validationFormulaire
+	end
+
+	flow 220034 "<flow>"
+	  on activityaction_ref 179970 // activity action selectionEquipages
+	end
+      end
+
+      activityaction 179714 "validationFormulaire"
+	accept_event_action
+	pin 134530 "formulaire" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 220162 "<flow>"
+	  on activityaction_ref 180098 // activity action verifierFormulaire
+	end
+
+	flow 220290 "<flow>"
+	  on activityaction_ref 180226 // activity action mettreAJourDatabase
+	end
+      end
+
+      activityaction 180098 "verifierFormulaire"
+	opaque_action
+	flow 220418 "<flow>"
+	  on activitynode_ref 170626 // decision
+	end
+
+	pin 134658 "formulaire" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 220546 "<flow>"
+	  on activitynode_ref 170754 // decision
+	end
+
+	flow 220674 "<flow>"
+	  on activitynode_ref 170882 // decision
+	end
+
+	flow 220802 "<flow>"
+	  on activitynode_ref 171010 // decision
+	end
+      end
+
+      activityaction 180354 "afficherMessageErreur"
+	opaque_action
+	flow 220930 "<flow>"
+	  on activityaction_ref 179586 // activity action afficherFormulaire
+	end
+      end
+
+      activitynode 170626 decision ""
+	flow 221058 "<flow>"
+	  on activityaction_ref 180354 // activity action afficherMessageErreur
+	    uml_guard "Saisie Incorrecte"
+	end
+
+	flow 221186 "<flow>"
+	  on activityaction_ref 180482 // activity action obtenirNewId
+	    uml_guard "saisie correcte"
+	end
+      end
+
+      activityaction 180610 "ajouterEquipageDansDatabase"
+	opaque_action
+	flow 221314 "<flow>"
+	  on activityaction_ref 180738 // activity action ajouterDansLaListe
+	end
+
+	pin 134786 "crew" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activityaction 180866 "attribuerIdentifiant"
+	opaque_action
+	flow 221442 "<flow>"
+	  on activityaction_ref 180610 // activity action ajouterEquipageDansDatabase
+	end
+
+	pin 134914 "crew" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activityaction 180738 "ajouterDansLaListe"
+	opaque_action
+	flow 221570 "<flow>"
+	  on activityobject_ref 134530 // activity object crewsList
+	end
+
+	flow 221698 "<flow>"
+	  on activitynode_ref 171138 // join
+	end
+
+	pin 135042 "crewsList" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activitynode 171266 join ""
+      end
+
+      activitynode 171138 join ""
+	flow 221826 "<flow>"
+	  on activitynode_ref 171394 // activity_final
+	end
+      end
+
+      activitynode 171394 activity_final ""
+      end
+
+      activitynode 171522 initial_node ""
+	flow 221954 "<flow>"
+	  on activitynode_ref 171650 // fork
+	end
+      end
+
+      activityaction 180994 "ajoutEvenement"
+	opaque_action
+	flow 222082 "<flow>"
+	  on activityaction_ref 179586 // activity action afficherFormulaire
+	end
+      end
+
+      activitynode 171650 fork ""
+	flow 222210 "<flow>"
+	  on activityaction_ref 180994 // activity action ajoutEvenement
+	end
+
+	flow 222338 "<flow>"
+	  on activityaction_ref 181122 // activity action ExtractionDesDonnees
+	end
+      end
+
+      activityaction 179842 "validationFormulaire"
+	accept_event_action
+	pin 135170 "formulaire" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 222466 "<flow>"
+	  on activityaction_ref 181250 // activity action verifierFormulaire
+	end
+      end
+
+      activityaction 181250 "verifierFormulaire"
+	opaque_action
+	pin 135298 "formulaire" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 222594 "<flow>"
+	  on activitynode_ref 170754 // decision
+	end
+      end
+
+      activityaction 181378 "attribuerIdentifiants"
+	opaque_action
+	flow 222722 "<flow>"
+	  on activityaction_ref 181506 // activity action ajouterSuscribersDatabase
+	end
+      end
+
+      activitynode 170754 decision ""
+	flow 222850 "<flow>"
+	  on activityaction_ref 180354 // activity action afficherMessageErreur
+	    uml_guard "Saisie incorrecte"
+	end
+
+	flow 222978 "<flow>"
+	  on activityaction_ref 180482 // activity action obtenirNewId
+	    uml_guard "saisie correcte"
+	end
+      end
+
+      activityaction 181634 "ajouterEvenementDatabase"
+	opaque_action
+	flow 223106 "<flow>"
+	  on activityaction_ref 181762 // activity action ajouterDansLaListe
+	end
+      end
+
+      activityaction 181762 "ajouterDansLaListe"
+	opaque_action
+	flow 223234 "<flow>"
+	  on activitynode_ref 171778 // join
+	end
+
+	pin 135426 "eventList" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activitynode 171778 join ""
+	flow 223362 "<flow>"
+	  on activitynode_ref 171906 // activity_final
+	end
+      end
+
+      activitynode 171906 activity_final ""
+      end
+
+      activitynode 172034 initial_node ""
+	flow 223490 "<flow>"
+	  on activitynode_ref 172162 // fork
+	end
+      end
+
+      activitynode 172162 fork ""
+	flow 223618 "<flow>"
+	  on activityaction_ref 181890 // activity action ExtractionDesDonnees
+	end
+
+	flow 223746 "<flow>"
+	  on activityaction_ref 182018 // activity action AjoutPhase
+	end
+      end
+
+      activityaction 182018 "AjoutPhase"
+	accept_event_action
+	flow 223874 "<flow>"
+	  on activityaction_ref 179586 // activity action afficherFormulaire
+	end
+      end
+
+      activityaction 182146 "ajouterPhaseDansDatabase"
+	opaque_action
+	pin 135554 "phase" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 224002 "<flow>"
+	  on activityaction_ref 182274 // activity action ajouterDansLaListe
+	end
+      end
+
+      activityaction 182274 "ajouterDansLaListe"
+	opaque_action
+	flow 224130 "<flow>"
+	  on activitynode_ref 172290 // join
+	end
+
+	pin 135682 "phaseList" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activitynode 172290 join ""
+	flow 224258 "<flow>"
+	  on activitynode_ref 172418 // activity_final
+	end
+      end
+
+      activityaction 181506 "ajouterSuscribersDatabase"
+	opaque_action
+	flow 224386 "<flow>"
+	  on activityaction_ref 182402 // activity action ajouterBoatsDatabase
+	end
+      end
+
+      activityaction 182402 "ajouterBoatsDatabase"
+	opaque_action
+	flow 224514 "<flow>"
+	  on activityaction_ref 181634 // activity action ajouterEvenementDatabase
+	end
+      end
+
+      activitypartition 134530 "Persistance/Service"
+	activitypartition 134658 "ucOrganiserEvenement"
+	end
+      end
+
+      activityaction 180482 "obtenirNewId"
+	opaque_action
+	flow 224642 "<flow>"
+	  on activityaction_ref 181378 // activity action attribuerIdentifiants
+	end
+
+	pin 135810 "id" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 224770 "<flow>"
+	  on activityaction_ref 182530 // activity action attribuerIdentifiant
+	end
+
+	flow 224898 "<flow>"
+	  on activityaction_ref 182658 // activity action attribuerIdentifiant
+	end
+
+	flow 225026 "<flow>"
+	  on activityaction_ref 182786 // activity action attribuerIdentifiant
+	end
+
+	flow 225154 "<flow>"
+	  on activityaction_ref 180866 // activity action attribuerIdentifiant
+	end
+      end
+
+      activitypartition 134786 "persistance"
+      end
+
+      activityaction 181890 "ExtractionDesDonnees"
+	opaque_action
+	pin 135938 "phasesList" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 225282 "<flow>"
+	  on activitynode_ref 172290 // join
+	end
+      end
+
+      activityaction 181122 "ExtractionDesDonnees"
+	opaque_action
+	pin 136066 "eventList" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	pin 136194 "crewList" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 225410 "<flow>"
+	  on activitynode_ref 171778 // join
+	end
+      end
+
+      activityaction 182530 "attribuerIdentifiant"
+	opaque_action
+	flow 225538 "<flow>"
+	  on activityaction_ref 182146 // activity action ajouterPhaseDansDatabase
+	end
+
+	pin 136322 "phase" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activitypartition 134914 "ucOrganiserPhase"
+      end
+
+      activitynode 172418 activity_final ""
+      end
+
+      activitypartition 135042 "ucElaborerPairingList"
+      end
+
+      activitynode 172546 initial_node ""
+	flow 225666 "<flow>"
+	  on activitynode_ref 172674 // fork
+	end
+      end
+
+      activityaction 182914 "ajoutFlight"
+	accept_event_action
+	flow 225794 "<flow>"
+	  on activityaction_ref 179586 // activity action afficherFormulaire
+	end
+      end
+
+      activitynode 172674 fork ""
+	flow 225922 "<flow>"
+	  on activityaction_ref 182914 // activity action ajoutFlight
+	end
+
+	flow 226050 "<flow>"
+	  on activityaction_ref 183042 // activity action ExtractionDesDonnees
+	end
+
+	flow 226178 "<flow>"
+	  on activityaction_ref 183170 // activity action ajouterFlight
+	end
+      end
+
+      activityaction 183042 "ExtractionDesDonnees"
+	opaque_action
+	pin 136450 "flightsList" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 226306 "<flow>"
+	  on activitynode_ref 172802 // join
+	end
+      end
+
+      activitynode 170882 decision ""
+	flow 226434 "<flow>"
+	  on activityaction_ref 180482 // activity action obtenirNewId
+	    uml_guard "saisie correcte"
+	end
+
+	flow 226562 "<flow>"
+	  on activityaction_ref 180354 // activity action afficherMessageErreur
+	    uml_guard "saisie incorrecte"
+	end
+      end
+
+      activityaction 182658 "attribuerIdentifiant"
+	opaque_action
+	pin 136578 "flight" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 226690 "<flow>"
+	  on activityaction_ref 183298 // activity action ajouterFlightDansDatabase
+	end
+      end
+
+      activityaction 183298 "ajouterFlightDansDatabase"
+	opaque_action
+	flow 226818 "<flow>"
+	  on activityaction_ref 183426 // activity action ajouterFlightDansList
+	end
+
+	pin 136706 "flight" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activityaction 183426 "ajouterFlightDansList"
+	opaque_action
+	flow 226946 "<flow>"
+	  on activitynode_ref 172930 // activity_final
+	end
+
+	pin 136834 "flightList" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activityaction 183554 "ajouterMatch"
+	opaque_action
+      end
+
+      activitynode 173058 initial_node ""
+	flow 227074 "<flow>"
+	  on activityaction_ref 182914 // activity action ajoutFlight
+	end
+      end
+
+      activitynode 172930 activity_final ""
+      end
+
+      activityaction 183170 "ajouterFlight"
+	opaque_action
+	flow 227202 "<flow>"
+	  on activityaction_ref 183682 // activity action ajouterMatch
+	end
+      end
+
+      activityaction 183682 "ajouterMatch"
+	opaque_action
+	flow 227330 "<flow>"
+	  on activityaction_ref 183810 // activity action enregistrerVainqueur
+	end
+      end
+
+      activityaction 183938 "ajouterMatchDatabase"
+	opaque_action
+	pin 136962 "match" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activitynode 171010 decision ""
+	flow 227458 "<flow>"
+	  on activityaction_ref 180482 // activity action obtenirNewId
+	    uml_guard "saisie correcte"
+	end
+
+	flow 227586 "<flow>"
+	  on activityaction_ref 180354 // activity action afficherMessageErreur
+	    uml_guard "saisie incorrecte"
+	end
+      end
+
+      activityaction 182786 "attribuerIdentifiant"
+	opaque_action
+	pin 137090 "match" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 227714 "<flow>"
+	  on activityaction_ref 183938 // activity action ajouterMatchDatabase
+	end
+
+	pin 137218 "racers" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 227842 "<flow>"
+	  on activityaction_ref 184066 // activity action ajouterMatchDatabase
+	end
+      end
+
+      activityaction 179970 "selectionEquipages"
+	accept_event_action
+	flow 227970 "<flow>"
+	  on activityaction_ref 184194 // activity action selectionEquipageJaune
+	end
+
+	flow 228098 "<flow>"
+	  on activityaction_ref 184322 // activity action selectionBateaux
+	end
+      end
+
+      activityaction 184194 "selectionEquipageJaune"
+	accept_event_action
+	flow 228226 "<flow>"
+	  on activityaction_ref 184322 // activity action selectionBateaux
+	end
+      end
+
+      activityaction 184322 "selectionBateaux"
+	accept_event_action
+	flow 228354 "<flow>"
+	  on activityaction_ref 184450 // activity action selectionBateauJaune
+	end
+
+	flow 228482 "<flow>"
+	  on activityaction_ref 180482 // activity action obtenirNewId
+	end
+      end
+
+      activityaction 184450 "selectionBateauJaune"
+	accept_event_action
+      end
+
+      activityaction 184066 "ajouterMatchDatabase"
+	opaque_action
+	pin 137346 "match" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 228610 "<flow>"
+	  on activityaction_ref 184578 // activity action ajouterRacersDatabase
+	end
+      end
+
+      activityaction 184578 "ajouterRacersDatabase"
+	opaque_action
+	pin 137474 "racers" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 228738 "<flow>"
+	  on activityaction_ref 184706 // activity action ajouterDansList
+	end
+      end
+
+      activityaction 184706 "ajouterDansList"
+	opaque_action
+	pin 137602 "match" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	pin 137730 "racers" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 228866 "<flow>"
+	  on activitynode_ref 173186 // activity_final
+	end
+      end
+
+      activitynode 173186 activity_final ""
+      end
+
+      activityaction 183810 "enregistrerVainqueur"
+	opaque_action
+	flow 228994 "<flow>"
+	  on activitynode_ref 173314 // decision
+	end
+      end
+
+      activitynode 173442 initial_node ""
+	flow 229122 "<flow>"
+	  on activityaction_ref 184834 // activity action selectionEquipageVainqueur
+	end
+      end
+
+      activityaction 184834 "selectionEquipageVainqueur"
+	accept_event_action
+	flow 229250 "<flow>"
+	  on activityaction_ref 184962 // activity action selectionHeureArrivee
+	end
+      end
+
+      activityaction 184962 "selectionHeureArrivee"
+	accept_event_action
+	flow 229378 "<flow>"
+	  on activityaction_ref 179714 // activity action validationFormulaire
+	end
+      end
+
+      activityaction 180226 "mettreAJourDatabase"
+	opaque_action
+	flow 229506 "<flow>"
+	  on activitynode_ref 173570 // activity_final
+	end
+
+	pin 137858 "formulaire" explicit_type ""
+	  unordered 
+	  in
+	end
+      end
+
+      activitynode 173570 activity_final ""
+      end
+
+      activityaction 185090 "ajouterPenalite"
+	opaque_action
+	flow 229634 "<flow>"
+	  on activitynode_ref 172802 // join
+	end
+      end
+
+      activitynode 173698 activity_final ""
+      end
+
+      activitynode 173314 decision ""
+	flow 229762 "<flow>"
+	  on activityaction_ref 185090 // activity action ajouterPenalite
+	    uml_guard "ajoutPenaliteDetecté"
+	end
+
+	flow 229890 "<flow>"
+	  on activitynode_ref 172802 // join
+	    uml_guard "validation detectée"
+	end
+      end
+
+      activitynode 172802 join ""
+	flow 230018 "<flow>"
+	  on activitynode_ref 173698 // activity_final
+	end
+      end
+
+      activityaction 179458 "ExtractionDesDonnees"
+	opaque_action
+	pin 137986 "crewsList" explicit_type ""
+	  unordered 
+	  in
+	end
+
+	flow 230146 "<flow>"
+	  on activitynode_ref 171138 // join
+	end
+      end
+    end
+  end
+
+  classview 181762 "dcData"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 253954 "dcData"
+      classdiagramsettings member_max_width 0 end
+      size A3
+    end
+
+    class 289794 "CRUD"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class ${name}
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$"
+      operation 166018 "create"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+
+      operation 166146 "read"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+
+      operation 166274 "update"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+
+      operation 166402 "delete"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+    end
+
+    class 289922 "Entity"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class Entity
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$
+"
+      attribute 256386 "id"
+	private explicit_type "number"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290050 "Event"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class ${name}
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$"
+      classrelation 278914 // <generalisation>
+	relation 272002 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 278914 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      classrelation 279042 // phasesList (<directional composition>)
+	relation 272130 *-->
+	  a role_name "phasesList" multiplicity "*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 279042 // phasesList (<directional composition>)
+	  b multiplicity "0..1" parent class_ref 290434 // Phase
+      end
+
+      classrelation 279170 // subscribers (<directional composition>)
+	relation 272258 *-->
+	  a role_name "subscribers" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 279170 // subscribers (<directional composition>)
+	  b multiplicity "1" parent class_ref 290306 // Subscriber
+      end
+
+      attribute 256514 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 256642 "organization"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 256770 "location"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 256898 "numberBoats"
+	private explicit_type "number"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257026 "date"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257154 "timeManagement"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257282 "ranking"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257410 "boatsList"
+	private type class_ref 290818 // Boat
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257538 "hiddenContent"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290178 "Crew"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 279298 // <generalisation>
+	relation 272386 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 279298 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      attribute 257666 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257794 "country"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 257922 "isaf"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 258050 "ranking"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290306 "Subscriber"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 279426 // <generalisation>
+	relation 272514 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 279426 // <generalisation>
+	  b parent class_ref 290178 // Crew
+      end
+
+      attribute 258178 "letter"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290434 "Phase"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 279554 // flightsList (<directional composition>)
+	relation 272642 *-->
+	  a role_name "flightsList" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 279554 // flightsList (<directional composition>)
+	  b multiplicity "0..1" parent class_ref 290562 // Flight
+      end
+
+      classrelation 279682 // <generalisation>
+	relation 272770 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 279682 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      attribute 258306 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 258434 "roundRobin"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290562 "Flight"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 279810 // <generalisation>
+	relation 272898 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 279810 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      classrelation 279938 // matches (<directional composition>)
+	relation 273026 *-->
+	  a role_name "matches" multiplicity "*" ordered private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 279938 // matches (<directional composition>)
+	  b multiplicity "0..1" parent class_ref 290690 // Match
+      end
+
+      attribute 258562 "numberFlight"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 258690 "startDateTime"
+	private explicit_type "Date"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 258818 "hiddenContent"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 258946 "blueSuscriberId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259074 "yellowSuscriberId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259202 "blueBoatId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259330 "yellowBoatId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290690 "Match"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 280066 // <generalisation>
+	relation 273154 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 280066 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      attribute 259458 "locked"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259586 "finishDateTime"
+	private explicit_type "Date"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259714 "blueSuscriberId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259842 "yellowSuscriberId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 259970 "blueBoatId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 260098 "yellowBoatId"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 290946 "Racer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 280194 // <generalisation>
+	relation 273282 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 280194 // <generalisation>
+	  b parent class_ref 290306 // Subscriber
+      end
+
+      classrelation 280322 // blue (<association>)
+	relation 273410 ----
+	  a role_name "blue" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 280322 // blue (<association>)
+	  b role_name "yellow" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 280450 // yellow (<association>)
+	  association_type class_ref 290690 // Match
+      end
+
+      classrelation 280450 // yellow (<association>)
+	relation_ref 273410 // <association>
+      end
+
+      classrelation 280578 // boat (<directional aggregation>)
+	relation 273538 o-->
+	  a role_name "boat" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 280578 // boat (<directional aggregation>)
+	  b multiplicity "1" parent class_ref 290818 // Boat
+      end
+
+      attribute 260226 "points"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 280706 // penalty (<directional composition>)
+	relation 273666 *-->
+	  a role_name "penalty" multiplicity "0..1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 280706 // penalty (<directional composition>)
+	  b multiplicity "1" parent class_ref 291074 // Penalty
+      end
+    end
+
+    class 290818 "Boat"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 280834 // <generalisation>
+	relation 273794 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 280834 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      attribute 260354 "numberBoat"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 291074 "Penalty"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 260482 "points"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 280962 // <generalisation>
+	relation 273922 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 280962 // <generalisation>
+	  b parent class_ref 289922 // Entity
+      end
+
+      attribute 260610 "detail"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 291202 "Settings"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 260738 "organization"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 260866 "phone"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 260994 "email"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261122 "address"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261250 "addressSupplement"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261378 "country"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261506 "postalCode"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261634 "logo"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261762 "location"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 261890 "amountBoats"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 262018 "timeManagement"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+  end
+
+  classview 181122 "dcServices"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 254082 "dcPersistance"
+      classdiagramsettings member_max_width 0 end
+      size A-Landscape
+    end
+
+    class 274562 "SQLite"
+      visibility package stereotype "ClassJS"
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 262146 "db"
+	private explicit_type ""
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 166530 "write"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "tableRequestSQL" explicit_type "string"
+	  param in name "requestSQL" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 166658 "read"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "requestSQL" explicit_type "string"
+	  param in name "divID" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 166786 "errorAlert"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "error" explicit_type ""
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 291330 "DataBase"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 281090 // <unidirectional association>
+	relation 274050 --->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 281090 // <unidirectional association>
+	  b parent class_ref 274562 // SQLite
+      end
+
+      attribute 262274 "table"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 262402 "dataID"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 166914 "constructor"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "dataID" explicit_type "string"
+	  param in name "table" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 159362 "readDB"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "request" explicit_type "RequestSQL"
+	  param inout name "entitys" explicit_type "any"
+	  param inout name "applyResult" explicit_type ""
+	  param in name "divID" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 159490 "writeDB"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "request" explicit_type "any"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 159618 "waitResult"
+	private explicit_return_type ""
+	nparams 4
+	  param inout name "waitResult" explicit_type ""
+	  param in name "divID" explicit_type "string"
+	  param in name "entitys" explicit_type "any"
+	  param in name "applyResult" explicit_type ""
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      attribute 262530 "divID"
+	protected explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 272130 "CRUD"
+      abstract visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 281218 // <generalisation>
+	relation 274178 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 281218 // <generalisation>
+	  b parent class_ref 291330 // DataBase
+      end
+
+      attribute 262658 "currentID"
+	private explicit_type "{ref: number}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 159746 "constructor"
+	public explicit_return_type ""
+	nparams 3
+	  param in name "divID" explicit_type "string"
+	  param in name "table" explicit_type "string"
+	  param in name "tableName" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 159874 "create"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "entity" explicit_type "any"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 160002 "read"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "entitys" explicit_type "any"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 160642 "applyResult"
+	protected explicit_return_type ""
+	nparams 2
+	  param inout name "entity" explicit_type "{ref: any}"
+	  param in name "dataID" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 160130 "update"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "entity" explicit_type "any"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 160258 "delete"
+	abstract cpp_virtual public explicit_return_type ""
+	nparams 1
+	  param in name "entity" explicit_type "any"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 160386 "getNewID"
+	public explicit_return_type "number"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 160514 "updateCurrentID"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "currentID" explicit_type "{ref: number}"
+	  param in name "divID" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 272258 "RequestSQL"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}${template}struct ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}struct ${name} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 262786 "request"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 262914 "attribute"
+	private explicit_type "any[]"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 272386 "BoatService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 272514 "CrewService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 160770 "constructor"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      classrelation 281346 // <generalisation>
+	relation 274306 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 281346 // <generalisation>
+	  b parent class_ref 272130 // CRUD
+      end
+    end
+
+    class 272642 "EventService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 281474 // <generalisation>
+	relation 274434 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 281474 // <generalisation>
+	  b parent class_ref 272130 // CRUD
+      end
+
+      operation 161538 "constructor"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 161410 "readByPhase"
+	public explicit_return_type ""
+	nparams 2
+	  param inout name "event" explicit_type "{ref: Event}"
+	  param in name "phase" type class_ref 290434 // Phase
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 161666 "applyResultByPhase"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "event" explicit_type "{ref: Event}"
+	  param in name "dataID" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 272770 "FlightService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 272898 "MatchService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 273026 "PenaltyService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 273154 "PhaseService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 273282 "RacerService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 273410 "SettingsService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 281602 // <generalisation>
+	relation 274562 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 281602 // <generalisation>
+	  b parent class_ref 291330 // DataBase
+      end
+
+      operation 160898 "constructor"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 161026 "read"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "settings" explicit_type "{ref: Settings}"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 161282 "applyResult"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "settings" explicit_type "{ref: Settings}"
+	  param in name "dataID" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 161154 "update"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "settings" type class_ref 291202 // Settings
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 273538 "SubscriberService"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+  end
+
+  classview 181890 "dcComponents"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 254210 "dcComponent"
+      classdiagramsettings member_max_width 0 end
+      size A4
+    end
+
+    class 273666 "AppComponent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 281730 // <composition>
+	relation 274690 *---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 281730 // <composition>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 281858 // <composition>
+      end
+
+      classrelation 281986 // <composition>
+	relation 274818 *---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 281986 // <composition>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282114 // <composition>
+      end
+
+      classrelation 282242 // <composition>
+	relation 274946 *---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282242 // <composition>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282370 // <composition>
+      end
+
+      classrelation 282498 // <composition>
+	relation 275074 *---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282498 // <composition>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282626 // <composition>
+      end
+
+      classrelation 282754 // <composition>
+	relation 275202 *---
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282754 // <composition>
+	  b role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 282882 // <composition>
+      end
+
+    end
+
+    class 273794 "CrewsListComponent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 282114 // <composition>
+	relation_ref 274818 // <composition>
+      end
+
+    end
+
+    class 273922 "EventsListComponent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 282626 // <composition>
+	relation_ref 275074 // <composition>
+      end
+
+      attribute 240386 "events"
+	private explicit_type "{ref: Event[]}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240514 "event"
+	private explicit_type "{ref: Event}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240642 "settings"
+	private explicit_type "{ref: Settings}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240770 "crews"
+	private explicit_type "{ref: Crew[]}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240898 "eventPanelIhm"
+	private explicit_type "{ref: boolean}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 241026 "deleteEventPanelIhm"
+	private explicit_type "{ref: boolean}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 289410 // <directional composition>
+	relation 281986 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 289410 // <directional composition>
+	  b parent class_ref 274946 // UcOrganizeEvent
+      end
+
+      classrelation 289538 // <directional composition>
+	relation 282114 *-->
+	  a role_name "" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 289538 // <directional composition>
+	  b parent class_ref 275074 // UcOrganizePhase
+      end
+    end
+
+    class 274050 "HomeComponent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 282370 // <composition>
+	relation_ref 274946 // <composition>
+      end
+    end
+
+    class 274178 "PhaseComponent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 281858 // <composition>
+	relation_ref 274690 // <composition>
+      end
+    end
+
+    class 274306 "SettingsComponent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 282882 // <composition>
+	relation_ref 275202 // <composition>
+      end
+    end
+  end
+
+  classview 181634 "dc"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 253826 "dcUc"
+      classdiagramsettings member_max_width 0 end
+      size A3
+    end
+
+    class 274434 "HTML"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 274690 "UcElaboratePairingList"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 256258 "eventService"
+	private explicit_type "EventService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237058 "phaseService"
+	private explicit_type "PhaseService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237186 "flightService"
+	private explicit_type "FlightService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237314 "subscriberService"
+	private explicit_type "SubscriberService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237442 "boatService"
+	private explicit_type "BoatService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237570 "matchService"
+	private explicit_type "MatchService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237698 "racerService"
+	private explicit_type "RacerService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237826 "penaltyService"
+	private explicit_type "PenaltyService"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 237954 "event"
+	private explicit_type "{ref: Event}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238082 "phase"
+	private explicit_type "{ref: Phase}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238210 "flight"
+	private explicit_type "{ref: Flight}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238338 "match"
+	private explicit_type "{ref: Match}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238466 "racer"
+	private explicit_type "{ref: Racer}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238594 "winnerPanelIhm"
+	private explicit_type "{ref: WinnerPanel}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238722 "deleteFlightPanelIhm"
+	private explicit_type "{ref: boolean}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 238850 "penaltyPanelIhm"
+	private explicit_type "{ref: boolean}"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 164738 "constructor"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162050 "createFlight"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162178 "read"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162306 "deleteFlight"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162562 "autoCreateMatch"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162690 "autoDeleteMatch"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162818 "unlockMatch"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "match" explicit_type "Match"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 162946 "updateMatch"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "match" explicit_type "Match"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163074 "deletePanelShow"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "flight" explicit_type "Flight"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163202 "deletePanelHide"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163330 "saveWinnerScore"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163458 "removeWinnerScore"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163586 "winnerPanelShow"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "match" explicit_type "Match"
+	  param in name "racer" explicit_type "string"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163714 "winnerPanelHide"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163842 "deleteWinnerPanelShow"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "match" type class_ref 290690 // Match
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 163970 "deleteWinnerPanelHide"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 164098 "getRefRacer"
+	private explicit_return_type "Racer"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 164226 "createUpdateDeletePenalty"
+	private explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 164354 "penaltyPanelIhmShow"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "racer" explicit_type "Racer"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 164482 "penaltyPanelIhmHide"
+	public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 164610 "detailPanelShowHide"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "flight" explicit_type "Flight"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	java_def "  ${comment}${@}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+  ${body}}
+"
+	php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}${type}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 274818 "WinnerPanel"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 239874 "hide"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240002 "deletePanelhide"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240130 "scoreBar"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 240258 "time"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 274946 "UcOrganizeEvent"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 275074 "UcOrganizePhase"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 275202 "UcManageCrews"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+  end
+end

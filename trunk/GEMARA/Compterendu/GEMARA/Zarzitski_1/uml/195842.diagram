@@ -1,0 +1,90 @@
+format 212
+
+activitynodecanvas 128002 activitynode_ref 136834 // initial_node
+  xyz 359 16 2000
+end
+activitynodecanvas 128130 activitynode_ref 136962 // activity_final
+  xyz 545 214 2000
+end
+iconcanvas 128258 activitydiagram_ref 188034 // daUcOrganiserEpreuve
+  xyz 574 218 2005
+note 128386 "UcOrganiserEpreuve2"
+  xyzwh 74 9.5 0 545 373
+activitynodecanvas 128514 activitynode_ref 143490 // fork
+  horizontal  xyzwh 91 55 2000 519 15
+end
+note 128770 "Supprimer"
+  color lightorange  xyzwh 91 86 2000 403 199
+activityactioncanvas 129922 activityaction_ref 146178 // activity action DetecterAppuiBoutonSuprimer(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 104 118 2005 257 41
+end
+iconcanvas 130178 activitydiagram_ref 202370 // daDetecterAppuiBoutonSuprimer(X,ID)
+  xyz 335 99 2010
+iconcanvas 130306 activitydiagram_ref 188034 // daUcOrganiserEpreuve
+  xyz 380 16 2005
+activityactioncanvas 130562 activityaction_ref 146690 // activity action DetecterAppuiBoutonSuprimerAnnuler(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 105 174 2005 322 40
+end
+iconcanvas 131074 activitydiagram_ref 202498 // daDetecterAppuiBoutonSuprimerAnnuler(X,ID)
+  xyz 387 155 2010
+note 131202 "AfficherListePhases"
+  color lightmediumblue  xyzwh 92 291 2000 399 77
+activityactioncanvas 131842 activityaction_ref 147202 // activity action DetecterAppuiBoutonEntiteDevoiler(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 103 319 2005 251 40
+end
+iconcanvas 132226 activitydiagram_ref 202626 // daDetecterAppuiBoutonEntite(X,ID)
+  xyz 447 322 2011
+activityactioncanvas 132994 activityaction_ref 147970 // activity action DetecterAppuiBoutonSuprimerValider(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 109 228 2005 356 40
+end
+iconcanvas 133250 activitydiagram_ref 202754 // daDetecterAppuiBoutonSuprimerValider(X,ID)
+  xyz 432 211 2011
+flowcanvas 128642 flow_ref 148994 // <flow>
+  decenter_begin 526
+  decenter_end 532
+  
+  from ref 128002 z 2001 to ref 128514
+   write_horizontally default
+end
+flowcanvas 130050 flow_ref 151554 // <flow>
+  decenter_begin 271
+  
+  from ref 128514 z 2006 to ref 129922
+   write_horizontally default
+end
+flowcanvas 130690 flow_ref 152194 // <flow>
+  decenter_begin 622
+  decenter_end 953
+  
+  from ref 128514 z 2006 to ref 130562
+   write_horizontally default
+end
+flowcanvas 133122 flow_ref 154498 // <flow>
+  decenter_begin 709
+  decenter_end 970
+  
+  from ref 128514 z 2006 to ref 132994
+   write_horizontally default
+end
+flowcanvas 134914 flow_ref 156162 // <flow>
+  decenter_begin 736
+  
+  from ref 128514 z 2006 to point 472 339
+  line 135042 z 2006 to ref 131842
+   write_horizontally default
+end
+flowcanvas 135298 flow_ref 156418 // <flow>
+  decenter_begin 903
+  
+  from ref 128514 z 2001 to ref 128130
+   write_horizontally default
+end
+end

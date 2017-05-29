@@ -1,0 +1,127 @@
+format 213
+
+activityactioncanvas 128002 activityaction_ref 180482 // activity action obtenirNewId
+  
+  show_opaque_action_definition default
+  xyzwh 99 192 3011 143 55
+  pins
+    pincanvas 128130 pin_ref 135810 // id
+      xyzwh 220 182 3012 11 11 label_xy 199 176
+    end
+  end
+end
+activityactioncanvas 128258 activityaction_ref 179586 // activity action afficherFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 375.5 97.5 2005 159 43
+end
+activityactioncanvas 128386 activityaction_ref 182786 // activity action attribuerIdentifiant
+  
+  show_opaque_action_definition default
+  xyzwh 385 291 2000 147 55
+  pins
+    pincanvas 128514 pin_ref 137090 // match
+      xyzwh 375 297 2002 11 11 label_xy 328 282
+    end
+    pincanvas 128642 pin_ref 137218 // racers
+      xyzwh 375 328 2002 11 11 label_xy 328 313
+    end
+  end
+end
+activityactioncanvas 128770 activityaction_ref 179970 // activity action selectionEquipages
+  
+  show_opaque_action_definition default
+  xyzwh 366 158 2034 184 40
+end
+activityactioncanvas 128898 activityaction_ref 184322 // activity action selectionBateaux
+  
+  show_opaque_action_definition default
+  xyzwh 373 220 2000 168 46
+end
+activityactioncanvas 129026 activityaction_ref 184066 // activity action ajouterMatchDatabase
+  
+  show_opaque_action_definition default
+  xyzwh 86 290 2000 181 44
+  pins
+    pincanvas 129154 pin_ref 137346 // match
+      xyzwh 239 280 2002 11 11 label_xy 192 265
+    end
+  end
+end
+activityactioncanvas 129282 activityaction_ref 184578 // activity action ajouterRacersDatabase
+  
+  show_opaque_action_definition default
+  xyzwh 86 371 2000 187 45
+  pins
+    pincanvas 129410 pin_ref 137474 // racers
+      xyzwh 245 361 2002 11 11 label_xy 198 346
+    end
+  end
+end
+activityactioncanvas 129538 activityaction_ref 184706 // activity action ajouterDansList
+  
+  show_opaque_action_definition default
+  xyzwh 392 378 2000 142 44
+  pins
+    pincanvas 129666 pin_ref 137602 // match
+      xyzwh 382 405 2002 11 11 label_xy 335 390
+    end
+    pincanvas 129794 pin_ref 137730 // racers
+      xyzwh 382 384 2002 11 11 label_xy 335 369
+    end
+  end
+end
+activitynodecanvas 129922 activitynode_ref 173186 // activity_final
+  xyz 454 454 2000
+end
+activitypartitioncanvas 130050 activitypartition_ref 134786 // persistance
+  xyzwh 29 21 1995 273 489
+end
+activitypartitioncanvas 130178 activitypartition_ref 135042 // ucElaborerPairingList
+  xyzwh 302 21 1995 331 489
+end
+note 130306 "ajouterMatch"
+  xyzwh 2 -4 1990 723 537
+iconcanvas 130434 activitydiagram_ref 242178 // ucElaborerPairingList
+  xyz 492 461 2005
+flowcanvas 130562 flow_ref 220034 // <flow>
+  
+  from ref 128258 z 2035 to ref 128770
+   write_horizontally default
+end
+flowcanvas 130690 flow_ref 228098 // <flow>
+  
+  from ref 128770 z 2035 to ref 128898
+   write_horizontally default
+end
+flowcanvas 130818 flow_ref 228482 // <flow>
+  
+  from ref 128898 z 3012 to ref 128002
+   write_horizontally default
+end
+flowcanvas 130946 flow_ref 225026 // <flow>
+  
+  from ref 128002 z 3012 to ref 128386
+   write_horizontally default
+end
+flowcanvas 131074 flow_ref 227842 // <flow>
+  
+  from ref 128386 z 2001 to ref 129026
+   write_horizontally default
+end
+flowcanvas 131202 flow_ref 228610 // <flow>
+  
+  from ref 129026 z 2001 to ref 129282
+   write_horizontally default
+end
+flowcanvas 131330 flow_ref 228738 // <flow>
+  
+  from ref 129282 z 2001 to ref 129538
+   write_horizontally default
+end
+flowcanvas 131458 flow_ref 228866 // <flow>
+  
+  from ref 129538 z 2001 to ref 129922
+   write_horizontally default
+end
+end

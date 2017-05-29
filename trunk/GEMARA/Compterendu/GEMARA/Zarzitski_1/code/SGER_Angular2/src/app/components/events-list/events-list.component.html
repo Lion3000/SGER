@@ -1,0 +1,170 @@
+<nav id="eventPanel" [ngClass]="{ 'hide': eventPanelIhm.ref }" class="w3-margin globalColor w3-animate-left w3-padding" style="z-index:5">
+	<h2>Event Edit</h2>
+	<label class="w3-label w3-text-light-gray">Name</label>
+	<input class="w3-input" type="text" [(ngModel)]="event.ref.name" />
+	<label class="w3-label w3-text-light-gray">Organization</label>
+	<input class="w3-input" type="text" [(ngModel)]="event.ref.organization" />
+	<label class="w3-label w3-text-light-gray">Location</label>
+	<input class="w3-input" type="text" [(ngModel)]="event.ref.location" />
+	<label class="w3-label w3-text-light-gray">Date</label>
+	<input class="w3-input" type="date" [(ngModel)]="event.ref.date" />
+	<label class="w3-label w3-text-light-gray">Number of Boats</label>
+	<input class="w3-input" type="number" min="1" step="1" [(ngModel)]="event.ref.numberBoats" />
+	<label class="w3-label w3-text-light-gray">Ranking</label>
+	<input type="range" class="w3-input" min="0" max="5"  step="1" [(ngModel)]="event.ref.ranking" (click)="this.event.ref.setRanking(this.event.ref.getRanking())" />
+	<div class="w3-light-grey w3-round">
+    <div id="progressBar" class="w3-container w3-amber w3-round w3-center" [style.width]="event.ref.getRanking()/5*100+'%'">{{event.ref.getRanking()}}</div>
+  </div>
+	<input class="w3-check w3-margin-top" type="checkbox" [(ngModel)]="event.ref.timeManagement" />
+	<label class="w3-label w3-text-black">Time Management</label>
+	<div class="w3-container w3-margin-top">
+		<table class="w3-table-all w3-centered">
+			<thead>
+				<tr class="w3-orange">
+					<th>Crew</th>
+					<th>ID</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="w3-white" *ngFor="let subscriberSelected of event.ref.getSubscribers()">
+					<td>{{subscriberSelected.getName() + ' / ' + subscriberSelected.getCountry() + ' / ' + subscriberSelected.getIsaf()}}</td>
+					<td>
+						<select class="w3-select" [(ngModel)]="subscriberSelected.letter">
+							<option [ngValue]="subscriberSelected.letter">{{subscriberSelected.letter}}</option>
+							<option *ngFor='let letter of ucorganizeevent.getLattersList()' >{{letter}}</option>
+						</select>
+					</td>
+					<td class="w3-right">
+						<button class="w3-button globalColor w3-xlarge" (click)="ucorganizeevent.removeSubscriberEvent(subscriberSelected)"><img [src]="'assets/pictures/cross.png'" style="height: 32px;" /></button>
+					</td>
+				</tr>
+				<tr class="w3-white">
+					<td>
+						<select class="w3-select"  [(ngModel)]="crewId.ref">
+							<option value="0"></option>
+							<option *ngFor="let crewSelected of ucorganizeevent.getCrewsList()" [ngValue]="crewSelected.getId()">{{crewSelected.getName() + ' / ' + crewSelected.getCountry() + ' / ' + crewSelected.getIsaf() + ' / ' + crewSelected.getRanking()}}</option>
+						</select>
+					</td>
+					<td>
+						<select class="w3-select" [(ngModel)]="crewLetter.ref">
+							<option *ngFor='let letter of ucorganizeevent.getLattersList()'>{{letter}}</option>
+						</select>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="w3-bar w3-margin-bottom">
+		<button (click)="ucorganizeevent.eventPanelShowHide()" class="w3-button w3-red w3-margin-top">Cancel</button>
+		<button [ngClass]="{ 'hide': editMode.ref }" (click)="ucorganizeevent.create()" class="w3-button w3-green w3-margin-top w3-right">Create</button>
+		<button [ngClass]="{ 'hide': !editMode.ref }" (click)="ucorganizeevent.update()" class="w3-button w3-green w3-margin-top w3-right">Save</button>
+	</div>
+</nav>
+
+<nav id="phasePanel" [ngClass]="{ 'hide': phasePanelIhm.ref }" class="w3-margin globalColor w3-animate-left w3-padding" style="z-index:5">
+	<h2>Phase Edit</h2>
+	<label class="w3-label w3-text-light-gray">Name</label>
+	<select class="w3-select"  [(ngModel)]="phase.ref.name">
+		<option></option>
+		<option>RoundRobin 1</option>
+		<option>RoundRobin 2</option>
+		<option>RoundRobin 3</option>
+		<option>Semi-final</option>
+		<option>Final</option>
+	</select>
+	<input class="w3-input w3-margin-top" type="text" [(ngModel)]="phase.ref.name" />
+	<input class="w3-check w3-margin-top" [checked]="1" type="checkbox" [(ngModel)]="phase.ref.roundRobin" />
+	<label class="w3-label w3-text-black">RoundRobin</label>
+	<div class="w3-bar w3-margin-bottom">
+		<button (click)="ucorganizephase.phasePanelShowHide()" class="w3-button w3-red w3-margin-top">Cancel</button>
+		<button [ngClass]="{ 'hide': editMode.ref }" (click)="ucorganizephase.create()" class="w3-button w3-green w3-margin-top w3-right">Create</button>
+		<button [ngClass]="{ 'hide': !editMode.ref }" (click)="ucorganizephase.update()" class="w3-button w3-green w3-margin-top w3-right">Save</button>
+	</div>
+</nav>
+
+<nav id="deletePanel" [ngClass]="{ 'hide': !deleteEventPanelIhm.ref }" class="w3-margin globalColor w3-animate-left w3-padding" style="z-index:5">
+	<h2>Are you sure you wish to delete this Event?</h2>
+	<h3>{{ event.ref.getName() + ' / ' + event.ref.getOrganization() + ' / ' + event.ref.getLocation() + ' / ' + event.ref.getDate() + ' / Ranking: ' + event.ref.getRanking() }}</h3>
+	<div class="w3-bar w3-margin-bottom">
+		<button (click)="ucorganizeevent.deletePanelHide()" class="w3-button w3-red w3-margin-top">Cancel</button>
+		<button (click)="ucorganizeevent.delete()" class="w3-button w3-green w3-margin-top w3-right">Yes</button>
+	</div>
+</nav>
+
+<nav id="deletePanel" [ngClass]="{ 'hide': !deletePhasePanelIhm.ref }" class="w3-margin w3-animate-left w3-padding globalColor" style="z-index:5">
+	<h2>Are you sure you wish to delete this Phase?</h2>
+	<h3>{{ phase.ref.getName() + phase.ref.getRoundRobin()?'Type: RoundRobin':'' }}</h3>
+	<div class="w3-bar w3-margin-bottom">
+		<button (click)="ucorganizephase.deletePanelHide()" class="w3-button w3-red w3-margin-top">Cancel</button>
+		<button (click)="ucorganizephase.delete()" class="w3-button w3-green w3-margin-top w3-right">Yes</button>
+	</div>
+</nav>
+
+<div (click)="ucorganizeevent.deletePanelHide()" [ngClass]="{ 'hide': !deleteEventPanelIhm.ref }" class="w3-overlay w3-animate-opacity" style="cursor:pointer"></div>
+<div (click)="ucorganizephase.deletePanelHide()" [ngClass]="{ 'hide': !deletePhasePanelIhm.ref }" class="w3-overlay w3-animate-opacity" style="cursor:pointer"></div>
+<div (click)="ucorganizeevent.eventPanelShowHide()" [ngClass]="{ 'hide': eventPanelIhm.ref }" class="w3-overlay w3-animate-opacity" style="cursor:pointer"></div>
+<div (click)="ucorganizephase.phasePanelShowHide()" [ngClass]="{ 'hide': phasePanelIhm.ref }" class="w3-overlay w3-animate-opacity" style="cursor:pointer"></div>
+
+<div class="w3-card-4 w3-margin w3-padding w3-container">
+	<div class="w3-padding-0 w3-margin-top w3-animate-left" *ngFor="let eventSelected of events.ref">
+		<div *ngIf="resultSearchBar(eventSelected.getName() + ' ' + eventSelected.getOrganization() + ' ' + eventSelected.getLocation() + ' ' + eventSelected.getDate())">
+			<div class="globalColor w3-container w3-padding-0">
+				<button  (click)="ucorganizeevent.detailPanelShowHide(eventSelected)" class="w3-threequarter w3-button globalColor w3-xlarge w3-left-align" style="background-color: transparent;">{{eventSelected.name}}</button>
+				<div class="w3-quarter">
+					<button class="w3-quarter w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/pdf.png'" style="height: 32px;" title="generate PDF" /></button>
+					<button class="w3-quarter w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/html.png'" style="height: 32px;" title="generate HTML" /></button>
+					<a href="events-list#eventPanel" (click)="ucorganizeevent.editEventPanel(eventSelected)"  class="w3-quarter w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/edit.png'" title="edit Event" style="height: 32px;" /></a>
+					<a href="events-list#deletePanel" (click)="ucorganizeevent.deletePanelShow(eventSelected)" class="w3-quarter w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/cross.png'" style="height: 32px;" title="delete Event" /></a>
+				</div>
+			</div>
+
+			<div class="globalColor w3-center" [ngClass]="{ 'hide': eventSelected.getHiddenContent() }">
+				<div class="w3-row">
+					<div class="w3-third w3-container">
+						<p>Organization: {{eventSelected.getOrganization()}}</p>
+					</div>
+					<div class="w3-third w3-container">
+						<p>Location: {{eventSelected.getLocation()}}</p>
+					</div>
+					<div class="w3-third w3-container">
+						<p>Date: {{eventSelected.getDate()}}</p>
+					</div>
+				</div>
+				<div class="w3-row">
+					<div class="w3-third w3-container">
+						<p>Number of Boats: {{eventSelected.getNumberBoats()}}</p>
+					</div>
+					<div class="w3-twothird w3-container w3-padding-bottom">
+						Ranking:
+						<div class="w3-light-grey w3-round ">
+							<div id="progressBar" class="w3-container w3-amber w3-round w3-center" [style.width]="eventSelected.getRanking()/5*100+'%'">{{eventSelected.getRanking()}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="w3-border w3-border-grey w3-padding w3-animate-left" [ngClass]="{ 'hide': eventSelected.getHiddenContent() }" >
+				<div class="w3-container w3-padding-0 w3-margin-bottom" *ngFor="let phaseSelected of eventSelected.getPhasesList(); let i = index" [attr.data-index]="i">
+					<a [routerLink]="['/phase', phaseSelected.getId()]" class="w3-threequarter w3-button globalColor w3-xlarge w3-left-align"
+					[ngClass]="{'stripe-3': phaseSelected.getRoundRobin()}"
+					style="background-color: transparent;">{{phaseSelected.getName()}}</a>
+					<div class="w3-quarter w3-bar">
+						<a [routerLink]="['/results-subscriber', phaseSelected.getId()]" class="w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/eye.png'" title="show Results" style="height: 30px;" /></a>
+						<a href="events-list#phasePanel" (click)="ucorganizephase.editPhasePanel(phaseSelected, eventSelected)" class="w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/edit.png'" title="edit Phase" style="height: 30px;" /></a>
+						<a href="events-list#deletePanel" *ngIf="eventSelected.getPhasesList().length-1 == i" (click)="ucorganizephase.deletePanelShow(phaseSelected, eventSelected)" class="w3-button globalColor w3-xlarge"><img [src]="'assets/pictures/cross.png'" title="delete Phase" style="height: 30px;" /></a>
+					</div>
+				</div>
+
+				<div class="w3-right-align">
+					<a href="events-list#phasePanel" title="add Phase" (click)="ucorganizephase.createPhasePanel(eventSelected)" class="w3-btn-floating globalColor w3-margin">+</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="w3-right-align w3-padding-left w3-padding-right w3-margin">
+	<a href="events-list#eventPanel" title="add Event" (click)="ucorganizeevent.createEventPanel()" class="w3-btn-floating-large hook_bottom_left globalColor w3-margin-top">+</a>
+</div>

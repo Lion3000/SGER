@@ -1,0 +1,53 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 158338 // initial_node
+  xyz 351 43 2000
+end
+activityactioncanvas 128130 activityaction_ref 164354 // activity action Supprimer
+  
+  show_opaque_action_definition default
+  xyzwh 218 234 2000 101 61
+end
+activitynodecanvas 128386 activitynode_ref 158466 // decision
+  xyz 349 138 2000
+end
+activityactioncanvas 128514 activityaction_ref 164482 // activity action Annuler
+  
+  show_opaque_action_definition default
+  xyzwh 406 234 2000 101 61
+end
+note 129026 "daSecuritévalidation"
+  xyzwh 124 33 0 489 299
+note 129282 " page 9"
+  color verylightorange  xyzwh 169 97 2000 113 43
+iconcanvas 129410 activitydiagram_ref 216322 // daCreerEpreuve
+  xyz 379 47 2006
+activitynodecanvas 129538 activitynode_ref 165762 // activity_final
+  xyz 349 306 2000
+end
+flowcanvas 128642 flow_ref 187906 // <flow>
+  
+  from ref 128002 z 2001 to ref 128386
+   write_horizontally default
+end
+flowcanvas 128770 flow_ref 188034 // <flow>
+  
+  from ref 128386 z 2001 label "[valider]" xyz 294 190 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 128898 flow_ref 188162 // <flow>
+  
+  from ref 128386 z 2001 label "[annuler]" xyz 371 190 2001 to ref 128514
+   write_horizontally default
+end
+flowcanvas 129666 flow_ref 206210 // <flow>
+  
+  from ref 128130 z 2001 to ref 129538
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 206338 // <flow>
+  
+  from ref 128514 z 2001 to ref 129538
+   write_horizontally default
+end
+end

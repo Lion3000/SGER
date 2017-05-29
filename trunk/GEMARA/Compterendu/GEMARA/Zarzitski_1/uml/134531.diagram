@@ -1,0 +1,117 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 165506 // activity_final
+  xyz 346 470 2000
+end
+activitynodecanvas 128003 activitynode_ref 135683 // initial_node
+  xyz 356 31 2000
+end
+activityactioncanvas 128131 activityaction_ref 136579 // activity action selectionnerDansListe
+  
+  show_opaque_action_definition default
+  xyzwh 153 109 2000 181 53
+end
+activityactioncanvas 128259 activityaction_ref 136707 // activity action ajouterManuellement
+  
+  show_opaque_action_definition default
+  xyzwh 398 109 2000 167 49
+end
+activitynodecanvas 128387 activitynode_ref 135811 // decision
+  xyz 355 62 2005
+end
+activityactioncanvas 129283 activityaction_ref 136963 // activity action indiquerRoundRobin
+  
+  show_opaque_action_definition default
+  xyzwh 513 254 2000 166 42
+end
+activitynodecanvas 129411 activitynode_ref 136067 // decision
+  xyz 473 181 2000
+end
+activitynodecanvas 129795 activitynode_ref 136195 // merge
+  xyz 348 260 2000
+end
+activityactioncanvas 130307 activityaction_ref 129283 // activity action annuler
+  
+  show_opaque_action_definition default
+  xyzwh 222 403 2000 81 40
+end
+activityactioncanvas 130435 activityaction_ref 137091 // activity action enregistrer
+  
+  show_opaque_action_definition default
+  xyzwh 409 400 2000 88 40
+end
+activitynodecanvas 130563 activitynode_ref 136323 // decision
+  xyz 351 326 2000
+end
+iconcanvas 131075 activitydiagram_ref 216450 // daUcOrganiserPhase
+  xyz 386 33 2000
+note 131203 "daCreerPhase"
+  xyzwh 14 13 1995 693 493
+note 131331 "page 7"
+  color verylightorange  xyzwh 34 387 2000 71 41
+flowcanvas 128130 flow_ref 205058 // <flow>
+  
+  from ref 130307 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128258 flow_ref 205186 // <flow>
+  
+  from ref 130435 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128515 flow_ref 137731 // <flow>
+  
+  from ref 128003 z 2006 to ref 128387
+   write_horizontally default
+end
+flowcanvas 128643 flow_ref 137859 // <flow>
+  
+  from ref 128387 z 2006 label "[listeDeroulante]" xyz 241 83 2006 to ref 128131
+   write_horizontally default
+end
+flowcanvas 128771 flow_ref 137987 // <flow>
+  
+  from ref 128387 z 2006 label "[listeDeroulante -> new]" xyz 392 82 2006 to ref 128259
+   write_horizontally default
+end
+flowcanvas 129539 flow_ref 138371 // <flow>
+  
+  from ref 128259 z 2001 to ref 129411
+   write_horizontally default
+end
+flowcanvas 129667 flow_ref 138499 // <flow>
+  
+  from ref 129411 z 2001 label "[case roundRobin ]" xyz 469 221 2001 to ref 129283
+   write_horizontally default
+end
+flowcanvas 129923 flow_ref 138627 // <flow>
+  
+  from ref 128131 z 2001 to ref 129795
+   write_horizontally default
+end
+flowcanvas 130051 flow_ref 138755 // <flow>
+  
+  from ref 129283 z 2001 to ref 129795
+   write_horizontally default
+end
+flowcanvas 130179 flow_ref 138883 // <flow>
+  
+  from ref 129411 z 2001 to ref 129795
+   write_horizontally default
+end
+flowcanvas 130691 flow_ref 139011 // <flow>
+  
+  from ref 129795 z 2001 to ref 130563
+   write_horizontally default
+end
+flowcanvas 130819 flow_ref 139139 // <flow>
+  
+  from ref 130563 z 2001 label "[cancel]" xyz 291 367 2001 to ref 130307
+   write_horizontally default
+end
+flowcanvas 130947 flow_ref 139267 // <flow>
+  
+  from ref 130563 z 2001 label "[save]" xyz 381 367 2001 to ref 130435
+   write_horizontally default
+end
+end

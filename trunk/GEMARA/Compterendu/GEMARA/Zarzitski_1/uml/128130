@@ -1,0 +1,1429 @@
+format 212
+"Old" // Old
+  revision 12
+  modified_by 2 "xela"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  usecaseview 128002 "duc"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    objectdiagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    usecasediagram 134786 "ucSGER"
+      usecasediagramsettings draw_all_relations no end
+      size A4
+    end
+
+    class 156674 "ComitéCourse"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 156802 "PairingList"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    usecase 128002 "organizeEvents"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128002
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+
+      simplerelation 128130
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128130 // organizePhases
+      end
+
+      simplerelation 128258
+	-_->
+	  on usecase_ref 128386 // setCrews
+      end
+
+      simplerelation 128386
+	-_->
+	  on usecase_ref 128514 // setSettings
+      end
+
+      simplerelation 129794
+	-_->
+	  on usecase_ref 129538 // calculateResults
+      end
+
+      simplerelation 129922
+	-_->
+	  on usecase_ref 129666 // generateDocuments
+      end
+
+      simplerelation 130050
+	-_->
+	  on usecase_ref 129794 // viewResults
+      end
+
+      simplerelation 130178
+	-_->
+	  on usecase_ref 129922 // transferDocuments
+      end
+    end
+
+    usecase 128130 "organizePhases"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128770
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128642 // organizeFlights
+      end
+    end
+
+    usecase 128258 "initializeProgram"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 128386 "setCrews"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128514
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+    end
+
+    usecase 128514 "setSettings"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128642
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+    end
+
+    usecase 128642 "organizeFlights"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128898
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128770 // organizeMatchs
+      end
+
+      simplerelation 129026
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 128898 // setStartTime
+      end
+    end
+
+    usecase 128770 "organizeMatchs"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 129154
+	-_->
+	  on usecase_ref 129026 // assignPenalty
+      end
+
+      simplerelation 136834
+	-_->
+	  stereotype "include"
+	  on usecase_ref 136578 // declaredWinner
+      end
+    end
+
+    usecase 128898 "setStartTime"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 129026 "assignPenalty"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 129154 "viewAbout"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 129282
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+    end
+
+    usecase 129282 "viewHelp"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 129410
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+    end
+
+    usecase 129410 "viewHomeSchedule"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 129538
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+
+      simplerelation 129666
+	-_->
+	  on usecase_ref 128258 // initializeProgram
+      end
+    end
+
+    usecase 129538 "calculateResults"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 129666 "generateDocuments"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 129794 "viewResults"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 130306
+	-_->
+	  on usecase_ref 129922 // transferDocuments
+      end
+    end
+
+    usecase 129922 "transferDocuments"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 130050 "research"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    class 156930 "BlueTooth"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 157058 "TerminalInformatique"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    usecase 136578 "declaredWinner"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 136962
+	-_->
+	  stereotype "extend"
+	  on usecase_ref 129026 // assignPenalty
+      end
+    end
+  end
+
+  classview 134530 "dov"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    objectdiagram 134658 "doGeneral"
+      objectdiagramsettings end
+      size A4
+    end
+
+    objectdiagram 134530 "doMainEntity"
+      objectdiagramsettings end
+      size A4
+    end
+
+    objectdiagram 141314 "doUcOrganizeEventCRUD"
+      objectdiagramsettings end
+      size A4
+    end
+
+    objectdiagram 141442 "doUcOrganizeFlightListCRUD"
+      objectdiagramsettings end
+      size A4
+    end
+
+    objectdiagram 147970 "doUcResearch"
+      objectdiagramsettings end
+      size A4
+    end
+
+    classinstance 128002 "controllerSidenav"
+      type class_ref 155138 // ControllerSidenav
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128130 "controllerNavbar"
+      type class_ref 155266 // ControllerNavbar
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128258 "controllerSettings"
+      type class_ref 155394 // ControllerSettings
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128386 "mainEntity"
+      type class_ref 155522 // MainEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 128898 "ucInitialize"
+      type class_ref 156034 // UcInitialize
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 129026 "db"
+      type class_ref 156162 // DataBase
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 129154 "crew1"
+      type class_ref 156290 // CrewEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 129282 "ucCrewsListCRUD"
+      type class_ref 156418 // UcCrewsListCRUD
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 129410 "ucSetSettingsCRUD"
+      type class_ref 156546 // UcSetSettingsCRUD
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136450 "ucOrganizeEventsCRUD"
+      type class_ref 164098 // UcOrganizeEventsCRUD
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136578 "controlerEventList"
+      type class_ref 164226 // EventEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136706 "event2"
+      type class_ref 164226 // EventEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136834 "event1"
+      type class_ref 164226 // EventEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 136962 "controllerEventsList"
+      type class_ref 164354 // ControllerEventsList
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137090 "controllerPhasesList"
+      type class_ref 164482 // ControllerPhasesList
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137218 "ucOrganizePhasesCRUD"
+      type class_ref 164610 // UcOrganizePhasesCRUD
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137346 "roundRobin1"
+      type class_ref 164738 // PhaseEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137474 "final"
+      type class_ref 164738 // PhaseEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137602 "ucOrganizeFlightsCRUD"
+      type class_ref 164866 // UcOrganizeFlightsCRUD
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137730 "Flight1"
+      type class_ref 164994 // FlightEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137858 "Flight2"
+      type class_ref 164994 // FlightEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 137986 "controllerFlightsList"
+      type class_ref 165122 // ControllerFlightsList
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 144514 "crew2"
+      type class_ref 156290 // CrewEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 144642 "controllerCrewsList"
+      type class_ref 171650 // ControllerCrewsList
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 144770 "ucSetStartTime"
+      type class_ref 171778 // UcSetStartTime
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 144898 "controllerStartTimeEntity"
+      type class_ref 171906 // ControllerStartTimeEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145026 "ucOrganizeMatchsCRUD"
+      type class_ref 172034 // UcOrganizeMatchsCRUD
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145154 "controllerMatchsList"
+      type class_ref 172162 // ControllerMatchsList
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145282 "match1"
+      type class_ref 172290 // MatchEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145410 "match2"
+      type class_ref 172290 // MatchEntity
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145538 "ucDeclaredWinner"
+      type class_ref 172418 // UcDeclaredWinner
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145666 "ucAssignPenalty"
+      type class_ref 172546 // UcAssignPenalty
+      attributes
+        end
+      relations
+        end
+    end
+
+    classinstance 145794 "ucResearch"
+      type class_ref 172674 // UcResearch
+      attributes
+        end
+      relations
+        end
+    end
+  end
+
+  classview 141058 "dcvEmpty"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 148098 "dcGeneral"
+      classdiagramsettings member_max_width 0 end
+      size A
+    end
+
+    classdiagram 154626 "dcMainEntity"
+      classdiagramsettings member_max_width 0 end
+      size A4
+    end
+
+    classdiagram 154754 "dcUcOrganizeEventCRUD"
+      classdiagramsettings member_max_width 0 end
+      size A-Landscape
+    end
+
+    classdiagram 154882 "dcUcOrganizeFlightListCRUD"
+      classdiagramsettings member_max_width 0 end
+      size A
+    end
+
+    class 155138 "ControllerSidenav"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 151810 // <directional composition>
+	relation 151554 *-->
+	  a role_name "" private
+	    classrelation_ref 151810 // <directional composition>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 155266 "ControllerNavbar"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 151938 // <directional composition>
+	relation 151682 *-->
+	  a role_name "" private
+	    classrelation_ref 151938 // <directional composition>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 155394 "ControllerSettings"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 152066 // <directional composition>
+	relation 151810 *-->
+	  a role_name "" private
+	    classrelation_ref 152066 // <directional composition>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 155522 "MainEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 156034 "UcInitialize"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 151042 // <unidirectional association>
+	relation 150786 --->
+	  a role_name "" private
+	    classrelation_ref 151042 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 151298 // <unidirectional association>
+	relation 151042 --->
+	  a role_name "" private
+	    classrelation_ref 151298 // <unidirectional association>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 156162 "DataBase"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 156290 "CrewEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 150402 // <directional composition>
+	relation 150146 *-->
+	  a role_name "" private
+	    classrelation_ref 150402 // <directional composition>
+	  b parent class_ref 171650 // ControllerCrewsList
+      end
+    end
+
+    class 156418 "UcCrewsListCRUD"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 150786 // <unidirectional association>
+	relation 150530 --->
+	  a role_name "" private
+	    classrelation_ref 150786 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 151682 // <unidirectional association>
+	relation 151426 --->
+	  a role_name "" private
+	    classrelation_ref 151682 // <unidirectional association>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 156546 "UcSetSettingsCRUD"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 150914 // <unidirectional association>
+	relation 150658 --->
+	  a role_name "" private
+	    classrelation_ref 150914 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 151554 // <unidirectional association>
+	relation 151298 --->
+	  a role_name "" private
+	    classrelation_ref 151554 // <unidirectional association>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 164098 "UcOrganizeEventsCRUD"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 151170 // <unidirectional association>
+	relation 150914 --->
+	  a role_name "" private
+	    classrelation_ref 151170 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 151426 // <unidirectional association>
+	relation 151170 --->
+	  a role_name "" private
+	    classrelation_ref 151426 // <unidirectional association>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 164226 "EventEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 152578 // <directional composition>
+	relation 152322 *-->
+	  a role_name "" private
+	    classrelation_ref 152578 // <directional composition>
+	  b parent class_ref 164354 // ControllerEventsList
+      end
+    end
+
+    class 164354 "ControllerEventsList"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 152450 // <directional composition>
+	relation 152194 *-->
+	  a role_name "" private
+	    classrelation_ref 152450 // <directional composition>
+	  b parent class_ref 164098 // UcOrganizeEventsCRUD
+      end
+    end
+
+    class 164482 "ControllerPhasesList"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 152962 // <directional composition>
+	relation 152706 *-->
+	  a role_name "" private
+	    classrelation_ref 152962 // <directional composition>
+	  b parent class_ref 164610 // UcOrganizePhasesCRUD
+      end
+    end
+
+    class 164610 "UcOrganizePhasesCRUD"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 152194 // <unidirectional association>
+	relation 151938 --->
+	  a role_name "" private
+	    classrelation_ref 152194 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 152706 // <directional composition>
+	relation 152450 *-->
+	  a role_name "" private
+	    classrelation_ref 152706 // <directional composition>
+	  b parent class_ref 164226 // EventEntity
+      end
+
+      classrelation 152834 // <unidirectional association>
+	relation 152578 --->
+	  a role_name "" private
+	    classrelation_ref 152834 // <unidirectional association>
+	  b parent class_ref 155522 // MainEntity
+      end
+    end
+
+    class 164738 "PhaseEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 153090 // <directional composition>
+	relation 152834 *-->
+	  a role_name "" private
+	    classrelation_ref 153090 // <directional composition>
+	  b parent class_ref 164482 // ControllerPhasesList
+      end
+    end
+
+    class 164866 "UcOrganizeFlightsCRUD"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 152322 // <unidirectional association>
+	relation 152066 --->
+	  a role_name "" private
+	    classrelation_ref 152322 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 153218 // <directional composition>
+	relation 152962 *-->
+	  a role_name "" private
+	    classrelation_ref 153218 // <directional composition>
+	  b parent class_ref 164738 // PhaseEntity
+      end
+    end
+
+    class 164994 "FlightEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 159874 // <directional composition>
+	relation 159618 *-->
+	  a role_name "" private
+	    classrelation_ref 159874 // <directional composition>
+	  b parent class_ref 165122 // ControllerFlightsList
+      end
+    end
+
+    class 165122 "ControllerFlightsList"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 159746 // <directional composition>
+	relation 159490 *-->
+	  a role_name "" private
+	    classrelation_ref 159746 // <directional composition>
+	  b parent class_ref 164866 // UcOrganizeFlightsCRUD
+      end
+    end
+
+    class 171650 "ControllerCrewsList"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 150530 // <directional composition>
+	relation 150274 *-->
+	  a role_name "" private
+	    classrelation_ref 150530 // <directional composition>
+	  b parent class_ref 156418 // UcCrewsListCRUD
+      end
+    end
+
+    class 171778 "UcSetStartTime"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160002 // <directional composition>
+	relation 159746 *-->
+	  a role_name "" private
+	    classrelation_ref 160002 // <directional composition>
+	  b parent class_ref 164994 // FlightEntity
+      end
+
+      classrelation 160258 // <unidirectional association>
+	relation 160002 --->
+	  a role_name "" private
+	    classrelation_ref 160258 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+    end
+
+    class 171906 "ControllerStartTimeEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160130 // <directional composition>
+	relation 159874 *-->
+	  a role_name "" private
+	    classrelation_ref 160130 // <directional composition>
+	  b parent class_ref 171778 // UcSetStartTime
+      end
+    end
+
+    class 172034 "UcOrganizeMatchsCRUD"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160386 // <unidirectional association>
+	relation 160130 --->
+	  a role_name "" private
+	    classrelation_ref 160386 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+
+      classrelation 160514 // <directional composition>
+	relation 160258 *-->
+	  a role_name "" private
+	    classrelation_ref 160514 // <directional composition>
+	  b parent class_ref 164994 // FlightEntity
+      end
+    end
+
+    class 172162 "ControllerMatchsList"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160642 // <directional composition>
+	relation 160386 *-->
+	  a role_name "" private
+	    classrelation_ref 160642 // <directional composition>
+	  b parent class_ref 172034 // UcOrganizeMatchsCRUD
+      end
+    end
+
+    class 172290 "MatchEntity"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160770 // <directional composition>
+	relation 160514 *-->
+	  a role_name "" private
+	    classrelation_ref 160770 // <directional composition>
+	  b parent class_ref 172162 // ControllerMatchsList
+      end
+    end
+
+    class 172418 "UcDeclaredWinner"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 161026 // <directional composition>
+	relation 160770 *-->
+	  a role_name "" private
+	    classrelation_ref 161026 // <directional composition>
+	  b parent class_ref 172290 // MatchEntity
+      end
+
+      classrelation 161154 // <unidirectional association>
+	relation 160898 --->
+	  a role_name "" private
+	    classrelation_ref 161154 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+    end
+
+    class 172546 "UcAssignPenalty"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 160898 // <directional composition>
+	relation 160642 *-->
+	  a role_name "" private
+	    classrelation_ref 160898 // <directional composition>
+	  b parent class_ref 172290 // MatchEntity
+      end
+
+      classrelation 161282 // <unidirectional association>
+	relation 161026 --->
+	  a role_name "" private
+	    classrelation_ref 161282 // <unidirectional association>
+	  b parent class_ref 156162 // DataBase
+      end
+    end
+
+    class 172674 "UcResearch"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+  end
+end

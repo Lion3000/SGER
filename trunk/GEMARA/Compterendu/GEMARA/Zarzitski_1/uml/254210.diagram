@@ -1,0 +1,72 @@
+format 213
+
+classcanvas 128130 class_ref 273666 // AppComponent
+  classdiagramsettings member_max_width 0 end
+  xyz 339 138 2000
+end
+classcanvas 128258 class_ref 273794 // CrewsListComponent
+  classdiagramsettings member_max_width 0 end
+  xyz 560 293 2006
+end
+classcanvas 128514 class_ref 273922 // EventsListComponent
+  classdiagramsettings member_max_width 0 end
+  xyz 238 279 2011
+end
+classcanvas 128770 class_ref 274050 // HomeComponent
+  classdiagramsettings member_max_width 0 end
+  xyz 86 140 2017
+end
+classcanvas 129026 class_ref 274178 // PhaseComponent
+  classdiagramsettings member_max_width 0 end
+  xyz 60 246 2017
+end
+classcanvas 129282 class_ref 274306 // SettingsComponent
+  classdiagramsettings member_max_width 0 end
+  xyz 630 197 2006
+end
+classcanvas 129538 class_ref 274946 // UcOrganizeEvent
+  classdiagramsettings member_max_width 0 end
+  xyz 172 482 2000
+end
+classcanvas 129794 class_ref 275074 // UcOrganizePhase
+  classdiagramsettings member_max_width 0 end
+  xyz 373 479 2000
+end
+relationcanvas 128386 relation_ref 274818 // <composition>
+  from ref 128130 z 2007 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128642 relation_ref 275074 // <composition>
+  from ref 128130 z 2012 to ref 128514
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128898 relation_ref 274946 // <composition>
+  from ref 128130 z 2018 to ref 128770
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129154 relation_ref 274690 // <composition>
+  from ref 128130 z 2018 to ref 129026
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129410 relation_ref 275202 // <composition>
+  from ref 128130 z 2007 to ref 129282
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129666 relation_ref 281986 // <directional composition>
+  decenter_begin 372
+  from ref 128514 z 2012 to ref 129538
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129922 relation_ref 282114 // <directional composition>
+  decenter_end 556
+  from ref 128514 z 2012 to ref 129794
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

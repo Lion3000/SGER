@@ -1,0 +1,60 @@
+format 212
+
+activitynodecanvas 128003 activitynode_ref 137603 // initial_node
+  xyz 358 64 2000
+end
+activitynodecanvas 128131 activitynode_ref 137731 // decision
+  xyz 355 128 2000
+end
+activityactioncanvas 128259 activityaction_ref 139267 // activity action validerChampsPreRemplis
+  
+  show_opaque_action_definition default
+  xyzwh 62 189 2000 204 44
+end
+activityactioncanvas 128387 activityaction_ref 139395 // activity action modifierChamps
+  
+  show_opaque_action_definition default
+  xyzwh 300 195 2000 137 40
+end
+activityactioncanvas 128515 activityaction_ref 139523 // activity action annuler
+  
+  show_opaque_action_definition default
+  xyzwh 491 193 2000 100 40
+end
+activityactioncanvas 129155 activityaction_ref 139651 // activity action valider
+  
+  show_opaque_action_definition default
+  xyzwh 329 270 2005 80 40
+end
+iconcanvas 130435 activitydiagram_ref 134787 // daUcElaborerPairingList
+  xyz 396 66 2000
+note 130563 "daEnregistrerDepart"
+  xyzwh 14 29 1995 647 297
+note 130691 "page 9"
+  color verylightorange  xyzwh 37 74 2000 79 39
+flowcanvas 128643 flow_ref 143491 // <flow>
+  
+  from ref 128131 z 2001 label "[save]" xyz 269 159 2001 to ref 128259
+   write_horizontally default
+end
+flowcanvas 128771 flow_ref 143619 // <flow>
+  
+  from ref 128131 z 2006 label "[champ]" xyz 340 170 2006 to ref 128387
+   write_horizontally default
+end
+flowcanvas 129027 flow_ref 143747 // <flow>
+  
+  from ref 128131 z 2001 label "[cancel]" xyz 408 162 2001 to ref 128515
+   write_horizontally default
+end
+flowcanvas 129283 flow_ref 143875 // <flow>
+  
+  from ref 128387 z 2006 label "[save]" xyz 348 242 2006 to ref 129155
+   write_horizontally default
+end
+flowcanvas 130179 flow_ref 144003 // <flow>
+  
+  from ref 128003 z 2001 to ref 128131
+   write_horizontally default
+end
+end

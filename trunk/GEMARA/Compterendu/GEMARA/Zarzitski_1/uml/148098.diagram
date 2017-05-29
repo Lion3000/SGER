@@ -1,0 +1,98 @@
+format 212
+
+classcanvas 131586 class_ref 156034 // UcInitialize
+  classdiagramsettings member_max_width 0 end
+  xyz 270 272 2000
+end
+classcanvas 131714 class_ref 156162 // DataBase
+  classdiagramsettings member_max_width 0 end
+  xyz 119 272 2000
+end
+classcanvas 132098 class_ref 156546 // UcSetSettingsCRUD
+  classdiagramsettings member_max_width 0 end
+  xyz 81 196 2000
+end
+classcanvas 132354 class_ref 156418 // UcCrewsListCRUD
+  classdiagramsettings member_max_width 0 end
+  xyz 243 120 2000
+end
+classcanvas 132610 class_ref 164098 // UcOrganizeEventsCRUD
+  classdiagramsettings member_max_width 0 end
+  xyz 66 352 2000
+end
+classcanvas 132866 class_ref 171650 // ControllerCrewsList
+  classdiagramsettings member_max_width 0 end
+  xyz 238 40 2006
+end
+classcanvas 133378 class_ref 156290 // CrewEntity
+  classdiagramsettings member_max_width 0 end
+  xyz 426 40 2000
+end
+classcanvas 134914 class_ref 155522 // MainEntity
+  classdiagramsettings member_max_width 0 end
+  xyz 271 196 2006
+end
+relationcanvas 133762 relation_ref 150146 // <directional composition>
+  decenter_begin 390
+  decenter_end 390
+  from ref 133378 z 2007 to ref 132866
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133890 relation_ref 150274 // <directional composition>
+  from ref 132866 z 2007 to ref 132354
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134402 relation_ref 150530 // <unidirectional association>
+  decenter_end 585
+  from ref 132354 z 2001 to point 40 136
+  line 135554 z 2001 to point 40 296
+  line 135682 z 2001 to ref 131714
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134530 relation_ref 150658 // <unidirectional association>
+  decenter_end 546
+  from ref 132098 z 2001 to ref 131714
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134658 relation_ref 150786 // <unidirectional association>
+  decenter_begin 585
+  decenter_end 585
+  from ref 131586 z 2001 to ref 131714
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 134786 relation_ref 150914 // <unidirectional association>
+  decenter_begin 519
+  decenter_end 546
+  from ref 132610 z 2001 to ref 131714
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 135042 relation_ref 151042 // <unidirectional association>
+  from ref 131586 z 2007 to ref 134914
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 135170 relation_ref 151170 // <unidirectional association>
+  decenter_begin 585
+  from ref 132610 z 2007 to point 392 376
+  line 135810 z 2007 to point 392 216
+  line 135938 z 2007 to ref 134914
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 135298 relation_ref 151298 // <unidirectional association>
+  from ref 132098 z 2007 to ref 134914
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 135426 relation_ref 151426 // <unidirectional association>
+  from ref 132354 z 2007 to ref 134914
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

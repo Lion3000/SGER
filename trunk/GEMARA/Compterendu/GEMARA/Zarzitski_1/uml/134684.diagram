@@ -1,0 +1,111 @@
+format 212
+
+activitynodecanvas 128028 activitynode_ref 128540 // initial_node
+  xyz 380.6 111.4 2000
+end
+activitynodecanvas 128156 activitynode_ref 128668 // decision
+  xyz 374.4 233.1 2000
+end
+activityactioncanvas 128284 activityaction_ref 128668 // activity action Interaction Home
+  
+  show_opaque_action_definition default
+  xyzwh 21 350.5 2000 101 61
+end
+activityactioncanvas 128412 activityaction_ref 128796 // activity action Interaction Event
+  
+  show_opaque_action_definition default
+  xyzwh 142.6 352.7 2000 101 61
+end
+activityactioncanvas 128540 activityaction_ref 129052 // activity action Interaction About
+  
+  show_opaque_action_definition default
+  xyzwh 392 354.9 2000 101 61
+end
+activityactioncanvas 128668 activityaction_ref 129180 // activity action Interaction Help
+  
+  show_opaque_action_definition default
+  xyzwh 517 354.1 2000 101 61
+end
+activityactioncanvas 128796 activityaction_ref 128924 // activity action Interaction Crew
+  
+  show_opaque_action_definition default
+  xyzwh 274.4 352.1 2000 101 61
+end
+activitynodecanvas 129948 activitynode_ref 128796 // activity_final
+  xyz 364.8 544 2000
+end
+note 131356 "Interaction menu"
+  color lightorange  xyzwh 9.6 85.6 0 781 499
+activityactioncanvas 131484 activityaction_ref 129692 // activity action Interaction Settings
+  
+  show_opaque_action_definition default
+  xyzwh 644.4 354.4 2005 101 61
+end
+flowcanvas 129052 flow_ref 129692 // <flow>
+  
+  from ref 128156 z 2001 to ref 128284
+   write_horizontally default
+end
+flowcanvas 129308 flow_ref 129948 // <flow>
+  decenter_end 574
+  
+  from ref 128156 z 2001 to ref 128796
+   write_horizontally default
+end
+flowcanvas 129436 flow_ref 129820 // <flow>
+  decenter_begin 754
+  
+  from ref 128156 z 2001 to ref 128412
+   write_horizontally default
+end
+flowcanvas 129564 flow_ref 130332 // <flow>
+  
+  from ref 128156 z 2001 to ref 128668
+   write_horizontally default
+end
+flowcanvas 129692 flow_ref 130204 // <flow>
+  
+  from ref 128156 z 2001 to ref 128540
+   write_horizontally default
+end
+flowcanvas 129820 flow_ref 131228 // <flow>
+  
+  from ref 128028 z 2001 to ref 128156
+   write_horizontally default
+end
+flowcanvas 130076 flow_ref 131356 // <flow>
+  
+  from ref 128284 z 2001 to ref 129948
+   write_horizontally default
+end
+flowcanvas 130204 flow_ref 131484 // <flow>
+  
+  from ref 128412 z 2001 to ref 129948
+   write_horizontally default
+end
+flowcanvas 130332 flow_ref 131612 // <flow>
+  
+  from ref 128796 z 2001 to ref 129948
+   write_horizontally default
+end
+flowcanvas 130460 flow_ref 131740 // <flow>
+  
+  from ref 128540 z 2001 to ref 129948
+   write_horizontally default
+end
+flowcanvas 130588 flow_ref 131868 // <flow>
+  
+  from ref 128668 z 2001 to ref 129948
+   write_horizontally default
+end
+flowcanvas 131612 flow_ref 133148 // <flow>
+  
+  from ref 131484 z 2006 to ref 129948
+   write_horizontally default
+end
+flowcanvas 131740 flow_ref 133276 // <flow>
+  
+  from ref 128156 z 2006 to ref 131484
+   write_horizontally default
+end
+end

@@ -1,0 +1,79 @@
+format 212
+
+classcanvas 128002 class_ref 200578 // Gemara
+  classdiagramsettings member_max_width 0 end
+  xyz 364 56 2000
+end
+classcanvas 128130 class_ref 200706 // Event
+  classdiagramsettings member_max_width 0 end
+  xyz 167 53 2000
+end
+classcanvas 128258 class_ref 200834 // E_ctrl
+  classdiagramsettings member_max_width 0 end
+  xyz 128 248 2000
+end
+classcanvas 128386 class_ref 200962 // P_ctrl
+  classdiagramsettings member_max_width 0 end
+  xyz 159 472 2000
+end
+classcanvas 128642 class_ref 201090 // E_persi
+  classdiagramsettings member_max_width 0 end
+  xyz 403 357 2000
+end
+classcanvas 128898 class_ref 201218 // bd_persi
+  classdiagramsettings member_max_width 0 end
+  xyz 583 376 2000
+end
+classcanvas 129154 class_ref 201346 // E_ihm
+  classdiagramsettings member_max_width 0 end
+  xyz 511 280 2000
+end
+classcanvas 129538 class_ref 201474 // E_ent
+  classdiagramsettings member_max_width 0 end
+  xyz 478 213 2000
+end
+classcanvas 130690 class_ref 201602 // UcCom
+  classdiagramsettings member_max_width 0 end
+  xyz 647 79 2000
+end
+relationcanvas 128514 relation_ref 188930 // <directional composition>
+  from ref 128258 z 2001 to ref 128386
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129026 relation_ref 189186 // <generalisation>
+  from ref 128642 z 2001 to ref 128898
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129410 relation_ref 189442 // <directional aggregation>
+  from ref 128002 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129922 relation_ref 189698 // <directional composition>
+  from ref 128258 z 2001 to ref 129538
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130050 relation_ref 189826 // <unidirectional association>
+  from ref 128130 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130306 relation_ref 189954 // <directional aggregation>
+  from ref 128258 z 2001 to ref 129154
+  no_role_a no_role_b
+  multiplicity_a_pos 494 309 3000 no_multiplicity_b
+end
+relationcanvas 130434 relation_ref 190082 // <directional aggregation>
+  from ref 128258 z 2001 to ref 128642
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130818 relation_ref 190210 // <association>
+  from ref 128002 z 2001 to ref 130690
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

@@ -1,0 +1,20 @@
+format 213
+
+deploymentnodecanvas 128002 deploymentnode_ref 128002 // TerminalInformatique
+  xyzwh 187 388 2000 161 36
+end
+deploymentnodecanvas 128130 deploymentnode_ref 134530 // Tablet
+  name "SGER"
+  xyzwh 159 104 2000 215 193
+end
+componentcanvas 128258 component_ref 134530 // SGER_Application
+  
+  xyzwh 168 211 2005 189 69
+end
+componentcanvas 128386 component_ref 134658 // Android4+
+  
+  xyzwh 167 142 2005 189 69
+end
+line 128514 ----
+  from ref 128130 z 2006 label "fichiers résultat (HTML, PDF)" max_width 255 xyz 171 322 2006 stereotype "<<bluetooth>>" xyz 219 341 3000 to ref 128002
+end

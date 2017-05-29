@@ -1,0 +1,160 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 150914 // initial_node
+  xyz 384.1 21.7 4005
+end
+textcanvas 129282 "action?"
+  xyzwh 402 47 4011 49 19
+activitynodecanvas 130434 activitynode_ref 151298 // decision
+  xyz 382.7 232.2 4005
+end
+activityactioncanvas 130690 activityaction_ref 156034 // activity action naviguerHome
+  
+  show_opaque_action_definition default
+  xyzwh 644.7 274.1 4016 113 41
+end
+activityactioncanvas 130946 activityaction_ref 156162 // activity action UcGererCrew
+  
+  show_opaque_action_definition default
+  xyzwh 117.5 264.6 4016 111 41
+end
+activityactioncanvas 131202 activityaction_ref 156290 // activity action ucOrganiserEpreuve
+  
+  show_opaque_action_definition default
+  xyzwh 112.1 334.1 4022 163 41
+end
+activityactioncanvas 131330 activityaction_ref 156418 // activity action naviguerAbout
+  
+  show_opaque_action_definition default
+  xyzwh 608.6 342.1 4021 117 41
+end
+activityactioncanvas 131458 activityaction_ref 156546 // activity action ucGererSettings
+  
+  show_opaque_action_definition default
+  xyzwh 254.9 403.4 4028 135 41
+end
+activityactioncanvas 132994 activityaction_ref 156802 // activity action proposerAction
+  
+  show_opaque_action_definition default
+  xyzwh 339.8 142.4 4010 117 41
+end
+activitynodecanvas 134146 activitynode_ref 157826 // merge
+  xyz 381 56 4016
+end
+activityactioncanvas 135682 activityaction_ref 163330 // activity action naviguerHelp
+  
+  show_opaque_action_definition default
+  xyzwh 491 388 4027 113 41
+end
+note 135938 "ucNaviguerOption"
+  color gray  xyzwh 442 245 2005 327 201
+iconcanvas 136834 activitydiagram_ref 215938 // daUcOrganiserEpreuve
+  xyz 281 344 4010
+note 136962 "daMain"
+  xyzwh 57 12 1995 763 509
+iconcanvas 137090 activitydiagram_ref 216066 // daUcGererCrew
+  xyz 234 280 4011
+iconcanvas 137218 activitydiagram_ref 216194 // daUcGererSettings
+  xyz 399 415 4010
+expansionregioncanvas 137346 expansionregion_ref 128002 // 
+  xyzwh 65 49 2000 750 404
+end
+note 137602 "page 9"
+  color verylightorange  xyzwh 571.5 334.5 2000 79 39
+note 137730 "page 9"
+  color verylightorange  xyzwh 571.5 334.5 2000 79 39
+note 137858 "page 9"
+  color verylightorange  xyzwh 571.5 334.5 2000 79 39
+note 137986 "page 9"
+  color verylightorange  xyzwh 571.5 334.5 2000 79 39
+note 138114 "page 10"
+  color verylightorange  xyzwh 77 91 2000 83 41
+activitynodecanvas 138242 activitynode_ref 164994 // flow_final
+  xyz 400 494 2000
+end
+flowcanvas 133250 flow_ref 165762 // <flow>
+  decenter_end 600
+  
+  from ref 132994 z 4011 to ref 130434
+   write_horizontally default
+end
+flowcanvas 133378 flow_ref 165890 // <flow>
+  
+  from ref 130434 z 4017 label "[Crew]" xyz 249 264 4017 to ref 130946
+   write_horizontally default
+end
+flowcanvas 133634 flow_ref 172418 // <flow>
+  decenter_end 522
+  
+  from ref 130434 z 4017 label "[Home]" xyz 575 275 4017 to ref 130690
+   write_horizontally default
+end
+flowcanvas 133762 flow_ref 172546 // <flow>
+  
+  from ref 130434 z 4023 label "[Events]" xyz 285 296 4023 to ref 131202
+   write_horizontally default
+end
+flowcanvas 133890 flow_ref 172674 // <flow>
+  
+  from ref 130434 z 4029 label "[Settings]" xyz 331 332 4029 to ref 131458
+   write_horizontally default
+end
+flowcanvas 134018 flow_ref 179202 // <flow>
+  
+  from ref 130434 z 4022 label "[About]" xyz 538 316 4022 to ref 131330
+   write_horizontally default
+end
+flowcanvas 135042 flow_ref 186498 // <flow>
+  
+  from ref 128002 z 4017 to ref 134146
+   write_horizontally default
+end
+flowcanvas 135170 flow_ref 186626 // <flow>
+  
+  from ref 130434 z 4006 label "[sortieMenu]" xyz 260 223 4006 to point 250 245
+  line 136450 z 4006 to point 253 68
+  line 136322 z 4006 to ref 134146
+   write_horizontally default
+end
+flowcanvas 135810 flow_ref 186754 // <flow>
+  
+  from ref 130434 z 4028 label "[Help]" xyz 449 349 4028 to ref 135682
+   write_horizontally default
+end
+flowcanvas 137474 flow_ref 195586 // <flow>
+  
+  from ref 134146 z 4017 label "[menu]" xyz 371 105 4017 to ref 132994
+   write_horizontally default
+end
+flowcanvas 138370 flow_ref 202114 // <flow>
+  
+  from ref 130946 z 4017 to ref 138242
+   write_horizontally default
+end
+flowcanvas 138498 flow_ref 202242 // <flow>
+  
+  from ref 131202 z 4023 to ref 138242
+   write_horizontally default
+end
+flowcanvas 138626 flow_ref 202370 // <flow>
+  
+  from ref 131458 z 4029 to ref 138242
+   write_horizontally default
+end
+flowcanvas 138754 flow_ref 202498 // <flow>
+  
+  from ref 135682 z 4028 to ref 138242
+   write_horizontally default
+end
+flowcanvas 138882 flow_ref 202626 // <flow>
+  decenter_begin 923
+  
+  from ref 131330 z 4022 to ref 138242
+   write_horizontally default
+end
+flowcanvas 139010 flow_ref 202754 // <flow>
+  
+  from ref 130690 z 4017 to ref 138242
+   write_horizontally default
+end
+end

@@ -1,0 +1,75 @@
+format 212
+
+classinstancecanvas 128002 classinstance_ref 128386 // mainEntity
+  xyz 537 134 2000 color green
+end
+classinstancecanvas 128258 classinstance_ref 128898 // ucInitialize
+  xyz 208 53 2000 color verylightorange
+end
+classinstancecanvas 128514 classinstance_ref 129026 // db
+  xyz 37 227 2000 color lightmagenta
+end
+classinstancecanvas 128770 classinstance_ref 129154 // crew1
+  xyz 207 289 2000 color green
+end
+classinstancecanvas 129026 classinstance_ref 129282 // ucCrewsListCRUD
+  xyz 205 180 2000 color darkorange
+end
+classinstancecanvas 129666 classinstance_ref 129410 // ucSetSettingsCRUD
+  xyz 200 122 2000 color darkorange
+end
+classinstancecanvas 133122 classinstance_ref 136450 // ucOrganizeEventsCRUD
+  xyz 161 339 2000 color darkorange
+end
+classinstancecanvas 133506 classinstance_ref 144514 // crew2
+  xyz 344 289 2006 color green
+end
+classinstancecanvas 133634 classinstance_ref 144642 // controllerCrewsList
+  xyz 203 249 2006 color green
+end
+note 134146 "AngulardJS Class"
+  color darkgray  xyzwh 196.5 218.5 0 285 107
+objectlinkcanvas 128386 norel
+  decenter_begin 941
+  from ref 128258 z 2001 to ref 128002
+  no_role_a no_role_b
+objectlinkcanvas 129410 norel
+  decenter_begin 58
+  decenter_end 288
+  from ref 128258 z 2001 to ref 128514
+  no_role_a no_role_b
+objectlinkcanvas 129538 norel
+  decenter_end 34
+  from ref 128514 z 2001 to ref 129026
+  no_role_a no_role_b
+objectlinkcanvas 129794 norel
+  decenter_end 49
+  from ref 128514 z 2001 to ref 129666
+  no_role_a no_role_b
+objectlinkcanvas 130306 norel
+  from ref 129666 z 2001 to ref 128002
+  no_role_a no_role_b
+objectlinkcanvas 131714 norel
+  decenter_begin 965
+  from ref 129026 z 2001 to ref 128002
+  no_role_a no_role_b
+objectlinkcanvas 133250 norel
+  decenter_end 86
+  from ref 128514 z 2001 to ref 133122
+  no_role_a no_role_b
+objectlinkcanvas 133378 norel
+  decenter_begin 966
+  from ref 133122 z 2001 to ref 128002
+  no_role_a no_role_b
+objectlinkcanvas 133762 norel
+  from ref 129026 z 2007 to ref 133634
+  no_role_a no_role_b
+objectlinkcanvas 133890 norel
+  decenter_begin 312
+  from ref 133634 z 2007 to ref 128770
+  no_role_a no_role_b
+objectlinkcanvas 134018 norel
+  decenter_begin 657
+  from ref 133634 z 2007 to ref 133506
+  no_role_a no_role_b
+end

@@ -1,0 +1,77 @@
+format 212
+
+classcanvas 128258 class_ref 128258 // Event
+  classdiagramsettings member_max_width 0 end
+  xyz 835.4 354 2000
+end
+classcanvas 128514 class_ref 128514 // Phase
+  classdiagramsettings member_max_width 0 end
+  xyz 589.1 363.9 2000
+end
+classcanvas 128642 class_ref 128642 // Flight
+  classdiagramsettings member_max_width 0 end
+  xyz 317.2 350.5 2000
+end
+classcanvas 128770 class_ref 128770 // Match
+  classdiagramsettings member_max_width 0 end
+  xyz 49 297.9 2000
+end
+classcanvas 128898 class_ref 128898 // Crew
+  classdiagramsettings member_max_width 0 end
+  xyz 333.1 59.9 2000
+end
+classcanvas 129026 class_ref 135426 // Settings
+  classdiagramsettings member_max_width 0 end
+  xyz 577.6 583 2005
+end
+classcanvas 132098 class_ref 148482 // boatStats
+  classdiagramsettings member_max_width 0 end
+  xyz 889 31.1 2000
+end
+classcanvas 132226 class_ref 148610 // Participant
+  classdiagramsettings member_max_width 0 end
+  xyz 583.2 35.1 2000
+end
+classcanvas 132866 class_ref 186498 // Results
+  classdiagramsettings member_max_width 0 end
+  xyz 69.6 692.2 2000
+end
+relationcanvas 130434 relation_ref 128770 // <unidirectional association>
+  from ref 128514 z 2001 to ref 128258
+  role_a_pos 780 398 3000 no_role_b
+  multiplicity_a_pos 810 436 3000 multiplicity_b_pos 764 436 3000
+end
+relationcanvas 130818 relation_ref 135426 // <unidirectional association>
+  from ref 128642 z 2001 to ref 128514
+  role_a_pos 529 397 3000 no_role_b
+  multiplicity_a_pos 565 436 3000 multiplicity_b_pos 497 436 3000
+end
+relationcanvas 131074 relation_ref 135554 // <unidirectional association>
+  decenter_begin 473
+  from ref 128770 z 2001 to ref 128642
+  role_a_pos 260 395 3000 no_role_b
+  multiplicity_a_pos 291 437 3000 multiplicity_b_pos 232 437 3000
+end
+relationcanvas 132482 relation_ref 142338 // <unidirectional association>
+  decenter_begin 520
+  from ref 132226 z 2001 to ref 128514
+  role_a_pos 679 333 3000 no_role_b
+  multiplicity_a_pos 646 331 3000 multiplicity_b_pos 650 270 3000
+end
+relationcanvas 132610 relation_ref 142466 // <unidirectional association>
+  decenter_begin 482
+  from ref 132226 z 2001 to ref 128898
+  role_a_pos 480 115 3000 no_role_b
+  multiplicity_a_pos 479 157 3000 multiplicity_b_pos 558 157 3000
+end
+relationcanvas 132738 relation_ref 142594 // <unidirectional association>
+  from ref 132098 z 2001 to ref 128258
+  role_a_pos 977 324 3000 no_role_b
+  multiplicity_a_pos 942 323 3000 multiplicity_b_pos 946 219 3000
+end
+relationcanvas 133122 relation_ref 174722 // <unidirectional association>
+  from ref 132866 z 2001 to ref 128770
+  role_a_pos 157 575 3000 no_role_b
+  multiplicity_a_pos 114 575 3000 multiplicity_b_pos 123 663 3000
+end
+end

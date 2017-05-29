@@ -1,0 +1,75 @@
+format 212
+
+classcanvas 128258 class_ref 222978 // Entity
+  classdiagramsettings member_max_width 0 end
+  xyz 236 215 2000
+end
+classcanvas 128386 class_ref 223106 // Sger
+  classdiagramsettings member_max_width 0 end
+  xyz 28 219 2000
+end
+classcanvas 128770 class_ref 223234 // Phase
+  classdiagramsettings member_max_width 0 end
+  xyz 460 236 2000
+end
+classcanvas 129026 class_ref 223362 // RoundRobin
+  classdiagramsettings member_max_width 0 end
+  xyz 440 120 2000
+end
+classcanvas 129282 class_ref 223490 // Flight
+  classdiagramsettings member_max_width 0 end
+  xyzwh 501 365 2000 65 43
+end
+classcanvas 129410 class_ref 223618 // Result
+  classdiagramsettings member_max_width 0 end
+  xyz 351 658 2000
+end
+classcanvas 130690 class_ref 223746 // Match
+  classdiagramsettings member_max_width 0 end
+  xyz 507 481 2000
+end
+classcanvas 131586 class_ref 223874 // Participant
+  classdiagramsettings member_max_width 0 end
+  xyz 335 533 2000
+end
+classcanvas 131842 class_ref 224002 // ListParticipants
+  classdiagramsettings member_max_width 0 end
+  xyz 94 383 2000
+end
+classcanvas 132738 class_ref 224130 // Penalite
+  classdiagramsettings member_max_width 0 end
+  xyz 332 440 2000
+end
+relationcanvas 129154 relation_ref 204290 // <generalisation>
+  from ref 129026 z 2001 to ref 128770
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129666 relation_ref 204162 // <composition>
+  from ref 128770 z 2001 to ref 129282
+  role_a_pos 530 339 3000 role_b_pos 505 285 3000
+  multiplicity_a_pos 504 335 3000 multiplicity_b_pos 477 289 3000
+end
+relationcanvas 131714 relation_ref 196866 // <directional composition>
+  from ref 130690 z 2001 to ref 131586
+  no_role_a no_role_b
+  multiplicity_a_pos 429 545 3000 multiplicity_b_pos 488 517 3000
+end
+relationcanvas 133378 relation_ref 211970 // <composition>
+  decenter_begin 507
+  from ref 129282 z 2001 to ref 130690
+  no_role_a no_role_b
+  multiplicity_a_pos 516 451 3000 multiplicity_b_pos 515 418 3000
+end
+relationcanvas 133762 relation_ref 212354 // <directional composition>
+  decenter_end 646
+  from ref 130690 z 2001 to ref 132738
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133890 relation_ref 212482 // <directional composition>
+  from ref 131586 z 2001 to ref 129410
+  no_role_a no_role_b
+  multiplicity_a_pos 359 628 3000 multiplicity_b_pos 359 586 3000
+end
+end

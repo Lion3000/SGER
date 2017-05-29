@@ -1,0 +1,169 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 165634 // activity_final
+  xyz 336 458 2000
+end
+activitynodecanvas 128003 activitynode_ref 136707 // initial_node
+  xyz 233 18 2000
+end
+iconcanvas 128131 activitydiagram_ref 216450 // daUcOrganiserPhase
+  xyz 266 19 2000
+activityactioncanvas 128259 activityaction_ref 137219 // activity action listerFlightsExistants
+  
+  show_opaque_action_definition default
+  xyzwh 163 57 2000 160 40
+end
+activityactioncanvas 128515 activityaction_ref 137347 // activity action creerFlight
+  
+  show_opaque_action_definition default
+  xyzwh 33 181 2000 92 40
+end
+activityactioncanvas 128643 activityaction_ref 137475 // activity action detruireFlight
+  
+  show_opaque_action_definition default
+  xyzwh 190 201 2000 132 40
+end
+activityactioncanvas 128771 activityaction_ref 137603 // activity action consulterFlight
+  
+  show_opaque_action_definition default
+  xyzwh 342 180 2000 118 40
+end
+activitynodecanvas 128899 activitynode_ref 136835 // decision
+  xyz 229 122 2005
+end
+iconcanvas 129539 activitydiagram_ref 216578 // daSecuriteValidation
+  xyz 304 203 2005
+activitynodecanvas 129923 activitynode_ref 136963 // decision
+  xyz 362 287 2000
+end
+activityactioncanvas 130179 activityaction_ref 137987 // activity action enregistrerDepart
+  
+  show_opaque_action_definition default
+  xyzwh 45 287 2011 182 40
+end
+activityactioncanvas 130307 activityaction_ref 138115 // activity action ajouterMatch
+  
+  show_opaque_action_definition default
+  xyzwh 520 204 2000 126 40
+end
+activityactioncanvas 130435 activityaction_ref 138243 // activity action modifierMatch
+  
+  show_opaque_action_definition default
+  xyzwh 377 386 2016 117 40
+end
+activityactioncanvas 130563 activityaction_ref 138371 // activity action enregistrerVainqueur
+  
+  show_opaque_action_definition default
+  xyzwh 168 389 2017 156 40
+end
+activityactioncanvas 130691 activityaction_ref 138499 // activity action supprimerResultat
+  
+  show_opaque_action_definition default
+  xyzwh 498 304 2010 157 40
+end
+iconcanvas 134915 activitydiagram_ref 134915 // daAjouterMatch
+  xyz 626 205 2005
+iconcanvas 135171 activitydiagram_ref 216578 // daSecuriteValidation
+  xyz 636 308 2005
+iconcanvas 135427 activitydiagram_ref 135299 // daEnregistrerVainqueur
+  xyz 327 394 2005
+note 135555 "daUcElaborerPairingList"
+  xyzwh 2 6 1995 687 489
+note 136323 "page 8"
+  color verylightorange  xyzwh 491 38 2000 73 39
+flowcanvas 128130 flow_ref 205314 // <flow>
+  
+  from ref 130563 z 2018 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128258 flow_ref 205442 // <flow>
+  
+  from ref 130435 z 2017 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128386 flow_ref 205570 // <flow>
+  decenter_begin 770
+  
+  from ref 130691 z 2011 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128387 flow_ref 139907 // <flow>
+  
+  from ref 128003 z 2001 to ref 128259
+   write_horizontally default
+end
+flowcanvas 128514 flow_ref 205698 // <flow>
+  
+  from ref 130307 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128642 flow_ref 205826 // <flow>
+  
+  from ref 130179 z 2012 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128770 flow_ref 205954 // <flow>
+  
+  from ref 128515 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128898 flow_ref 206082 // <flow>
+  
+  from ref 128643 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 129027 flow_ref 140035 // <flow>
+  
+  from ref 128259 z 2006 to ref 128899
+   write_horizontally default
+end
+flowcanvas 129155 flow_ref 140163 // <flow>
+  
+  from ref 128899 z 2006 label "[numero flight]" xyz 271 148 2006 to ref 128771
+   write_horizontally default
+end
+flowcanvas 129283 flow_ref 140291 // <flow>
+  
+  from ref 128899 z 2006 label "[Supprimer]" xyz 209 168 2006 to ref 128643
+   write_horizontally default
+end
+flowcanvas 129411 flow_ref 140419 // <flow>
+  
+  from ref 128899 z 2006 label "[Créer]" xyz 153 150 2006 to ref 128515
+   write_horizontally default
+end
+flowcanvas 130051 flow_ref 140547 // <flow>
+  decenter_begin 457
+  
+  from ref 128771 z 2001 to ref 129923
+   write_horizontally default
+end
+flowcanvas 130819 flow_ref 140675 // <flow>
+  decenter_begin 243
+  
+  from ref 129923 z 2012 label "[SovgarderDepart]" xyz 236 271 2012 to ref 130179
+   write_horizontally default
+end
+flowcanvas 130947 flow_ref 140803 // <flow>
+  
+  from ref 129923 z 2018 label "[ValiderVainqueur]" xyz 247 334 2018 to ref 130563
+   write_horizontally default
+end
+flowcanvas 131075 flow_ref 140931 // <flow>
+  
+  from ref 129923 z 2001 label "[Créer]" xyz 430 245 2001 to ref 130307
+   write_horizontally default
+end
+flowcanvas 131203 flow_ref 141059 // <flow>
+  decenter_begin 640
+  
+  from ref 129923 z 2017 label "[Verouiller]" xyz 367 343 2017 to ref 130435
+   write_horizontally default
+end
+flowcanvas 131331 flow_ref 141187 // <flow>
+  decenter_begin 756
+  
+  from ref 129923 z 2011 label "[Supprimer]" xyz 403 305 2011 to ref 130691
+   write_horizontally default
+end
+end

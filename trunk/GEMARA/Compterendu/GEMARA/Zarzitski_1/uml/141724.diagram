@@ -1,0 +1,26 @@
+format 212
+
+activitynodecanvas 128028 activitynode_ref 135836 // initial_node
+  xyz 417 69 2000
+end
+activitynodecanvas 128156 activitynode_ref 135964 // activity_final
+  xyz 418 376 2000
+end
+note 128668 "Interaction help"
+  xyzwh 250 49 0 357 403
+activityactioncanvas 128796 activityaction_ref 143260 // activity action Afficher contenu "help"
+  
+  show_opaque_action_definition default
+  xyzwh 378 193 2000 106 67
+end
+flowcanvas 128924 flow_ref 147484 // <flow>
+  
+  from ref 128028 z 2001 to ref 128796
+   write_horizontally default
+end
+flowcanvas 129052 flow_ref 147612 // <flow>
+  
+  from ref 128796 z 2001 to ref 128156
+   write_horizontally default
+end
+end

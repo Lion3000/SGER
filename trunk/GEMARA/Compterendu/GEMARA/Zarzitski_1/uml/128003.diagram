@@ -1,0 +1,121 @@
+format 212
+
+activityactioncanvas 128003 activityaction_ref 128259 // activity action modifierEquipage
+  
+  show_opaque_action_definition default
+  xyzwh 425.5 151 2000 139 41
+end
+iconcanvas 128131 activitydiagram_ref 216578 // daSecuriteValidation
+  xyz 849.5 103 2000
+activityactioncanvas 128259 activityaction_ref 128771 // activity action ajouterManuellement
+  
+  show_opaque_action_definition default
+  xyzwh 172.5 282 2000 167 47
+end
+activityactioncanvas 128387 activityaction_ref 129027 // activity action modifierLettre
+  
+  show_opaque_action_definition default
+  xyzwh 634.5 243 2000 129 41
+end
+activitynodecanvas 128515 activitynode_ref 128259 // decision
+  xyz 104.5 230 2005
+end
+activityactioncanvas 128643 activityaction_ref 128643 // activity action affecterLettre
+  
+  show_opaque_action_definition default
+  xyzwh 55.5 375 2000 123 41
+end
+activityactioncanvas 128771 activityaction_ref 128131 // activity action affecterEquipage
+  
+  show_opaque_action_definition default
+  xyzwh 41.5 173 2000 149 41
+end
+activityactioncanvas 128899 activityaction_ref 128387 // activity action supprimerEquipage
+  
+  show_opaque_action_definition default
+  xyzwh 656.5 101 1995 163 41
+end
+activitynodecanvas 129027 activitynode_ref 128003 // initial_node
+  xyz 227.5 43 2000
+end
+activityactioncanvas 129155 activityaction_ref 128899 // activity action choisirAutreEquipage
+  
+  show_opaque_action_definition default
+  xyzwh 412.5 296 2000 165 41
+end
+activitynodecanvas 129283 activitynode_ref 128387 // decision
+  xyz 484.5 210 2000
+end
+activitynodecanvas 129411 activitynode_ref 128131 // decision
+  xyz 222.5 107 2005
+end
+activityactioncanvas 130819 activityaction_ref 129155 // activity action modifierFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 32 105 2011 147 40
+end
+iconcanvas 131075 activitydiagram_ref 128003 // daModifierEpreuve
+  xyz 802 101 2000
+iconcanvas 131203 activitydiagram_ref 215938 // daUcOrganiserEpreuve
+  xyz 261 44 2000
+note 131331 "daModifierEpreuve"
+  xyzwh 3 15 1990 829 439
+note 131459 "page 6"
+  color verylightorange  xyzwh 711 403 2011 79 39
+flowcanvas 129539 flow_ref 129027 // <flow>
+  
+  from ref 128771 z 2006 to ref 128515
+   write_horizontally default
+end
+flowcanvas 129667 flow_ref 128131 // <flow>
+  
+  from ref 129027 z 2006 to ref 129411
+   write_horizontally default
+end
+flowcanvas 129795 flow_ref 129923 // <flow>
+  
+  from ref 128515 z 2006 label "[zone de texte à droite]" xyz 47 339.5 2006 to ref 128643
+   write_horizontally default
+end
+flowcanvas 129923 flow_ref 128643 // <flow>
+  
+  from ref 129411 z 2006 to ref 128003
+   write_horizontally default
+end
+flowcanvas 130051 flow_ref 128515 // <flow>
+  
+  from ref 129411 z 2006 to ref 128771
+   write_horizontally default
+end
+flowcanvas 130179 flow_ref 129667 // <flow>
+  
+  from ref 129283 z 2001 label "[ListeDeroulanteGauche]" xyz 405 265 2001 to ref 129155
+   write_horizontally default
+end
+flowcanvas 130307 flow_ref 129795 // <flow>
+  
+  from ref 129283 z 2001 label "[zone de texte à droite]" xyz 572.5 218.5 2001 to ref 128387
+   write_horizontally default
+end
+flowcanvas 130435 flow_ref 129539 // <flow>
+  
+  from ref 128003 z 2001 to ref 129283
+   write_horizontally default
+end
+flowcanvas 130563 flow_ref 129283 // <flow>
+  
+  from ref 128515 z 2006 label "[ListeDeroulanteGauche \"new\"]" xyz 142.5 243 2006 to ref 128259
+   write_horizontally default
+end
+flowcanvas 130691 flow_ref 128387 // <flow>
+  decenter_begin 405
+  
+  from ref 129411 z 2006 to ref 128899
+   write_horizontally default
+end
+flowcanvas 130947 flow_ref 130051 // <flow>
+  
+  from ref 129411 z 2012 to ref 130819
+   write_horizontally default
+end
+end

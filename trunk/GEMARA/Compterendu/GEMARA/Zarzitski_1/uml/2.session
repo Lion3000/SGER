@@ -1,0 +1,38 @@
+window_sizes 1301 744 344 951 623 68
+cleanlooks_style
+diagrams
+  classdiagram_ref 232834 // dcData
+    760 498 80 A3 108 0
+  usecasediagram_ref 187522 // ucSGERup
+    120 106 100 A4 0 0
+  activitydiagram_ref 209410 // daMain
+    760 498 100 A4 0 0
+  activitydiagram_ref 215938 // daUcOrganiserEpreuve
+    120 106 100 A4 0 0
+  activitydiagram_ref 216450 // daUcOrganiserPhase
+    120 106 100 A4 0 0
+  activitydiagram_ref 216066 // daUcGererCrew
+    120 106 130 A4 132 0
+  activitydiagram_ref 216322 // daCreerEpreuve
+    120 106 100 A0 0 0
+  activitydiagram_ref 216578 // daSecuriteValidation
+    120 106 100 A4 0 0
+  activitydiagram_ref 134531 // daCreerPhase
+    120 106 100 A4 0 0
+  activitydiagram_ref 134787 // daUcElaborerPairingList
+    120 106 100 A0 0 0
+  activitydiagram_ref 135299 // daEnregistrerVainqueur
+    760 498 100 A4 0 0
+  active  activitydiagram_ref 134915 // daAjouterMatch
+    760 498 100 A4 0 0
+end
+show_stereotypes
+selected 
+package_ref 129 // uml
+open
+  
+package_ref 141314 // SGER_Analise_Zarzitski
+  
+package_ref 141442 // SGER_Conception_Zarzitski
+end
+end

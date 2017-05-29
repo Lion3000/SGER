@@ -1,0 +1,2386 @@
+format 213
+"SGER_Analise_Zarzitski" // SGER_Analise_Zarzitski
+  revision 2
+  modified_by 2 "xela"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  componentview 134530 "vc"
+    //component diagram settings
+    componentdiagramsettings
+     end
+    component 134530 "SGER_Application"
+    end
+
+    component 134658 "Android4+"
+    end
+  end
+
+  deploymentview 141314 "dd"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    deploymentdiagram 242690 "dd"
+      deploymentdiagramsettings
+       end
+      size A4
+    end
+
+    deploymentnode 134530 "Tablet"
+    end
+
+    deploymentnode 128002 "TerminalInformatique"
+    end
+  end
+
+  usecaseview 134530 "duc"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    objectdiagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    usecasediagram 187522 "ucSGERup"
+      usecasediagramsettings end
+      size A4
+    end
+
+    class 208130 "ComitéCourse"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 208258 "TerminalInformatique"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    usecase 143106 "organiserEpreuve"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value "le comité de course organise une epreuve dans le but de creer une pairing list"
+      key "Context" value ""
+      key "Pre-Conditions" value ""
+      key "Description" value "1) Le systeme liste les evts existants
+2) L'utilisateur a la possibilité de selectionner les differentes actions :
+	A) creer epreuve
+		1) Le comité de course appuye sur le grand bouton (+) en bas de la page
+		2) Le comité de course ajoute les information de l'epreuve (nom, nom de l'oganisateur lieu, date, nombre de bateaux, autorisation du time management) 
+		3) Le SGER extrait de sa base de données les equipages
+
+		4) Dans la meme vue, Le comité de course a la possibilité de selectionner les differentes actions :
+
+			A) affecter un equipage a l'epreuve
+				1) Le comité de course choisit parmis les equipages enregistres prealablement ou ajouter manuellement un nouvel equipage
+				2) Puis lui affecte une lettre 
+			B) Le comité de course appuye sur le champ qu'il desire modifier 
+				1) Le comité de course choisit parmis les equipages enregistres prealablement ou ajouter manuellement un nouvel equipage
+				2) il modifie une lettre 
+			C) supprimer un equipage: Le comité de course appuye sur la croix 2)Le comité de course valide ce choix sur le pop-up de securité
+
+		5) Le comité de course peut soit A) enregistrer soit B) annuler la creation
+
+			A) Le comité de course appuye sur save
+			B) Le comité de course appuye sur cancel 
+		6) Si le comité de course sauvegarde, le SGER ajoute a sa base de données avec l'epreuve
+
+		7) Le comité de course est redirigé sur la pages des epreuves
+
+	B) detruire un epreuve
+
+		1)Le comité de course appuye sur la Croix a droite de l'epreuve
+		2)Le comité de course valide ce choix sur le pop-up de securité
+
+	C) modifier
+
+		1) Le comité de course appuye sur le bouton edit a droit de l'epreuvre concernée
+		2) Le comité de course a la possibilité de modifier les informations de l'epreuve (nom, nom de l'oganisateur lieu, date, nombre de bateaux, autorisation du time management) 
+		3) Dans la meme vue, Le comité de course a la possibilité de selectionner les differentes actions :
+
+			A) affecter un equipage a l'epreuve
+				1) Le comité de course choisit parmis les equipages enregistres prealablement
+				2) Puis lui affecte une lettre 
+			B) Le comité de course appuye sur le champ qu'il desire modifier 
+				1) Le comité de course choisit parmis les equipages enregistres prealablement
+				2) il modifie une lettre 
+			C) supprimer: Le comité de course appuye sur la croix 2)Le comité de course valide ce choix sur le pop-up de securité
+
+		5) Le comité de course peut soit A) enregistrer soit B) annuler la modification
+
+			A) Le comité de course appuye sur save
+			B) Le comité de course appuye sur cancel 
+
+		6)Si le comité de course sauvegarde, le SGER met a jour sa base de données avec les nouvelles valeurs
+
+		7) Le comité de course est redirigé sur la pages des epreuves
+
+	D) afficher le detail
+
+		1) Le comité de course appuye sur le nom de l'epreuve, cela affiche plus d'information sur lui (phases + details)
+		2) organiser une phase dans un epreuve donné
+
+			A) Le comité de course appuye sur le petit bouton (+) en dessous de l'epreuve  en question
+			B) UcOrganiserPhase
+
+		3) Pour quitter cet etat, le comité de course réappuie sur le nom de l'epreuve 
+
+"
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+      simplerelation 143490
+	-_->
+	  stereotype "include"
+	  on usecase_ref 143490 // calculerResultats
+      end
+
+      simplerelation 143618
+	-_->
+	  stereotype "include"
+	  on usecase_ref 143746 // générerDocuments
+      end
+
+      simplerelation 143746
+	-_->
+	  stereotype "include"
+	  on usecase_ref 143234 // organiserPhase
+      end
+    end
+
+    usecase 143234 "organiserPhase"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value ""
+      key "Context" value ""
+      key "Pre-Conditions" value "une epreuve doit etre créer prealablement "
+      key "Description" value "1) Le systeme liste les phases existantes
+2) L'utilisateur a la possibilité de selectionner les differentes actions :
+	A) creer une phase
+		1) Le comité de course appuye sur le petit bouton (+) sous la liste, à droite
+		2) Le comité de course a la possibilité de selectionner les differentes actions :
+			A) Selectionner un nom de phase dans la liste proposée 
+			B) Selectionner new dans la liste et inseret un nom manuellement dans une zone de saisie
+		3) Le comité de course a la possibilité de preciser que la phase est un \"RoundRobin\" en cochant la case
+		4) Le comité de course peut soit A) enregistrer soit B) annuler la creation
+			A) Le comité de course appuye sur save
+			B) Le comité de course appuye sur cancel 
+			
+	B) detruire une phase
+
+		1)Le comité de course appuye sur la Croix a droite de la phase
+		2)Le comité de course valide ce choix sur le pop-up de securité
+		
+	C) modifier une phase
+		1) Le comité de course appuye sur le bouton edit a droit de la phase concernée
+		2) Le comité de course a la possibilité de modifier les informations de l'epreuve (nom, nom de l'oganisateur lieu, date, nombre de bateaux, autorisation du time management) 
+		3) Dans la meme vue, Le comité de course a la possibilité de selectionner les differentes actions :
+			A) Le comité de course appuye sur le petit bouton (+) sous la liste, à droite
+			B) Le comité de course a la possibilité de selectionner les differentes actions :
+				1) Selectionner un nom de phase dans la liste proposée 
+				2) Selectionner new dans la liste et inseret un nom manuellement dans une zone de saisie
+			C) Le comité de course a la possibilité de preciser que la phase est un \"RoundRobin\" en cochant la case
+			D) Le comité de course peut soit A) enregistrer soit B) annuler la creation
+				3) Le comité de course appuye sur save
+				4) Le comité de course appuye sur cancel 
+
+		5) Le comité de course peut soit A) enregistrer soit B) annuler la modification
+
+			A) Le comité de course appuye sur save
+			B) Le comité de course appuye sur cancel 
+
+	D) selectionner une phase
+		1) le comité à la possibilité de élaborer la PairingList:
+"
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+      simplerelation 143874
+	-_->
+	  stereotype "include"
+	  on usecase_ref 143362 // élaborerPairingList
+      end
+    end
+
+    usecase 143362 "élaborerPairingList"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value ""
+      key "Context" value ""
+      key "Pre-Conditions" value ""
+      key "Description" value "1) Le systeme liste les flight existants
+2) le comité a la possibilité de choisir une des actions suivantes :
+
+	A) creer un flight
+		1) Le comité de course appuye sur le petit bouton (+) en bas de la page
+		2) Le comité de course appuye sur save
+		3) Le comité de course appuye sur cancel 
+		
+	B) detruire un flight
+		1)Le comité de course appuye sur la Croix a droite de la phase
+		2)Le comité de course valide ce choix sur le pop-up de securité
+		
+	C) consulter le detail d'un flight
+
+		1) Le comité de course appuie sur le numero du flight, cela affiche les matchs qu'il contient
+		
+		2) le comité a la possibilité de choisir une des actions suivantes :
+			A) enregitrer l'heure de départ du flight en appuyant sur start
+				1) valider les champs pré-rempli
+				2) modifier les champs et valider
+				3) annuler
+				
+
+			B) Ajouter un match 
+				1) sélectionner l'equipage bleu du match en choisissant parmis les equipages inscrits à l'épreuve
+				2) sélectionner le bateau de l'equipage bleu
+				3) saisir l'equipage jaune au match en choisissant parmis les equipages inscrits à l'épreuve
+				4) sélectionner le bateau de l'equipage jaune
+				5) verrouillage du match
+				
+			C) Modifier un match 
+				1) Le comité déverouille le match à modifier
+				2) Le comité de course appuye sur le champ qu'il desire modifier 
+				3) Le comité de course choisit parmis les equipages inscrits à l'épreuve et/ou choisit un autre bateau
+			
+			D) Enregistrer le vainqueur
+				1) Le comité de course sélectionne l'équipage gagnant
+				2) modifier les champs pré-remplis
+				3) ajouter une note (optionnel)
+				4) ajouter une penalité aux participants (optionnel)
+				3) valider ou annuler
+				
+			E) Modifier le résultat d'un match
+				1) Le comité de course édite les resultats en appuyant sur l'icone correspondante et valide ce choix sur le pop-up de securité
+				2) Le comité de course sélectionne l'équipage gagnant
+				3) modifier les champs pré-remplis
+				4) ajouter une note (optionnel)
+				5) ajouter une penalité aux participants (optionnel)
+				6) valider ou annuler
+			
+"
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+    end
+
+    usecase 143490 "calculerResultats"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value ""
+      key "Context" value ""
+      key "Pre-Conditions" value ""
+      key "Description" value "1-Le SGER recupere les dans la base de données  les resutats des matchs (tables Results et Match)
+2-Le SGER ajoute les points pour chaques equipages (pour une phase)
+2.5->met cette valeur dans la table participant
+3-Le SGER divise ce total par le nombre de matchs joués par l'equipage
+3.5->met cette valeur dans la table participant
+4-Le SGER classe les particiant dans l'ordre du plus grand gagnant(tri)
+4.5->met cette valeur dans la table participant
+"
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+    end
+
+    usecase 143618 "visualiserResultats"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value ""
+      key "Context" value ""
+      key "Pre-Conditions" value ""
+      key "Description" value "Le comité de course appuye sur la sideBarre
+Le comité de course appuye sur event
+Le comité de course appuye sur l'event qui l'intersse 
+Le comité de course appuyes sur le bouton results de la phase qui l'interesse "
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+    end
+
+    usecase 143746 "générerDocuments"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value ""
+      key "Context" value ""
+      key "Pre-Conditions" value ""
+      key "Description" value "2-creer un tableau en html (couleur puis endessous de leur courleur le nom, la lettre et le bateau de l'equipage
+3-creer un tableau en html (de taille nombre de 5*flight/5 +le reste) avec dans ces casse le tableau de 2
+4-Le SGER extrait de la table participant les statistiques d'une phase
+5-Le SGER creer un tableau (de taille participant*participant+3(tot,pourcent,pos)
+6-Le SGER rempli le tableau"
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+    end
+
+    usecase 143874 "transfererDocuments"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      ncouples 6
+      key "Summary" value ""
+      key "Context" value ""
+      key "Pre-Conditions" value ""
+      key "Description" value "1-Le comité de course appuye sur la sideBarre
+2-Le comité de course appuye sur event,  il peut appuyer sur un des bouton transferer ici(pdf ou html de l'event)
+3-Le comité de course appuye sur l'event qui l'intersse 
+4-Le comité de course peut appuyer sur un des bouton transferer ici(pdf ou html de la phase qui l'interesse )
+5-Le SGER affiche un choix, soit transferer sur la tablette soit transfer via bluetooth a un autre apareil
+6-Le comité de course choisis
+si apareil, le fichier est telechargé 
+7-Le SGER recherche les appareil bluetooth a proximité
+8-Le comité de course choisis l'appareil  et valide 
+9-le fichier est transferer, le SGER afficher 'fin du transfer, succes'"
+      key "Post-Conditions" value ""
+      key "Exceptions" value ""
+    end
+
+    class 208386 "PairingList"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 208514 "BlueTooth"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    usecase 150402 "gererEquipage"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      objectdiagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+  end
+
+  classview 167170 "dc"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 232834 "dcData"
+      classdiagramsettings member_max_width 0 end
+      size A3
+    end
+
+    class 231810 "CRUD"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class ${name}
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$"
+      operation 148482 "create"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+
+      operation 152322 "read"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+
+      operation 148610 "update"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+
+      operation 148738 "delete"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+	comment "\\fn    ${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+\\brief quel est le rôle de la méthode
+\\param nom description
+\\param[in] nom description
+\\param[out] nom description
+\\return valeur retournée"
+      end
+    end
+
+    class 222978 "Entity"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class Entity
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$
+"
+      attribute 199426 "id"
+	private explicit_type "number"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 231938 "Event"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class ${name}
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$"
+      classrelation 224514 // <generalisation>
+	relation 219138 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 224514 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      classrelation 232962 // phasesList (<directional composition>)
+	relation 227202 *-->
+	  a role_name "phasesList" multiplicity "*" private
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    classrelation_ref 232962 // phasesList (<directional composition>)
+	  b multiplicity "0..1" parent class_ref 238978 // Phase
+      end
+
+      classrelation 247426 // subscribers (<directional composition>)
+	relation 241282 *-->
+	  a role_name "subscribers" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 247426 // subscribers (<directional composition>)
+	  b multiplicity "1" parent class_ref 238850 // Subscriber
+      end
+
+      attribute 200706 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 199682 "organization"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 199810 "location"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 200450 "numberBoats"
+	private explicit_type "number"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 200578 "date"
+	private explicit_type "Date"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 221826 "timeManagement"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 232322 "Crew"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 225282 // <generalisation>
+	relation 219778 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 225282 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      attribute 200834 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 207362 "country"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 207490 "isaf"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 207618 "ranking"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 238850 "Subscriber"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 247554 // <generalisation>
+	relation 241410 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 247554 // <generalisation>
+	  b parent class_ref 232322 // Crew
+      end
+
+      attribute 207874 "letter"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 238978 "Phase"
+      visibility package 
+      cpp_decl ""
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 240130 // flightsList (<directional composition>)
+	relation 234242 *-->
+	  a role_name "flightsList" multiplicity "*" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 240130 // flightsList (<directional composition>)
+	  b multiplicity "0..1" parent class_ref 245634 // Flight
+      end
+
+      classrelation 232834 // <generalisation>
+	relation 227074 ---|>
+	  a public
+	    java "${type}"
+	    classrelation_ref 232834 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      attribute 208002 "name"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 215170 "roundRobin"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 245634 "Flight"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 239746 // <generalisation>
+	relation 233986 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 239746 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      classrelation 240386 // matches (<directional composition>)
+	relation 234370 *-->
+	  a role_name "matches" multiplicity "*" ordered private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 240386 // matches (<directional composition>)
+	  b multiplicity "0..1" parent class_ref 245762 // Match
+      end
+
+      attribute 214786 "numberFlight"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 228610 "startDateTime"
+	private explicit_type "Date"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 245762 "Match"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 240514 // <generalisation>
+	relation 234498 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 240514 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      attribute 221698 "locked"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 228482 "finishDateTime"
+	private explicit_type "Date"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 252290 "Racer"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 261378 // penalty (<directional composition>)
+	relation 255106 *-->
+	  a role_name "penalty" multiplicity "0..1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${stereotype}<${type}> ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 261378 // penalty (<directional composition>)
+	  b multiplicity "1" parent class_ref 265474 // Penalty
+      end
+
+      classrelation 247682 // <generalisation>
+	relation 241538 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 247682 // <generalisation>
+	  b parent class_ref 238850 // Subscriber
+      end
+
+      classrelation 247810 // blue (<association>)
+	relation 241666 ----
+	  a role_name "blue" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 247810 // blue (<association>)
+	  b role_name "yellow" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 247938 // yellow (<association>)
+	  association_type class_ref 245762 // Match
+      end
+
+      classrelation 247938 // yellow (<association>)
+	relation_ref 241666 // <association>
+      end
+
+      classrelation 261250 // boat (<directional aggregation>)
+	relation 254978 o-->
+	  a role_name "boat" multiplicity "1" private
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    java "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	    php "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	    classrelation_ref 261250 // boat (<directional aggregation>)
+	  b multiplicity "1" parent class_ref 258946 // Boat
+      end
+
+      attribute 228866 "points"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 258946 "Boat"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 254722 // <generalisation>
+	relation 248450 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 254722 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      attribute 228738 "numberBoat"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 265474 "Penalty"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl "${comment}${abstract}${custom}valuetype ${name}${inherit} {
+${members}};
+"
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      classrelation 261634 // <generalisation>
+	relation 255234 ---|>
+	  a public
+	    cpp default "${type}"
+	    java "${type}"
+	    php "${type}"
+	    classrelation_ref 261634 // <generalisation>
+	  b parent class_ref 222978 // Entity
+      end
+
+      attribute 228994 "points"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 229122 "detail"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    class 272002 "Settings"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl "${comment}${@}${visibility}${static}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      comment "\\class ${name}
+\\brief quel est le rôle de la classe
+\\author VotreNom
+\\version $Rev$
+\\date $Date$"
+      attribute 235650 "organization"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 235778 "phone"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 235906 "email"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236034 "address"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236162 "addressSupplement"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236290 "country"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236418 "postalCode"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236546 "logo"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236674 "location"
+	private explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236802 "amountBoats"
+	private explicit_type "number"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 236930 "timeManagement"
+	private explicit_type "boolean"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl "  ${comment}${@}${visibility}${static}${final}${transient}${volatile}${type} ${name}${value};
+"
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+  end
+
+  classview 167298 "dcv"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    activity 134530 "dau"
+      activitydiagram 209410 "daMain"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A4
+      end
+
+      activitydiagram 215938 "daUcOrganiserEpreuve"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 216322 "daCreerEpreuve"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 216450 "daUcOrganiserPhase"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 134531 "daCreerPhase"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 134787 "daUcElaborerPairingList"
+	activitydiagramsettings
+	 end
+	size A0
+      end
+
+      activitydiagram 134915 "daAjouterMatch"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 135299 "daEnregistrerVainqueur"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 216066 "daUcGererCrew"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitydiagram 216578 "daSecuriteValidation"
+	activitydiagramsettings
+	 end
+	size A4
+      end
+
+      activitynode 150914 initial_node ""
+	flow 186498 "<flow>"
+	  on activitynode_ref 157826 // merge
+	end
+      end
+
+      activitynode 151298 decision ""
+	flow 165890 "<flow>"
+	  on activityaction_ref 156162 // activity action UcGererCrew
+	    uml_guard "Crew"
+	end
+
+	flow 172418 "<flow>"
+	  on activityaction_ref 156034 // activity action naviguerHome
+	    uml_guard "Home"
+	end
+
+	flow 172546 "<flow>"
+	  on activityaction_ref 156290 // activity action ucOrganiserEpreuve
+	    uml_guard "Events"
+	end
+
+	flow 172674 "<flow>"
+	  on activityaction_ref 156546 // activity action ucGererSettings
+	    uml_guard "Settings"
+	end
+
+	flow 179202 "<flow>"
+	  on activityaction_ref 156418 // activity action naviguerAbout
+	    uml_guard "About"
+	end
+
+	flow 179330 "<flow>"
+	  on activitynode_ref 151298 // decision
+	end
+
+	flow 179586 "<flow>"
+	  on activitynode_ref 151298 // decision
+	end
+
+	flow 186626 "<flow>"
+	  on activitynode_ref 157826 // merge
+	    uml_guard "sortieMenu"
+	end
+
+	flow 186754 "<flow>"
+	  on activityaction_ref 163330 // activity action naviguerHelp
+	    uml_guard "Help"
+	end
+      end
+
+      activityaction 156034 "naviguerHome"
+	opaque_action
+	flow 202754 "<flow>"
+	  on activitynode_ref 164994 // flow_final
+	end
+      end
+
+      activityaction 156162 "UcGererCrew"
+	opaque_action
+	flow 202114 "<flow>"
+	  on activitynode_ref 164994 // flow_final
+	end
+      end
+
+      activityaction 156290 "ucOrganiserEpreuve"
+	opaque_action
+	flow 202242 "<flow>"
+	  on activitynode_ref 164994 // flow_final
+	end
+      end
+
+      activityaction 156418 "naviguerAbout"
+	opaque_action
+	flow 202626 "<flow>"
+	  on activitynode_ref 164994 // flow_final
+	end
+      end
+
+      activityaction 156546 "ucGererSettings"
+	opaque_action
+	flow 202370 "<flow>"
+	  on activitynode_ref 164994 // flow_final
+	end
+      end
+
+      activityaction 156802 "proposerAction"
+	opaque_action
+	flow 165762 "<flow>"
+	  on activitynode_ref 151298 // decision
+	end
+      end
+
+      activitynode 157826 merge ""
+	flow 195586 "<flow>"
+	  on activityaction_ref 156802 // activity action proposerAction
+	    uml_guard "menu"
+	end
+      end
+
+      activityaction 163330 "naviguerHelp"
+	opaque_action
+	flow 202498 "<flow>"
+	  on activitynode_ref 164994 // flow_final
+	end
+      end
+
+      activitynode 157954 initial_node ""
+	flow 186882 "<flow>"
+	  on activityaction_ref 163458 // activity action listerEpreuvesExistantes
+	end
+
+	flow 207106 "<flow>"
+	  on activityaction_ref 171010 // activity action listerEquipagesExistantes
+	end
+      end
+
+      activityaction 163458 "listerEpreuvesExistantes"
+	opaque_action
+	flow 189058 "<flow>"
+	  on activitynode_ref 158082 // decision
+	end
+      end
+
+      activitynode 158082 decision ""
+	flow 187138 "<flow>"
+	  on activityaction_ref 163586 // activity action CreerEpreuve
+	    uml_guard "Créer"
+	end
+
+	flow 187266 "<flow>"
+	  on activityaction_ref 163714 // activity action DetruireEpreuve
+	    uml_guard "Supprimer"
+	end
+
+	flow 187394 "<flow>"
+	  on activityaction_ref 163842 // activity action ModifierEpreuve
+	    uml_guard "Modifier"
+	end
+
+	flow 187522 "<flow>"
+	  on activityaction_ref 163970 // activity action AfficherDetails
+	    uml_guard "Detailler"
+	end
+      end
+
+      activityaction 163586 "CreerEpreuve"
+	opaque_action
+	flow 202882 "<flow>"
+	  on activitynode_ref 165122 // activity_final
+	end
+      end
+
+      activityaction 163714 "DetruireEpreuve"
+	opaque_action
+	flow 203010 "<flow>"
+	  on activitynode_ref 165122 // activity_final
+	end
+      end
+
+      activityaction 163842 "ModifierEpreuve"
+	opaque_action
+	flow 203138 "<flow>"
+	  on activitynode_ref 165122 // activity_final
+	end
+      end
+
+      activityaction 163970 "AfficherDetails"
+	opaque_action
+	comment "reapuyer poursortir du detail"
+	flow 187650 "<flow>"
+	  on activityaction_ref 164098 // activity action UcOrganiserPhase
+	end
+      end
+
+      activityaction 164098 "UcOrganiserPhase"
+	opaque_action
+	flow 203266 "<flow>"
+	  on activitynode_ref 165122 // activity_final
+	end
+      end
+
+      activitynode 158210 decision ""
+      end
+
+      activitynode 158338 initial_node ""
+	flow 187906 "<flow>"
+	  on activitynode_ref 158466 // decision
+	end
+      end
+
+      activityaction 164354 "Supprimer"
+	opaque_action
+	flow 206210 "<flow>"
+	  on activitynode_ref 165762 // activity_final
+	end
+      end
+
+      activitynode 158466 decision ""
+	flow 188034 "<flow>"
+	  on activityaction_ref 164354 // activity action Supprimer
+	    uml_guard "valider"
+	end
+
+	flow 188162 "<flow>"
+	  on activityaction_ref 164482 // activity action Annuler
+	    uml_guard "annuler"
+	end
+      end
+
+      activityaction 164482 "Annuler"
+	opaque_action
+	flow 206338 "<flow>"
+	  on activitynode_ref 165762 // activity_final
+	end
+      end
+
+      activitynode 128003 initial_node ""
+	flow 128131 "<flow>"
+	  on activitynode_ref 128131 // decision
+	end
+      end
+
+      activityaction 128003 "remplirFormulaireEpreuve"
+	opaque_action
+	flow 204930 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activitynode 128131 decision ""
+	flow 128259 "<flow>"
+	  on activityaction_ref 128003 // activity action remplirFormulaireEpreuve
+	end
+
+	flow 128387 "<flow>"
+	  on activityaction_ref 128387 // activity action supprimerEquipage
+	end
+
+	flow 128515 "<flow>"
+	  on activityaction_ref 128131 // activity action affecterEquipage
+	end
+
+	flow 128643 "<flow>"
+	  on activityaction_ref 128259 // activity action modifierEquipage
+	end
+
+	flow 130051 "<flow>"
+	  on activityaction_ref 129155 // activity action modifierFormulaire
+	end
+
+	flow 130563 "<flow>"
+	  on activitynode_ref 128899 // decision
+	end
+      end
+
+      activityaction 128131 "affecterEquipage"
+	opaque_action
+	flow 129027 "<flow>"
+	  on activitynode_ref 128259 // decision
+	end
+      end
+
+      activityaction 128259 "modifierEquipage"
+	opaque_action
+	flow 129539 "<flow>"
+	  on activitynode_ref 128387 // decision
+	end
+      end
+
+      activityaction 128387 "supprimerEquipage"
+	opaque_action
+	flow 204802 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activityaction 128515 "choisirEquipageDansListe"
+	opaque_action
+	flow 204418 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activityaction 128643 "affecterLettre"
+	opaque_action
+	flow 203906 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activityaction 128771 "ajouterManuellement"
+	opaque_action
+	flow 204290 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activitynode 128259 decision ""
+	flow 129155 "<flow>"
+	  on activityaction_ref 128515 // activity action choisirEquipageDansListe
+	    uml_guard "ListeDeroulanteGauche"
+	end
+
+	flow 129283 "<flow>"
+	  on activityaction_ref 128771 // activity action ajouterManuellement
+	    uml_guard "ListeDeroulanteGauche \"new\""
+	end
+
+	flow 129923 "<flow>"
+	  on activityaction_ref 128643 // activity action affecterLettre
+	    uml_guard "zone de texte à droite"
+	end
+      end
+
+      activityaction 128899 "choisirAutreEquipage"
+	opaque_action
+	flow 204546 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activityaction 129027 "modifierLettre"
+	opaque_action
+	flow 204674 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activitynode 128387 decision ""
+	flow 129667 "<flow>"
+	  on activityaction_ref 128899 // activity action choisirAutreEquipage
+	    uml_guard "ListeDeroulanteGauche"
+	end
+
+	flow 129795 "<flow>"
+	  on activityaction_ref 129027 // activity action modifierLettre
+	    uml_guard "zone de texte à droite"
+	end
+      end
+
+      activityaction 129155 "modifierFormulaire"
+	opaque_action
+      end
+
+      activityaction 129283 "annuler"
+	opaque_action
+	flow 204034 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+
+	flow 205058 "<flow>"
+	  on activitynode_ref 165506 // activity_final
+	end
+      end
+
+      activityaction 129411 "valider"
+	opaque_action
+	flow 204162 "<flow>"
+	  on activitynode_ref 165378 // activity_final
+	end
+      end
+
+      activitynode 128899 decision ""
+	flow 130307 "<flow>"
+	  on activityaction_ref 129283 // activity action annuler
+	    uml_guard "cancel"
+	end
+
+	flow 130435 "<flow>"
+	  on activityaction_ref 129411 // activity action valider
+	    uml_guard "save"
+	end
+      end
+
+      activitynode 129027 initial_node ""
+	flow 139779 "<flow>"
+	  on activityaction_ref 135939 // activity action listerPhasesExistantes
+	end
+      end
+
+      activityaction 135939 "listerPhasesExistantes"
+	opaque_action
+	flow 137091 "<flow>"
+	  on activitynode_ref 135555 // decision
+	end
+      end
+
+      activitynode 135555 decision ""
+	flow 137219 "<flow>"
+	  on activityaction_ref 136067 // activity action CreerPhase
+	    uml_guard "Créer"
+	end
+
+	flow 137347 "<flow>"
+	  on activityaction_ref 136195 // activity action DetruirePhase
+	    uml_guard "Supprimer"
+	end
+
+	flow 137475 "<flow>"
+	  on activityaction_ref 136323 // activity action ModifierPhase
+	    uml_guard "Modifier"
+	end
+
+	flow 137603 "<flow>"
+	  on activityaction_ref 136451 // activity action ucElaborerPairingList
+	    uml_guard "Detailler"
+	end
+      end
+
+      activityaction 136067 "CreerPhase"
+	opaque_action
+	flow 203394 "<flow>"
+	  on activitynode_ref 165250 // activity_final
+	end
+      end
+
+      activityaction 136195 "DetruirePhase"
+	opaque_action
+	flow 203522 "<flow>"
+	  on activitynode_ref 165250 // activity_final
+	end
+      end
+
+      activityaction 136323 "ModifierPhase"
+	opaque_action
+	flow 203650 "<flow>"
+	  on activitynode_ref 165250 // activity_final
+	end
+      end
+
+      activityaction 136451 "ucElaborerPairingList"
+	opaque_action
+	flow 203778 "<flow>"
+	  on activitynode_ref 165250 // activity_final
+	end
+      end
+
+      activitynode 135683 initial_node ""
+	flow 137731 "<flow>"
+	  on activitynode_ref 135811 // decision
+	end
+      end
+
+      activityaction 136579 "selectionnerDansListe"
+	opaque_action
+	flow 138627 "<flow>"
+	  on activitynode_ref 136195 // merge
+	end
+      end
+
+      activityaction 136707 "ajouterManuellement"
+	opaque_action
+	flow 138371 "<flow>"
+	  on activitynode_ref 136067 // decision
+	end
+      end
+
+      activitynode 135811 decision ""
+	flow 137859 "<flow>"
+	  on activityaction_ref 136579 // activity action selectionnerDansListe
+	    uml_guard "listeDeroulante"
+	end
+
+	flow 137987 "<flow>"
+	  on activityaction_ref 136707 // activity action ajouterManuellement
+	    uml_guard "listeDeroulante -> new"
+	end
+      end
+
+      activityaction 136963 "indiquerRoundRobin"
+	opaque_action
+	flow 138755 "<flow>"
+	  on activitynode_ref 136195 // merge
+	end
+      end
+
+      activitynode 136067 decision ""
+	flow 138499 "<flow>"
+	  on activityaction_ref 136963 // activity action indiquerRoundRobin
+	    uml_guard "case roundRobin "
+	end
+
+	flow 138883 "<flow>"
+	  on activitynode_ref 136195 // merge
+	end
+      end
+
+      activitynode 136195 merge ""
+	flow 139011 "<flow>"
+	  on activitynode_ref 136323 // decision
+	end
+      end
+
+      activityaction 137091 "enregistrer"
+	opaque_action
+	flow 205186 "<flow>"
+	  on activitynode_ref 165506 // activity_final
+	end
+      end
+
+      activitynode 136323 decision ""
+	flow 139139 "<flow>"
+	  on activityaction_ref 129283 // activity action annuler
+	    uml_guard "cancel"
+	end
+
+	flow 139267 "<flow>"
+	  on activityaction_ref 137091 // activity action enregistrer
+	    uml_guard "save"
+	end
+      end
+
+      activitynode 136451 initial_node ""
+	flow 139395 "<flow>"
+	  on activitynode_ref 136579 // decision
+	end
+      end
+
+      activitynode 136579 decision ""
+	flow 139523 "<flow>"
+	  on activityaction_ref 136579 // activity action selectionnerDansListe
+	end
+
+	flow 139651 "<flow>"
+	  on activityaction_ref 136707 // activity action ajouterManuellement
+	end
+      end
+
+      activitynode 136707 initial_node ""
+	flow 139907 "<flow>"
+	  on activityaction_ref 137219 // activity action listerFlightsExistants
+	end
+      end
+
+      activityaction 137219 "listerFlightsExistants"
+	opaque_action
+	flow 140035 "<flow>"
+	  on activitynode_ref 136835 // decision
+	end
+      end
+
+      activityaction 137347 "creerFlight"
+	opaque_action
+	flow 205954 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 137475 "detruireFlight"
+	opaque_action
+	flow 206082 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 137603 "consulterFlight"
+	opaque_action
+	flow 140547 "<flow>"
+	  on activitynode_ref 136963 // decision
+	end
+      end
+
+      activitynode 136835 decision ""
+	flow 140163 "<flow>"
+	  on activityaction_ref 137603 // activity action consulterFlight
+	    uml_guard "numero flight"
+	end
+
+	flow 140291 "<flow>"
+	  on activityaction_ref 137475 // activity action detruireFlight
+	    uml_guard "Supprimer"
+	end
+
+	flow 140419 "<flow>"
+	  on activityaction_ref 137347 // activity action creerFlight
+	    uml_guard "Créer"
+	end
+      end
+
+      activitynode 136963 decision ""
+	flow 140675 "<flow>"
+	  on activityaction_ref 137987 // activity action enregistrerDepart
+	    uml_guard "SovgarderDepart"
+	end
+
+	flow 140803 "<flow>"
+	  on activityaction_ref 138371 // activity action enregistrerVainqueur
+	    uml_guard "ValiderVainqueur"
+	end
+
+	flow 140931 "<flow>"
+	  on activityaction_ref 138115 // activity action ajouterMatch
+	    uml_guard "Créer"
+	end
+
+	flow 141059 "<flow>"
+	  on activityaction_ref 138243 // activity action modifierMatch
+	    uml_guard "Verouiller"
+	end
+
+	flow 141187 "<flow>"
+	  on activityaction_ref 138499 // activity action supprimerResultat
+	    uml_guard "Supprimer"
+	end
+      end
+
+      activityaction 137987 "enregistrerDepart"
+	opaque_action
+	flow 205826 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 138115 "ajouterMatch"
+	opaque_action
+	flow 142467 "<flow>"
+	  on activitynode_ref 137219 // decision
+	end
+
+	flow 205698 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 138243 "modifierMatch"
+	opaque_action
+	flow 205442 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 138371 "enregistrerVainqueur"
+	opaque_action
+	flow 205314 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 138499 "supprimerResultat"
+	opaque_action
+	flow 205570 "<flow>"
+	  on activitynode_ref 165634 // activity_final
+	end
+      end
+
+      activityaction 138627 "choisirEquipageBleu"
+	opaque_action
+      end
+
+      activityaction 138755 "choisirEquipageJaune"
+	opaque_action
+      end
+
+      activityaction 138883 "choisirBateauBleu"
+	opaque_action
+      end
+
+      activityaction 139011 "choisirBateauJaune"
+	opaque_action
+      end
+
+      activitynode 137219 decision ""
+	flow 142723 "<flow>"
+	  on activityaction_ref 138627 // activity action choisirEquipageBleu
+	    uml_guard "listeDeroulanteGaucheBleu"
+	end
+
+	flow 142851 "<flow>"
+	  on activityaction_ref 138883 // activity action choisirBateauBleu
+	    uml_guard "listeDeroulanteDroiteBleu"
+	end
+
+	flow 142979 "<flow>"
+	  on activityaction_ref 139011 // activity action choisirBateauJaune
+	    uml_guard "listeDeroulanteDroiteJaune"
+	end
+
+	flow 143107 "<flow>"
+	  on activityaction_ref 138755 // activity action choisirEquipageJaune
+	    uml_guard "listeDeroulanteGaucheJaune"
+	end
+
+	flow 145283 "<flow>"
+	  on activityaction_ref 139139 // activity action verrouillerMatch
+	    uml_guard "verouller"
+	end
+      end
+
+      activitynode 137347 initial_node ""
+	flow 142595 "<flow>"
+	  on activitynode_ref 137219 // decision
+	end
+      end
+
+      activityaction 139139 "verrouillerMatch"
+	opaque_action
+      end
+
+      activitynode 137603 initial_node ""
+	flow 144003 "<flow>"
+	  on activitynode_ref 137731 // decision
+	end
+      end
+
+      activitynode 137731 decision ""
+	flow 143491 "<flow>"
+	  on activityaction_ref 139267 // activity action validerChampsPreRemplis
+	    uml_guard "save"
+	end
+
+	flow 143619 "<flow>"
+	  on activityaction_ref 139395 // activity action modifierChamps
+	    uml_guard "champ"
+	end
+
+	flow 143747 "<flow>"
+	  on activityaction_ref 139523 // activity action annuler
+	    uml_guard "cancel"
+	end
+      end
+
+      activityaction 139267 "validerChampsPreRemplis"
+	opaque_action
+      end
+
+      activityaction 139395 "modifierChamps"
+	opaque_action
+	flow 143875 "<flow>"
+	  on activityaction_ref 139651 // activity action valider
+	    uml_guard "save"
+	end
+      end
+
+      activityaction 139523 "annuler"
+	opaque_action
+      end
+
+      activityaction 139651 "valider"
+	opaque_action
+      end
+
+      activityaction 139779 "enregistrer"
+	opaque_action
+      end
+
+      activitynode 137859 initial_node ""
+	flow 144131 "<flow>"
+	  on activitynode_ref 137219 // decision
+	end
+      end
+
+      activitynode 137987 initial_node ""
+	flow 144259 "<flow>"
+	  on activitynode_ref 138115 // decision
+	end
+      end
+
+      activityaction 139907 "modifierChampsPreRemplis"
+	opaque_action
+	flow 206978 "<flow>"
+	  on activitynode_ref 165890 // activity_final
+	end
+      end
+
+      activitynode 138115 decision ""
+	flow 144387 "<flow>"
+	  on activityaction_ref 139907 // activity action modifierChampsPreRemplis
+	    uml_guard "formulaire"
+	end
+
+	flow 144515 "<flow>"
+	  on activityaction_ref 140163 // activity action ajouterPenalite
+	    uml_guard "zoneSaisiePenalité"
+	end
+
+	flow 144643 "<flow>"
+	  on activityaction_ref 140035 // activity action ajouterDescription
+	    uml_guard "zoneSaisieDescription"
+	end
+
+	flow 145027 "<flow>"
+	  on activityaction_ref 140291 // activity action valider
+	    uml_guard "valider"
+	end
+
+	flow 145155 "<flow>"
+	  on activityaction_ref 140419 // activity action annuler
+	    uml_guard "annuler"
+	end
+      end
+
+      activityaction 140035 "ajouterDescription"
+	opaque_action
+	flow 206594 "<flow>"
+	  on activitynode_ref 165890 // activity_final
+	end
+      end
+
+      activityaction 140163 "ajouterPenalite"
+	opaque_action
+	flow 206466 "<flow>"
+	  on activitynode_ref 165890 // activity_final
+	end
+      end
+
+      activityaction 140291 "valider"
+	opaque_action
+	flow 206722 "<flow>"
+	  on activitynode_ref 165890 // activity_final
+	end
+      end
+
+      activityaction 140419 "annuler"
+	opaque_action
+	flow 206850 "<flow>"
+	  on activitynode_ref 165890 // activity_final
+	end
+      end
+
+      expansionregion 128002 ""
+	iterative
+      end
+
+      activitynode 164994 flow_final ""
+      end
+
+      activitynode 165122 activity_final ""
+      end
+
+      activitynode 165250 activity_final ""
+      end
+
+      activitynode 165378 activity_final ""
+      end
+
+      activitynode 165506 activity_final ""
+      end
+
+      activitynode 165634 activity_final ""
+      end
+
+      activitynode 165762 activity_final ""
+      end
+
+      activitynode 165890 activity_final ""
+      end
+
+      activityaction 171010 "listerEquipagesExistantes"
+	opaque_action
+	flow 207234 "<flow>"
+	  on activitynode_ref 158082 // decision
+	end
+      end
+    end
+  end
+end

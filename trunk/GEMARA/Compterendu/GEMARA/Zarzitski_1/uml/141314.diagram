@@ -1,0 +1,94 @@
+format 212
+
+classinstancecanvas 128002 classinstance_ref 136450 // ucOrganizeEventsCRUD
+  xyz 239 30 2000 color darkorange
+end
+classinstancecanvas 128130 classinstance_ref 129026 // db
+  xyz 19 289 2000 color lightmagenta
+end
+classinstancecanvas 128258 classinstance_ref 128386 // mainEntity
+  xyz 586 217 2000 color green
+end
+classinstancecanvas 128898 classinstance_ref 136706 // event2
+  xyz 431 164 2006 color green
+end
+classinstancecanvas 129154 classinstance_ref 136834 // event1
+  xyz 232 160 2006 color green
+end
+classinstancecanvas 129666 classinstance_ref 136962 // controllerEventsList
+  xyz 265 100 2006 color green
+end
+classinstancecanvas 130178 classinstance_ref 137090 // controllerPhasesList
+  xyz 164 298 2000 color green
+end
+classinstancecanvas 130562 classinstance_ref 137218 // ucOrganizePhasesCRUD
+  xyz 153 225 2000 color darkorange
+end
+classinstancecanvas 131330 classinstance_ref 137346 // roundRobin1
+  xyz 155 349 2000 color green
+end
+classinstancecanvas 131458 classinstance_ref 137474 // final
+  xyz 383 345 2000 color green
+end
+classinstancecanvas 131970 classinstance_ref 137602 // ucOrganizeFlightsCRUD
+  xyz 120 407 2000 color darkorange
+end
+note 133634 "AngulardJS Class"
+  color darkgray  xyzwh 209 70 2000 387 129
+note 133762 "AngulardJS Class"
+  color darkgray  xyzwh 133.5 265.5 0 387 125
+objectlinkcanvas 128386 norel
+  decenter_begin 237
+  decenter_end 27
+  from ref 128130 z 2001 to ref 128002
+  no_role_a no_role_b
+objectlinkcanvas 128514 norel
+  decenter_begin 951
+  from ref 128002 z 2001 to ref 128258
+  no_role_a no_role_b
+objectlinkcanvas 129794 norel
+  from ref 128002 z 2001 to ref 129666
+  no_role_a no_role_b
+objectlinkcanvas 129922 norel
+  decenter_end 227
+  from ref 129154 z 2001 to ref 129666
+  no_role_a no_role_b
+objectlinkcanvas 130050 norel
+  decenter_begin 809
+  from ref 129666 z 2001 to ref 128898
+  no_role_a no_role_b
+objectlinkcanvas 130690 norel
+  decenter_begin 865
+  decenter_end 22
+  from ref 128130 z 2001 to ref 130562
+  no_role_a no_role_b
+objectlinkcanvas 130818 norel
+  decenter_end 385
+  from ref 129154 z 2001 to ref 130562
+  no_role_a no_role_b
+objectlinkcanvas 130946 norel
+  decenter_begin 264
+  decenter_end 342
+  from ref 130562 z 2001 to ref 130178
+  no_role_a no_role_b
+objectlinkcanvas 131586 norel
+  from ref 130178 z 2001 to ref 131330
+  no_role_a no_role_b
+objectlinkcanvas 131714 norel
+  decenter_begin 727
+  from ref 130178 z 2001 to ref 131458
+  no_role_a no_role_b
+objectlinkcanvas 132098 norel
+  decenter_end 374
+  from ref 131330 z 2001 to ref 131970
+  no_role_a no_role_b
+objectlinkcanvas 132226 norel
+  decenter_begin 518
+  from ref 130562 z 2001 to ref 128258
+  no_role_a no_role_b
+objectlinkcanvas 132354 norel
+  decenter_begin 257
+  decenter_end 24
+  from ref 128130 z 2001 to ref 131970
+  no_role_a no_role_b
+end

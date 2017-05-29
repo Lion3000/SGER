@@ -1,0 +1,36 @@
+format 212
+
+activitynodecanvas 128028 activitynode_ref 135452 // initial_node
+  xyz 474 58 2000
+end
+activitynodecanvas 128540 activitynode_ref 135580 // activity_final
+  xyz 463 329 2000
+end
+note 129564 "interaction settings"
+  xyzwh 253 48 0 463 335
+activityactioncanvas 129692 activityaction_ref 143388 // activity action Afficher contenu "settings"
+  
+  show_opaque_action_definition default
+  xyzwh 425 224 2000 105 68
+end
+activityactioncanvas 130204 activityaction_ref 143516 // activity action Extraire settings de la BD
+  
+  show_opaque_action_definition default
+  xyzwh 432 128 2000 102 71
+end
+flowcanvas 130332 flow_ref 148252 // <flow>
+  
+  from ref 128028 z 2001 to ref 130204
+   write_horizontally default
+end
+flowcanvas 130460 flow_ref 148380 // <flow>
+  
+  from ref 130204 z 2001 to ref 129692
+   write_horizontally default
+end
+flowcanvas 130588 flow_ref 148508 // <flow>
+  
+  from ref 129692 z 2001 to ref 128540
+   write_horizontally default
+end
+end

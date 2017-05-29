@@ -1,0 +1,91 @@
+format 212
+
+classcanvas 128002 class_ref 193026 // Ihm
+  classdiagramsettings member_max_width 0 end
+  xyz 37 251 2000
+end
+classcanvas 128258 class_ref 193154 // Event
+  classdiagramsettings member_max_width 0 end
+  xyz 273 251 2000
+end
+classcanvas 128386 class_ref 193282 // Gemara
+  classdiagramsettings member_max_width 0 end
+  xyz 257 448 2000
+end
+classcanvas 128770 class_ref 193410 // Phase
+  classdiagramsettings member_max_width 0 end
+  xyz 466 246 2000
+end
+classcanvas 129026 class_ref 193538 // P_RR
+  classdiagramsettings member_max_width 0 end
+  xyz 473 438 2000
+end
+classcanvas 129282 class_ref 193666 // Flight
+  classdiagramsettings member_max_width 0 end
+  xyz 658 245 2000
+end
+classcanvas 129410 class_ref 193794 // Results
+  classdiagramsettings member_max_width 0 end
+  xyz 463 78 2000
+end
+classcanvas 129794 class_ref 193922 // E_outil
+  classdiagramsettings member_max_width 0 end
+  xyz 29 65 2000
+end
+classcanvas 130306 class_ref 194050 // E_e
+  classdiagramsettings member_max_width 0 end
+  xyz 261 61 2000
+end
+relationcanvas 128514 relation_ref 181250 // <association>
+  from ref 128386 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128642 relation_ref 181378 // <association>
+  from ref 128258 z 2001 to ref 128002
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128898 relation_ref 181506 // <association>
+  from ref 128258 z 2001 to ref 128770
+  role_a_pos 403 239 3000 role_b_pos 357 256 3000
+  multiplicity_a_pos 449 279 3000 multiplicity_b_pos 357 296 3000
+end
+relationcanvas 129154 relation_ref 181634 // <generalisation>
+  from ref 129026 z 2001 to ref 128770
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129538 relation_ref 181762 // <association>
+  decenter_end 426
+  from ref 128770 z 2001 to ref 129410
+  no_role_a no_role_b
+  no_multiplicity_a multiplicity_b_pos 457 216 3000
+end
+relationcanvas 129666 relation_ref 181890 // <association>
+  from ref 128770 z 2001 to ref 129282
+  role_a_pos 600 237 3000 role_b_pos 526 237 3000
+  multiplicity_a_pos 641 277 3000 multiplicity_b_pos 526 277 3000
+end
+relationcanvas 129922 relation_ref 182018 // <association>
+  from ref 129794 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130050 relation_ref 182146 // <association>
+  from ref 129794 z 2001 to ref 128002
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130434 relation_ref 182274 // <association>
+  decenter_begin 581
+  from ref 130306 z 2001 to ref 128258
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130562 relation_ref 182402 // <association>
+  from ref 130306 z 2001 to ref 129794
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

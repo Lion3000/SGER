@@ -1,0 +1,20 @@
+format 212
+
+classinstancecanvas 128002 classinstance_ref 145794 // ucResearch
+  xyz 126 107 2000 color green
+end
+classinstancecanvas 128130 classinstance_ref 136962 // controllerEventsList
+  xyz 379 89 2000 color green
+end
+classinstancecanvas 128642 classinstance_ref 137986 // controllerFlightsList
+  xyz 379 135 2000 color green
+end
+note 128898 "AngulardJS Class"
+  color darkgray  xyzwh 367.5 56.5 0 293 113
+objectlinkcanvas 128386 norel
+  from ref 128002 z 2001 to ref 128130
+  no_role_a no_role_b
+objectlinkcanvas 128770 norel
+  from ref 128002 z 2001 to ref 128642
+  no_role_a no_role_b
+end

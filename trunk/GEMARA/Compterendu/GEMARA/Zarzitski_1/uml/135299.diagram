@@ -1,0 +1,98 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 165890 // activity_final
+  xyz 338 245 2000
+end
+activitynodecanvas 128003 activitynode_ref 137987 // initial_node
+  xyz 321 15 2000
+end
+iconcanvas 128131 activitydiagram_ref 134787 // daUcElaborerPairingList
+  xyz 353 16 2000
+activityactioncanvas 128259 activityaction_ref 139907 // activity action modifierChampsPreRemplis
+  
+  show_opaque_action_definition default
+  xyzwh 488 86 2000 210 40
+end
+activitynodecanvas 128387 activitynode_ref 138115 // decision
+  xyz 318 87 2000
+end
+activityactioncanvas 128771 activityaction_ref 140035 // activity action ajouterDescription
+  
+  show_opaque_action_definition default
+  xyzwh 119 155 2006 140 40
+end
+activityactioncanvas 128899 activityaction_ref 140163 // activity action ajouterPenalite
+  
+  show_opaque_action_definition default
+  xyzwh 30 88 2000 119 40
+end
+activityactioncanvas 130051 activityaction_ref 140291 // activity action valider
+  
+  show_opaque_action_definition default
+  xyzwh 341 196 2006 72 40
+end
+activityactioncanvas 130179 activityaction_ref 140419 // activity action annuler
+  
+  show_opaque_action_definition default
+  xyzwh 519 196 2000 83 40
+end
+note 130563 "daEnregistrerVainqueur"
+  xyzwh 9 5 1995 707 281
+note 130691 "page 9"
+  color verylightorange  xyzwh 628 194 2000 69 41
+flowcanvas 128130 flow_ref 206466 // <flow>
+  
+  from ref 128899 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128258 flow_ref 206594 // <flow>
+  
+  from ref 128771 z 2007 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128386 flow_ref 206722 // <flow>
+  
+  from ref 130051 z 2007 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128514 flow_ref 206850 // <flow>
+  
+  from ref 130179 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128515 flow_ref 144259 // <flow>
+  
+  from ref 128003 z 2001 to ref 128387
+   write_horizontally default
+end
+flowcanvas 128642 flow_ref 206978 // <flow>
+  
+  from ref 128259 z 2001 to ref 128002
+   write_horizontally default
+end
+flowcanvas 128643 flow_ref 144387 // <flow>
+  
+  from ref 128387 z 2001 label "[formulaire]" xyz 380 85 2001 to ref 128259
+   write_horizontally default
+end
+flowcanvas 129027 flow_ref 144515 // <flow>
+  
+  from ref 128387 z 2001 label "[zoneSaisiePenalité]" xyz 166 82 2001 to ref 128899
+   write_horizontally default
+end
+flowcanvas 129155 flow_ref 144643 // <flow>
+  
+  from ref 128387 z 2007 label "[zoneSaisieDescription]" xyz 164 127.5 2007 to ref 128771
+   write_horizontally default
+end
+flowcanvas 130307 flow_ref 145027 // <flow>
+  
+  from ref 128387 z 2007 label "[valider]" xyz 326 148 2007 to ref 130051
+   write_horizontally default
+end
+flowcanvas 130435 flow_ref 145155 // <flow>
+  
+  from ref 128387 z 2001 label "[annuler]" xyz 459 153 2001 to ref 130179
+   write_horizontally default
+end
+end

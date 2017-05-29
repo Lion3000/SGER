@@ -1,0 +1,139 @@
+format 212
+
+activitynodecanvas 128002 activitynode_ref 128898 // initial_node
+  xyz 415 30 2002
+end
+activitynodecanvas 128130 activitynode_ref 129026 // fork
+  horizontal  xyzwh 83.8 70.4 2008 629 15
+end
+activityactioncanvas 134786 activityaction_ref 130818 // activity action DetecterAppuiBoutonMenu(X)
+  
+  show_opaque_action_definition default
+  xyzwh 82.4 117.6 2012 231 41
+end
+iconcanvas 135042 activitydiagram_ref 188802 // daDetecterAppuiBoutonAjouter(X)
+  xyz 301.2 212.8 2005
+activityactioncanvas 135170 activityaction_ref 130946 // activity action DetecterAppuiBoutonAjouter(X)
+  
+  show_opaque_action_definition default
+  xyzwh 64 206 2008 231 41
+end
+iconcanvas 135426 activitydiagram_ref 188674 // daDetecterAppuiBoutonMenu(X)
+  xyz 311.2 103.6 2016
+activityactioncanvas 135682 activityaction_ref 131074 // activity action DetecterAppuiBoutonAnnuler(X)
+  
+  show_opaque_action_definition default
+  xyzwh 71 268.6 2005 249 41
+end
+iconcanvas 135938 activitydiagram_ref 188930 // daDetecterAppuiBoutonAnnuler(X)
+  xyz 325.6 265.6 2008
+activityactioncanvas 136194 activityaction_ref 131202 // activity action DetecterAppuiBoutonAjouterValider(X)
+  
+  show_opaque_action_definition default
+  xyzwh 71.2 327 2005 295 41
+end
+iconcanvas 137346 activitydiagram_ref 189058 // daDetecterAppuiBoutonAjouterValider(X)
+  xyz 334 310 2011
+note 137474 "Ajout"
+  color lightorange  xyzwh 52 173 2000 319 201
+note 137602 "Acces via la barre de menu lateral"
+  color lightmediumblue  xyzwh 55 86 2002 283 79
+note 137730 "UcOrganiserEpreuve"
+  xyzwh 44 18 0 687 505
+note 137858 "Modifier"
+  color lightorange  xyzwh 51 380 2011 359 133
+activityactioncanvas 138114 activityaction_ref 138498 // activity action DetecterAppuiBoutonModifier(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 71 412 2016 251 41
+end
+iconcanvas 138754 activitydiagram_ref 195586 // daDetecterAppuiBoutonModifier(X,ID)
+  xyz 342 409 2022
+activityactioncanvas 139650 activityaction_ref 138754 // activity action DetecterAppuiBoutonModifierValider(X,ID)
+  
+  show_opaque_action_definition default
+  xyzwh 72 463 2016 327 41
+end
+iconcanvas 140162 activitydiagram_ref 195714 // daDetecterAppuiBoutonModifierValider(X,ID)
+  xyz 356 447 2022
+activityactioncanvas 140418 activityaction_ref 138882 // activity action UcOrganiserEpreuve2
+  
+  show_opaque_action_definition default
+  xyzwh 464 129 2002 183 41
+end
+activitynodecanvas 140674 activitynode_ref 136706 // activity_final
+  xyz 543 190 2002
+end
+iconcanvas 140930 activitydiagram_ref 195842 // daUcOrganiserEpreuve2
+  xyz 661 143 2002
+iconcanvas 141058 activitydiagram_ref 188418 // daMain
+  xyz 580 194 2005
+iconcanvas 141186 activitydiagram_ref 188418 // daMain
+  xyz 447 34 2005
+note 142466 "X =  Epreuves"
+  color mediumyellow  xyzwh 487.5 266.5 2000 157 37
+flowcanvas 128258 flow_ref 130178 // <flow>
+  decenter_begin 526
+  decenter_end 543
+  
+  from ref 128002 z 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 134914 flow_ref 133250 // <flow>
+  decenter_begin 346
+  decenter_end 948
+  
+  from ref 128130 z 2012 to ref 134786
+   write_horizontally default
+end
+flowcanvas 135298 flow_ref 133506 // <flow>
+  decenter_begin 395
+  decenter_end 634
+  
+  from ref 128130 z 2006 to point 330 228
+  line 136450 z 2006 to ref 135170
+   write_horizontally default
+end
+flowcanvas 136066 flow_ref 133762 // <flow>
+  decenter_begin 419
+  decenter_end 585
+  
+  from ref 128130 z 2001 to point 341 288
+  line 136834 z 2001 to ref 135682
+   write_horizontally default
+end
+flowcanvas 136322 flow_ref 134146 // <flow>
+  decenter_begin 440
+  decenter_end 967
+  
+  from ref 128130 z 2001 to ref 136194
+   write_horizontally default
+end
+flowcanvas 138370 flow_ref 141826 // <flow>
+  decenter_begin 468
+  decenter_end 475
+  
+  from ref 128130 z 2017 to point 374 429
+  line 138498 z 2017 to ref 138114
+   write_horizontally default
+end
+flowcanvas 139906 flow_ref 142082 // <flow>
+  decenter_begin 491
+  decenter_end 972
+  
+  from ref 128130 z 2017 to ref 139650
+   write_horizontally default
+end
+flowcanvas 140802 flow_ref 142466 // <flow>
+  
+  from ref 140418 z 2001 to ref 140674
+   write_horizontally default
+end
+flowcanvas 142338 flow_ref 156034 // <flow>
+  decenter_begin 747
+  decenter_end 486
+  
+  from ref 128130 z 2009 to ref 140418
+   write_horizontally default
+end
+end

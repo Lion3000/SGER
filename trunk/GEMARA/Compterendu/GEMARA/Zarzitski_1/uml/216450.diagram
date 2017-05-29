@@ -1,0 +1,100 @@
+format 213
+
+iconcanvas 128002 activitydiagram_ref 215938 // daUcOrganiserEpreuve
+  xyz 411 14 2000
+activitynodecanvas 128003 activitynode_ref 129027 // initial_node
+  xyz 368 12 2000
+end
+activitynodecanvas 128130 activitynode_ref 165250 // activity_final
+  xyz 369 305 2000
+end
+activityactioncanvas 128131 activityaction_ref 135939 // activity action listerPhasesExistantes
+  
+  show_opaque_action_definition default
+  xyzwh 299 60 2000 164 45
+end
+activitynodecanvas 128259 activitynode_ref 135555 // decision
+  xyz 368 140 2000
+end
+activityactioncanvas 128515 activityaction_ref 136067 // activity action CreerPhase
+  
+  show_opaque_action_definition default
+  xyzwh 89 187 2000 131 40
+end
+activityactioncanvas 128643 activityaction_ref 136195 // activity action DetruirePhase
+  
+  show_opaque_action_definition default
+  xyzwh 233 229 2006 122 40
+end
+activityactioncanvas 128771 activityaction_ref 136323 // activity action ModifierPhase
+  
+  show_opaque_action_definition default
+  xyzwh 398 238 2010 131 40
+end
+activityactioncanvas 128899 activityaction_ref 136451 // activity action ucElaborerPairingList
+  
+  show_opaque_action_definition default
+  xyzwh 580 195 2000 177 40
+end
+iconcanvas 129539 activitydiagram_ref 134531 // daCreerPhase
+  xyz 196 190 2006
+iconcanvas 129667 activitydiagram_ref 216578 // daSecuriteValidation
+  xyz 337 231 2000
+iconcanvas 130051 activitydiagram_ref 134787 // daUcElaborerPairingList
+  xyz 739 195 2005
+note 130179 "daUcOrganiserPhase
+"
+  xyzwh 11 7 1990 773 329
+note 130307 "page 5"
+  color verylightorange  xyzwh 41 72 2000 71 43
+flowcanvas 128258 flow_ref 203394 // <flow>
+  
+  from ref 128515 z 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 128386 flow_ref 203522 // <flow>
+  
+  from ref 128643 z 2007 to ref 128130
+   write_horizontally default
+end
+flowcanvas 128387 flow_ref 137091 // <flow>
+  
+  from ref 128131 z 2001 to ref 128259
+   write_horizontally default
+end
+flowcanvas 128514 flow_ref 203650 // <flow>
+  
+  from ref 128771 z 2011 to ref 128130
+   write_horizontally default
+end
+flowcanvas 128642 flow_ref 203778 // <flow>
+  
+  from ref 128899 z 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 129027 flow_ref 137219 // <flow>
+  
+  from ref 128259 z 2001 label "[Créer]" xyz 270 164 2001 to ref 128515
+   write_horizontally default
+end
+flowcanvas 129155 flow_ref 137347 // <flow>
+  
+  from ref 128259 z 2007 label "[Supprimer]" xyz 300 187 2007 to ref 128643
+   write_horizontally default
+end
+flowcanvas 129283 flow_ref 137475 // <flow>
+  
+  from ref 128259 z 2011 label "[Modifier]" xyz 388 194 2011 to ref 128771
+   write_horizontally default
+end
+flowcanvas 129411 flow_ref 137603 // <flow>
+  
+  from ref 128259 z 2001 label "[Detailler]" xyz 454 166 2001 to ref 128899
+   write_horizontally default
+end
+flowcanvas 129923 flow_ref 139779 // <flow>
+  
+  from ref 128003 z 2001 to ref 128131
+   write_horizontally default
+end
+end

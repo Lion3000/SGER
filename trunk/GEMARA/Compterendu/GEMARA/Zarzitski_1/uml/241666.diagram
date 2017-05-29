@@ -1,0 +1,65 @@
+format 213
+
+iconcanvas 128002 activitydiagram_ref 242050 // ucOrganiserPhase
+  xyz 449 202 2005
+iconcanvas 128130 activitydiagram_ref 242178 // ucElaborerPairingList
+  xyz 457 285 2005
+activitynodecanvas 128258 activitynode_ref 170114 // initial_node
+  xyz 369 21 2000
+end
+activityactioncanvas 128386 activityaction_ref 178946 // activity action ucOrganiserEvenement
+  
+  show_opaque_action_definition default
+  xyzwh 283 120 2000 203 40
+end
+activityactioncanvas 128514 activityaction_ref 179074 // activity action ucOrganiserPhase
+  
+  show_opaque_action_definition default
+  xyzwh 310 188 2000 159 40
+end
+activityactioncanvas 128642 activityaction_ref 179202 // activity action ucElaborerPairingList
+  
+  show_opaque_action_definition default
+  xyzwh 303 264 2000 172 40
+end
+activitynodecanvas 128770 activitynode_ref 170242 // activity_final
+  xyz 374 337 2000
+end
+activityactioncanvas 128898 activityaction_ref 178818 // activity action ucGererEquipage
+  
+  show_opaque_action_definition default
+  xyzwh 313 58 2000 142 40
+end
+note 129026 "Main"
+  xyzwh 208 7 1995 351 375
+iconcanvas 129154 activitydiagram_ref 241794 // ucGererEquipage
+  xyz 441 57 2005
+iconcanvas 129282 activitydiagram_ref 241922 // ucOrganiserEvenement
+  xyz 471 131 2005
+flowcanvas 129410 flow_ref 218754 // <flow>
+  decenter_begin 497
+  
+  from ref 128386 z 2001 to ref 128514
+   write_horizontally default
+end
+flowcanvas 129538 flow_ref 218882 // <flow>
+  
+  from ref 128514 z 2006 to ref 128642
+   write_horizontally default
+end
+flowcanvas 129666 flow_ref 219010 // <flow>
+  
+  from ref 128642 z 2001 to ref 128770
+   write_horizontally default
+end
+flowcanvas 129794 flow_ref 218626 // <flow>
+  
+  from ref 128258 z 2001 to ref 128898
+   write_horizontally default
+end
+flowcanvas 129922 flow_ref 219138 // <flow>
+  
+  from ref 128898 z 2001 to ref 128386
+   write_horizontally default
+end
+end

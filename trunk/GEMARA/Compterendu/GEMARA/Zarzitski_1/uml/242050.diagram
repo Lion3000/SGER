@@ -1,0 +1,200 @@
+format 213
+
+activitynodecanvas 128002 activitynode_ref 172034 // initial_node
+  xyz 444 119 2000
+end
+activitynodecanvas 128130 activitynode_ref 172162 // fork
+  horizontal  xyzwh 195 161 2000 513 15
+end
+activityactioncanvas 128258 activityaction_ref 182018 // activity action AjoutPhase
+  
+  show_opaque_action_definition default
+  xyzwh 541 188 2000 101 61
+end
+activityactioncanvas 128386 activityaction_ref 179586 // activity action afficherFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 517 269 2000 153 45
+end
+activityactioncanvas 128514 activityaction_ref 179714 // activity action validationFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 512 347 2013 165 45
+  pins
+    pincanvas 128642 pin_ref 134530 // formulaire
+      xyzwh 573 391 2014 11 11 label_xy 495 390
+    end
+  end
+end
+activityactioncanvas 128770 activityaction_ref 180098 // activity action verifierFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 519 435 2025 151 45
+  pins
+    pincanvas 128898 pin_ref 134658 // formulaire
+      xyzwh 537 425 2026 11 11 label_xy 463 418
+    end
+  end
+end
+activityactioncanvas 129026 activityaction_ref 180354 // activity action afficherMessageErreur
+  
+  show_opaque_action_definition default
+  xyzwh 684.5 537.5 2012 175 41
+end
+activitynodecanvas 129154 activitynode_ref 170754 // decision
+  xyz 582.5 497.5 2000
+end
+activityactioncanvas 129282 activityaction_ref 182146 // activity action ajouterPhaseDansDatabase
+  
+  show_opaque_action_definition default
+  xyzwh 120 549 2000 216 41
+  pins
+    pincanvas 129410 pin_ref 135554 // phase
+      xyzwh 335 574 2002 11 11 label_xy 327 586
+    end
+  end
+end
+activityactioncanvas 129538 activityaction_ref 182274 // activity action ajouterDansLaListe
+  
+  show_opaque_action_definition default
+  xyzwh 484 629 2000 160 40
+  pins
+    pincanvas 129666 pin_ref 135682 // phaseList
+      xyzwh 474 635 2002 11 11 label_xy 405 620
+    end
+  end
+end
+activitynodecanvas 129794 activitynode_ref 172290 // join
+  horizontal  xyzwh 57 687 2000 653 15
+end
+activitypartitioncanvas 129922 activitypartition_ref 134786 // persistance
+  xyzwh 37 51 1990 354 708
+end
+activityactioncanvas 130050 activityaction_ref 181890 // activity action ExtractionDesDonnees
+  
+  show_opaque_action_definition default
+  xyzwh 103 192 2000 198 48
+  pins
+    pincanvas 130178 pin_ref 135938 // phasesList
+      xyzwh 272 239 2002 11 11 label_xy 194 243
+    end
+  end
+end
+activityactioncanvas 130306 activityaction_ref 180482 // activity action obtenirNewId
+  
+  show_opaque_action_definition default
+  xyzwh 195 463 3011 143 55
+  pins
+    pincanvas 130434 pin_ref 135810 // id
+      xyzwh 330 517 3012 11 11 label_xy 311 502
+    end
+  end
+end
+activityactioncanvas 130562 activityaction_ref 182530 // activity action attribuerIdentifiant
+  
+  show_opaque_action_definition default
+  xyzwh 473 561 2006 149 40
+  pins
+    pincanvas 130690 pin_ref 136322 // phase
+      xyzwh 463 586 2008 11 11 label_xy 429 563
+    end
+  end
+end
+activitypartitioncanvas 130818 activitypartition_ref 134914 // ucOrganiserPhase
+  xyzwh 395 52 1985 474 706
+end
+activitynodecanvas 130946 activitynode_ref 172418 // activity_final
+  xyz 570 727 2000
+end
+note 131074 "ucOrganiserPhase"
+  xyzwh 1 2 1980 969 787
+iconcanvas 131202 activitydiagram_ref 241666 // da
+  xyz 605 737 2005
+flowcanvas 131330 flow_ref 219778 // <flow>
+  
+  from ref 128386 z 2014 to ref 128514
+   write_horizontally default
+end
+flowcanvas 131458 flow_ref 220162 // <flow>
+  
+  from ref 128514 z 2026 to ref 128770
+   write_horizontally default
+end
+flowcanvas 131586 flow_ref 220930 // <flow>
+  
+  from ref 129026 z 2013 to point 766 288
+  line 131714 z 2013 to ref 128386
+   write_horizontally default
+end
+flowcanvas 131842 flow_ref 222850 // <flow>
+  decenter_begin 513
+  
+  from ref 129154 z 2013 label "[Saisie incorrecte]" xyz 633 501 2013 to ref 129026
+   write_horizontally default
+end
+flowcanvas 131970 flow_ref 220546 // <flow>
+  
+  from ref 128770 z 2026 to ref 129154
+   write_horizontally default
+end
+flowcanvas 132098 flow_ref 224002 // <flow>
+  
+  from ref 129282 z 2001 to ref 129538
+   write_horizontally default
+end
+flowcanvas 132226 flow_ref 224130 // <flow>
+  decenter_begin 575
+  decenter_end 799
+  
+  from ref 129538 z 2001 to ref 129794
+   write_horizontally default
+end
+flowcanvas 132354 flow_ref 223874 // <flow>
+  
+  from ref 128258 z 2001 to ref 128386
+   write_horizontally default
+end
+flowcanvas 132482 flow_ref 222978 // <flow>
+  
+  from ref 129154 z 3012 label "[saisie correcte]" xyz 473 517 3012 to ref 130306
+   write_horizontally default
+end
+flowcanvas 132610 flow_ref 224770 // <flow>
+  
+  from ref 130306 z 3012 to ref 130562
+   write_horizontally default
+end
+flowcanvas 132738 flow_ref 225538 // <flow>
+  
+  from ref 130562 z 2007 to ref 129282
+   write_horizontally default
+end
+flowcanvas 132866 flow_ref 223490 // <flow>
+  
+  from ref 128002 z 2001 to ref 128130
+   write_horizontally default
+end
+flowcanvas 132994 flow_ref 223618 // <flow>
+  
+  from ref 128130 z 2001 to ref 130050
+   write_horizontally default
+end
+flowcanvas 133122 flow_ref 223746 // <flow>
+  
+  from ref 128130 z 2001 to ref 128258
+   write_horizontally default
+end
+flowcanvas 133250 flow_ref 225282 // <flow>
+  decenter_begin 45
+  decenter_end 78
+  
+  from ref 130050 z 2001 to ref 129794
+   write_horizontally default
+end
+flowcanvas 133378 flow_ref 224258 // <flow>
+  decenter_begin 799
+  
+  from ref 129794 z 2001 to ref 130946
+   write_horizontally default
+end
+end

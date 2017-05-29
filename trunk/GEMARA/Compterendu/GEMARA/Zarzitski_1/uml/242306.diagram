@@ -1,0 +1,158 @@
+format 213
+
+activityactioncanvas 128002 activityaction_ref 182914 // activity action ajoutFlight
+  
+  show_opaque_action_definition default
+  xyzwh 319 142 2000 101 61
+end
+activityactioncanvas 128130 activityaction_ref 179586 // activity action afficherFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 324 214 2005 159 43
+end
+activitynodecanvas 128258 activitynode_ref 170882 // decision
+  xyz 396 450 2000
+end
+activityactioncanvas 128386 activityaction_ref 179714 // activity action validationFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 321 291 2017 167 59
+  pins
+    pincanvas 128514 pin_ref 134530 // formulaire
+      xyzwh 311 297 2018 11 11 label_xy 239 282
+    end
+  end
+end
+activityactioncanvas 128642 activityaction_ref 180098 // activity action verifierFormulaire
+  
+  show_opaque_action_definition default
+  xyzwh 327 384 2029 157 47
+  pins
+    pincanvas 128770 pin_ref 134658 // formulaire
+      xyzwh 317 390 2030 11 11 label_xy 245 375
+    end
+  end
+end
+activitynodecanvas 128898 activitynode_ref 173058 // initial_node
+  xyz 353 107 2000
+end
+activitypartitioncanvas 129026 activitypartition_ref 135042 // ucElaborerPairingList
+  xyzwh 263.5 43.5 1995 462 660
+end
+activitypartitioncanvas 129154 activitypartition_ref 134530 // Persistance/Service
+  xyzwh 8.5 43.5 1990 252 660
+end
+activityactioncanvas 129282 activityaction_ref 183426 // activity action ajouterFlightDansList
+  
+  show_opaque_action_definition default
+  xyzwh 345 600 2000 175 41
+  pins
+    pincanvas 129410 pin_ref 136834 // flightList
+      xyzwh 335 606 2002 11 11 label_xy 274 591
+    end
+  end
+end
+activityactioncanvas 129538 activityaction_ref 183298 // activity action ajouterFlightDansDatabase
+  
+  show_opaque_action_definition default
+  xyzwh 35 497 2000 211 41
+  pins
+    pincanvas 129666 pin_ref 136706 // flight
+      xyzwh 245 508 2002 11 11 label_xy 208 493
+    end
+  end
+end
+activityactioncanvas 129794 activityaction_ref 182658 // activity action attribuerIdentifiant
+  
+  show_opaque_action_definition default
+  xyzwh 331 510 2000 151 45
+  pins
+    pincanvas 129922 pin_ref 136578 // flight
+      xyzwh 321 533 2002 11 11 label_xy 282 531
+    end
+  end
+end
+activityactioncanvas 130050 activityaction_ref 180482 // activity action obtenirNewId
+  
+  show_opaque_action_definition default
+  xyzwh 82.5 420.5 3011 143 55
+  pins
+    pincanvas 130178 pin_ref 135810 // id
+      xyzwh 203.5 410.5 3012 11 11 label_xy 182.5 404.5
+    end
+  end
+end
+activityactioncanvas 130306 activityaction_ref 180354 // activity action afficherMessageErreur
+  
+  show_opaque_action_definition default
+  xyzwh 500.5 459.5 2012 175 41
+end
+activitynodecanvas 130434 activitynode_ref 172930 // activity_final
+  xyz 423 667 2000
+end
+note 130562 "ajouterFlight"
+  xyzwh 0 8 1985 747 709
+iconcanvas 130690 activitydiagram_ref 242178 // ucElaborerPairingList
+  xyz 457 673 2005
+flowcanvas 130818 flow_ref 220162 // <flow>
+  
+  from ref 128386 z 2030 to ref 128642
+   write_horizontally default
+end
+flowcanvas 130946 flow_ref 225794 // <flow>
+  
+  from ref 128002 z 2006 to ref 128130
+   write_horizontally default
+end
+flowcanvas 131074 flow_ref 219778 // <flow>
+  
+  from ref 128130 z 2018 to ref 128386
+   write_horizontally default
+end
+flowcanvas 131202 flow_ref 220674 // <flow>
+  
+  from ref 128642 z 2030 to ref 128258
+   write_horizontally default
+end
+flowcanvas 131330 flow_ref 227074 // <flow>
+  
+  from ref 128898 z 2006 to ref 128002
+   write_horizontally default
+end
+flowcanvas 131458 flow_ref 224898 // <flow>
+  
+  from ref 130050 z 3012 to ref 129794
+   write_horizontally default
+end
+flowcanvas 131586 flow_ref 226690 // <flow>
+  
+  from ref 129794 z 2001 to ref 129538
+   write_horizontally default
+end
+flowcanvas 131714 flow_ref 226818 // <flow>
+  
+  from ref 129538 z 2001 to ref 129282
+   write_horizontally default
+end
+flowcanvas 131842 flow_ref 226434 // <flow>
+  
+  from ref 128258 z 3012 label "[saisie correcte]" xyz 261 434 3012 to ref 130050
+   write_horizontally default
+end
+flowcanvas 131970 flow_ref 220930 // <flow>
+  
+  from ref 130306 z 2013 to point 582 234
+  line 132098 z 2013 to ref 128130
+   write_horizontally default
+end
+flowcanvas 132226 flow_ref 226562 // <flow>
+  
+  from ref 128258 z 2013 label "[saisie incorrecte]" xyz 431 440 2013 to ref 130306
+   write_horizontally default
+end
+flowcanvas 132354 flow_ref 226946 // <flow>
+  
+  from ref 129282 z 2001 to ref 130434
+   write_horizontally default
+end
+end

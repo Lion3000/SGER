@@ -1,0 +1,137 @@
+format 212
+
+classcanvas 128002 class_ref 164866 // UcOrganizeFlightsCRUD
+  classdiagramsettings member_max_width 0 end
+  xyz 426 272 2000
+end
+classcanvas 128130 class_ref 156162 // DataBase
+  classdiagramsettings member_max_width 0 end
+  xyz 367 116 2006
+end
+classcanvas 128386 class_ref 165122 // ControllerFlightsList
+  classdiagramsettings member_max_width 0 end
+  xyz 648 272 2000
+end
+classcanvas 128514 class_ref 164994 // FlightEntity
+  classdiagramsettings member_max_width 0 end
+  xyz 680 352 2000
+end
+classcanvas 128898 class_ref 171778 // UcSetStartTime
+  classdiagramsettings member_max_width 0 end
+  xyz 514 116 2000
+end
+classcanvas 129154 class_ref 171906 // ControllerStartTimeEntity
+  classdiagramsettings member_max_width 0 end
+  xyz 479 192 2000
+end
+classcanvas 129538 class_ref 172034 // UcOrganizeMatchsCRUD
+  classdiagramsettings member_max_width 0 end
+  xyz 297 352 2000
+end
+classcanvas 129922 class_ref 172162 // ControllerMatchsList
+  classdiagramsettings member_max_width 0 end
+  xyz 39 352 2000
+end
+classcanvas 130178 class_ref 172290 // MatchEntity
+  classdiagramsettings member_max_width 0 end
+  xyz 71 116 2000
+end
+classcanvas 130434 class_ref 172546 // UcAssignPenalty
+  classdiagramsettings member_max_width 0 end
+  xyz 200 116 2000
+end
+classcanvas 130690 class_ref 172418 // UcDeclaredWinner
+  classdiagramsettings member_max_width 0 end
+  xyz 335 40 2005
+end
+relationcanvas 128258 relation_ref 152066 // <unidirectional association>
+  decenter_begin 77
+  decenter_end 773
+  from ref 128002 z 2007 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128642 relation_ref 159490 // <directional composition>
+  decenter_begin 585
+  decenter_end 585
+  from ref 128386 z 2001 to ref 128002
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 128770 relation_ref 159618 // <directional composition>
+  decenter_begin 449
+  decenter_end 470
+  from ref 128514 z 2001 to ref 128386
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129026 relation_ref 159746 // <directional composition>
+  decenter_end 585
+  from ref 128898 z 2001 to point 840 136
+  line 131330 z 2001 to point 840 376
+  line 131458 z 2001 to ref 128514
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129282 relation_ref 159874 // <directional composition>
+  decenter_begin 518
+  from ref 129154 z 2001 to ref 128898
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129410 relation_ref 160002 // <unidirectional association>
+  from ref 128898 z 2007 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129666 relation_ref 160130 // <unidirectional association>
+  decenter_begin 475
+  decenter_end 240
+  from ref 129538 z 2007 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129794 relation_ref 160258 // <directional composition>
+  decenter_begin 585
+  decenter_end 585
+  from ref 129538 z 2001 to ref 128514
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130050 relation_ref 160386 // <directional composition>
+  decenter_begin 585
+  decenter_end 585
+  from ref 129922 z 2001 to ref 129538
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130306 relation_ref 160514 // <directional composition>
+  decenter_end 522
+  from ref 130178 z 2001 to ref 129922
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130562 relation_ref 160642 // <directional composition>
+  from ref 130434 z 2001 to ref 130178
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130818 relation_ref 160770 // <directional composition>
+  decenter_begin 390
+  from ref 130690 z 2006 to point 120 56
+  line 131842 z 2006 to ref 130178
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131074 relation_ref 160898 // <unidirectional association>
+  decenter_begin 525
+  from ref 130690 z 2007 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131202 relation_ref 161026 // <unidirectional association>
+  from ref 130434 z 2007 to ref 128130
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
