@@ -168,7 +168,7 @@
 							<a [routerLink]="['/phase', phase.ref.getId()]" fragment="deletePanel" (click)="ucelaboratepairinglist.deleteWinnerPanelShow(matchSelected)" class="w3-quarter w3-button globalColor w3-xlarge" [ngStyle]="{ 'background-image': 'url(' + 'assets/pictures/cross.png' + ')'}"  title="delete Score"></a>
 						</td>
 					</tr>
-					<tr *ngIf="flightSelected.getMatchsList().length < 3">
+					<tr>
 						<td></td>
 						<td>
 							<table class="w3-table-all w3-large w3-blue">
