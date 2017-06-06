@@ -1,0 +1,23 @@
+<div class="w3-card-4 w3-margin w3-padding w3-container">
+	<div class="w3-padding-0 w3-margin-top" style="width: 100%; overflow: auto;">
+		<h1 class="globalColor w3-padding">Upcoming Events</h1>
+		<table class="w3-table-all w3-large">
+			<thead>
+				<tr class="globalColor">
+					<th style="width: 25%;">Date</th>
+					<th style="width: 35%;">Event</th>
+					<th style="width: 30%;">Location</th>
+					<th style="width: 10%;">Ranking</th>
+				</tr>
+			</thead>
+		  	<tbody>
+				<tr *ngFor="let event of events.ref">
+					<td>{{event.getDate()}}</td>
+					<td>{{event.getName()}}</td>
+					<td>{{event.getLocation()}}</td>
+					<td>{{event.getRanking()}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
