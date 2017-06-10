@@ -55,6 +55,7 @@ export class UcElaboratePairingList {
   private penaltyPanelIhm: {ref: boolean};
   private startTime: {ref: string};
   private startDate: {ref: string};
+  private scrollPos: number;
 
   /**
    * Constructeur qui initialise les attributs passés par référence, récupère les informations sur les flights et lance l'autocréation et l'autodescruction des matchs
@@ -288,6 +289,7 @@ export class UcElaboratePairingList {
       flight.getMatchsList(), flight.getStartDateTime()
     );
     this.deleteFlightPanelIhm.ref = true;
+    this.scrollPos = document.body.scrollTop;
     document.body.scrollTop = 0;
   }
 
@@ -296,6 +298,7 @@ export class UcElaboratePairingList {
    */
   public deletePanelHide(): void {
     this.flight.ref = new Flight(0, 0, [], '');
+    document.body.scrollTop = this.scrollPos;
     this.deleteFlightPanelIhm.ref = false;
   }
 
@@ -388,6 +391,7 @@ export class UcElaboratePairingList {
       new Penalty(0, 0, '')
     );
     this.match.ref = new Match(match.getId(), blueRacerNew, yellowRacerNew, match.getLocked(), match.getFinishDateTime());
+    this.scrollPos = document.body.scrollTop;
     document.body.scrollTop = 0;
   }
 
@@ -400,6 +404,7 @@ export class UcElaboratePairingList {
     this.winnerPanelIhm.ref.scoreBar = 0;
     const racer = new Racer(0, '', '', '', 0, '', 0, {ref: new Boat(0, 0)}, new Penalty(0, 0, ''))
     this.match.ref = new Match(0, racer, racer, false, '');
+    document.body.scrollTop = this.scrollPos;
   }
 
   /**
@@ -504,6 +509,7 @@ export class UcElaboratePairingList {
       new Penalty(racer.getPenalty().getId(), racer.getPenalty().getPoints(), racer.getPenalty().getDetail())
     );
     this.penaltyPanelIhm.ref = true;
+    this.scrollPos = document.body.scrollTop;
     document.body.scrollTop = 0;
   }
 
@@ -512,6 +518,7 @@ export class UcElaboratePairingList {
    */
   public penaltyPanelIhmHide(): void {
     this.racer.ref = new Racer(0, '', '', '', 0, '', 0, {ref: new Boat(0, 0)}, new Penalty(0, 0, ''));
+    document.body.scrollTop = this.scrollPos;
     this.penaltyPanelIhm.ref = false;
   }
 
